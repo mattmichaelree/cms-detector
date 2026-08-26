@@ -1,0 +1,11 @@
+# Cadences from docs/texas-politics-audit/09-ingestion-roadmap.md.
+# A scheduler (cron/systemd/Airflow) maps these to `lobbybook ingest <source>`.
+near_real_time_in_session:   [tlo]                      # RSS feeds, hearing postings
+nightly:                     [tec, news, statements, governor]
+weekly:                      [register, statutes, agency_watch, courts, ag]
+seasonal:
+  interim_charges:  "weekly Dec-Aug of even years"
+  interim_reports:  "weekly Oct-Feb straddling even/odd years"
+  sunset:           "driven by the Review Grid; daily Oct-Jan and Jun-Jul"
+per_event:                   [turnover_archival, convention_cycle, special_session_call]
+biennial:                    [platforms, gaa, strategic_plans, comptroller_estimates]

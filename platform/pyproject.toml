@@ -1,0 +1,45 @@
+[project]
+name = "lobbybook"
+version = "0.1.0"
+description = "LobbyBook Texas political data ingestion platform"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.27",
+    "pydantic>=2.5",
+    "pdfplumber>=0.11",
+    "pypdf>=4.0",
+    "feedparser>=6.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.4"]
+ocr = ["pytesseract>=0.3", "pillow>=10.0"]
+
+[project.scripts]
+lobbybook = "lobbybook.cli:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "live: tests that hit live endpoints (deselect with '-m \"not live\"'; enable with LOBBYBOOK_LIVE=1)",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["lobbybook*"]
+
+[tool.setuptools.package-data]
+"lobbybook.core" = ["schema.sql"]
+"lobbybook.spine" = ["data/*.json"]
