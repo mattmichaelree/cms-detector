@@ -47,17 +47,29 @@ Three invariants, enforced in core:
 ## Source status
 
 <!-- STATUS_TABLE: refreshed at each wave's integration pass -->
-| Connector | Tier | Status | Notes |
+| Connector | Tier | Status | Verified against live sources |
 |---|---|---|---|
-| tlo | 0 | live-verified | RSS feeds + bill history; versions/amendments/statutes in progress |
-| journals | 0 | building | |
-| hro | 0 | building | |
-| committees | 0 | building | |
-| tec | 0 | building | |
-| register | 0 | building | |
-| lbb | 0 | building | |
-| spine | 0 | building | |
-| (Tier 1/2 sources) | 1–2 | wave 2 | |
+| `tlo` | 0 | working | 10 RSS feeds; bill history parsed (89R HB 7: caption + 12 actions) |
+| `journals` | 0 | working | Vote rolls with a built-in correctness proof — 294 tallied-and-listed positions checked, 0 mismatches; 16,950 casts from one day |
+| `hro` | 0 | working | Stance sections (SUPPORTERS SAY / CRITICS SAY), named committee votes, witness rosters |
+| `committees` | 0 | working | 969 witness slips from one hearing, both eras; committee votes; live WebVTT caption harvest |
+| `lbb` | 0 | working | Per-version fiscal notes; version trap proven on SB 2 and HB 7 |
+| `register` | 0 | working | TRD notice splitter; relative comment deadlines resolved to real dates |
+| `spine_sessions` | 0 | working | 117 sessions, TLO called-session codes (`883` = 88th 3rd called) |
+| `spine_people` | 0 | working | 179 current legislators, 149 House member-id crosswalks |
+| Tier 1/2 sources | 1–2 | in progress | tec, sunset, interim, courts, governor, news, statements |
+
+### End-to-end demo
+
+`python3 -m lobbybook.cli demo 89R HB7` joins four source families for one real
+bill and surfaces intelligence no single source exposes:
+
+* **the version trap, quantified** — General Revenue estimates of −$33.7M (As
+  Introduced) vs −$64.6M (Committee Report). Citing "the fiscal note" without a
+  version code misstates the bill by ~$31M.
+* **a 16:1 registration lean** (26 for / 413 against), labelled a mobilization
+  signal rather than a vote count.
+* **coalition structure** visible in the most-represented organizations.
 
 ## Compliance posture
 

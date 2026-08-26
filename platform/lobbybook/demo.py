@@ -53,13 +53,31 @@ def build_dossier(conn: sqlite3.Connection, session: str, bill: str) -> str:
         out.insert(-15, f"  … {len(actions) - 15} earlier actions omitted")
 
     fns = conn.execute(
-        "SELECT version_code, date, summary FROM fiscal_note WHERE bill_id=?", (bid,)
+        "SELECT id, version_code, date, summary FROM fiscal_note WHERE bill_id=? ORDER BY date",
+        (bid,),
     ).fetchall()
-    out.append(_section(f"Fiscal notes ({len(fns)}) — LBB, class A estimate, per bill version"))
+    out.append(_section(f"Fiscal notes ({len(fns)}) — LBB estimate, per bill version"))
     for f in fns:
-        out.append(f"  [{f['version_code']}] {f['date'] or ''} {(f['summary'] or '')[:110]}")
+        out.append(f"  [{f['version_code']}] {f['date'] or ''} {(f['summary'] or '')[:100]}")
     if not fns:
         out.append("  (none ingested)")
+    # The version trap made visible: the same bill costs different money at
+    # different stages, so a figure cited without its version is wrong.
+    if len(fns) > 1:
+        totals = []
+        for f in fns:
+            tot = conn.execute(
+                """SELECT SUM(amount) s FROM fiscal_estimate
+                   WHERE fiscal_note_id=? AND fund LIKE '%General Revenue%'""",
+                (f["id"],),
+            ).fetchone()["s"]
+            if tot is not None:
+                totals.append((f["version_code"], tot))
+        if len(totals) > 1 and len({round(t, 2) for _, t in totals}) > 1:
+            out.append("\n  ** version trap: General Revenue estimates differ by stage **")
+            for code, tot in totals:
+                out.append(f"     {code}: {tot:>20,.0f}")
+            out.append("     Citing 'the fiscal note' without a version code misstates this bill.")
 
     slips = conn.execute(
         """SELECT position, testified, COUNT(*) n FROM witness_slip WHERE bill_id=?
@@ -71,6 +89,26 @@ def build_dossier(conn: sqlite3.Connection, session: str, bill: str) -> str:
         for s in slips:
             kind = "testified" if s["testified"] else "registered only"
             out.append(f"  {s['position']:<8} {kind:<15} {s['n']}")
+        lean = {p: 0 for p in ("for", "against", "on")}
+        for s in slips:
+            lean[s["position"]] = lean.get(s["position"], 0) + s["n"]
+        if lean["for"] or lean["against"]:
+            ratio = (
+                f"{lean['against'] / lean['for']:.0f}:1 against"
+                if lean["for"] and lean["against"] > lean["for"]
+                else f"{lean['for'] / max(lean['against'], 1):.0f}:1 for"
+            )
+            out.append(f"\n  Registration lean: {lean['for']} for / {lean['against']} against ({ratio})")
+            out.append("  Registrations are a mobilization signal, not a vote count.")
+        orgs = conn.execute(
+            """SELECT org_raw, COUNT(*) n FROM witness_slip
+               WHERE bill_id=? AND org_raw IS NOT NULL AND org_raw != ''
+               GROUP BY org_raw ORDER BY n DESC LIMIT 5""",
+            (bid,),
+        ).fetchall()
+        if orgs:
+            out.append("  Most-represented organizations: "
+                       + "; ".join(f"{o['org_raw']} ({o['n']})" for o in orgs))
     else:
         out.append("  (none ingested)")
 
