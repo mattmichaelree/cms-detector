@@ -1056,10 +1056,21 @@ class CommitteesConnector(Connector):
         cues: list[dict] = []
         fetched = 0
         for seg in segments:
-            r = fetcher().get(urljoin(sub_url, seg))
+            seg_url = urljoin(sub_url, seg)
+            r = fetcher().get(seg_url)
             if r.status_code != 200:
                 continue
             fetched += 1
+            store_document(
+                conn,
+                doc_id=f"committees:vtt:{vid}:{seg}",
+                source_family="committees",
+                content=r.content,
+                url=seg_url,
+                doc_type="caption_vtt",
+                native_id=str(vid),
+                authority="D",   # machine-generated ASR, unofficial
+            )
             cues.extend(parse_vtt(r.content))
         if vid is not None:
             store_caption_segments(conn, int(vid), cues)

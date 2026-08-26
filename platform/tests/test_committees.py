@@ -422,6 +422,54 @@ def test_harvest_captions_skips_uncaptioned(conn):
     assert r["captions"] is False and r["reason"] == "no videoUrl"
 
 
+def test_harvest_captions_walks_master_to_vtt(conn, cdir, monkeypatch):
+    """The full HLS walk, replayed from saved fixtures: master → subtitle
+    playlist → the first two .vtt segments → caption_segment rows."""
+
+    class _Resp:
+        def __init__(self, content):
+            self.content, self.status_code = content, 200
+
+    served: list[str] = []
+
+    class _Stub:
+        def get(self, url, **kwargs):
+            served.append(url)
+            if url.endswith("index.m3u8"):
+                return _Resp(_read(cdir, "hls_master.m3u8"))
+            if url.endswith("index_2_0.m3u8"):
+                return _Resp(_read(cdir, "hls_subtitles.m3u8"))
+            if url.endswith("index_2_0_345.vtt"):
+                return _Resp(b"WEBVTT\n\n")          # verified: first segment is empty
+            return _Resp(_read(cdir, "captions_live_segment.vtt"))
+
+    monkeypatch.setattr(C, "fetcher", lambda: _Stub())
+    C.store_video_events(conn, C.parse_video_events(_read(cdir, VIDEOS_JSON), "89R"))
+    event = {
+        "id": 22754,
+        "video_url": "https://d1dy8tgr1yfs03.cloudfront.net/22754/44811/index.m3u8",
+        "has_captions": 1,
+    }
+    r = C.CommitteesConnector().harvest_captions(conn, event, max_segments=2)
+    assert r["captions"] is True and r["segments"] == 2 and r["cues"] == 3
+    assert r["track"] == "English"
+    assert served == [
+        "https://d1dy8tgr1yfs03.cloudfront.net/22754/44811/index.m3u8",
+        "https://d1dy8tgr1yfs03.cloudfront.net/22754/44811/index_2_0.m3u8",
+        "https://d1dy8tgr1yfs03.cloudfront.net/22754/44811/index_2_0_345.vtt",
+        "https://d1dy8tgr1yfs03.cloudfront.net/22754/44811/index_2_0_346.vtt",
+    ]
+    rows = conn.execute(
+        "SELECT start_ts, text FROM caption_segment WHERE video_id=22754 ORDER BY start_ts"
+    ).fetchall()
+    assert len(rows) == 3 and rows[0]["start_ts"] == "01:09:17.146"
+    # ASR text is unofficial: its source document is filed at authority D.
+    doc = conn.execute(
+        "SELECT authority, doc_type FROM document WHERE id='committees:vtt:22754:index_2_0_346.vtt'"
+    ).fetchone()
+    assert doc["authority"] == "D" and doc["doc_type"] == "caption_vtt"
+
+
 def test_connector_registered():
     from lobbybook.core.registry import get, names
 

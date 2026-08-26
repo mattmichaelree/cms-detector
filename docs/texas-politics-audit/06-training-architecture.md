@@ -33,7 +33,7 @@ millions of times — exactly where fine-tuning belongs.
 | Classifier | Free label source | Label pair |
 |---|---|---|
 | Issue/topic classifier | TLO subject index assignments; HRO topic headings | bill text → subject codes |
-| Stance/argument classifier | HRO "Supporters say" / "Opponents say" sections | argument text → pro/con (thousands of professionally written, balanced pairs per session) |
+| Stance/argument classifier | HRO "Supporters say" vs **"Critics say" / "Opponents say"** sections (both label families occur — verified in implementation) | argument text → pro/con (thousands of professionally written, balanced pairs per session) |
 | Support/oppose classifier | Witness-list position field | testimony text (where transcribed) / org+bill context → for/against/on |
 | Jurisdiction classifier | Historical referral decisions | bill caption+text → committee |
 | Legislative-action classifier | TLO action codes ↔ journal prose describing the same event | journal sentence → action type |

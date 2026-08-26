@@ -51,7 +51,13 @@ confirmed from the app bundle; payloads are auth-gated), and Wayback cross-check
   `SUBJECT:` · `COMMITTEE:` (+ disposition) · `VOTE:` (named committee ayes/nays/absent) ·
   `SENATE VOTE:` (Senate bills only, with named nays) · `WITNESSES:` (For/Against/On +
   "Registered, but did not testify") · `BACKGROUND:` · `DIGEST:` · `SUPPORTERS SAY:` ·
-  `OPPONENTS SAY:` · `OTHER OPPONENTS SAY:` · `NOTES:` (often LBB fiscal figures).
+  **`CRITICS SAY:` / `OTHER CRITICS SAY:` — or `OPPONENTS SAY:` / `OTHER OPPONENTS
+  SAY:`** · `NOTES:` (often LBB fiscal figures).
+  **Correction (verified during implementation, Aug 2026):** the opposing-argument
+  label is not always "OPPONENTS." Extracting left-margin words by x-position from
+  88R HB 16 and HB 900 shows `CRITICS SAY:` and `OTHER CRITICS SAY:` — HRO's wording
+  when no organized opposition registered. Any stance-label pipeline must accept both
+  families and normalize them, or it silently drops the con side of those analyses.
   **Digest-only entries** (uncontested/late-session Senate bills) omit the argument
   sections — verified in fr2019/190517B.pdf. Parser gotcha: "SUPPORTERS SAY" wraps to two
   physical lines in extraction.
