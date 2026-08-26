@@ -40,7 +40,8 @@ sheets/totals; cover.csv alone 195 MB) · `purpose.csv` (Cover Sheet 3) · `spac
 daily-pre-election kept separate **specifically to avoid duplicates**) ·
 `expend_01–13.csv` · `expn_t.csv` · `expn_catg.csv` (**20** expenditure categories — the file is 21 lines including its header; the audit's original "21" counted the header) ·
 pledges/loans/debts/credits/travel/assets/finals · `CFS-ReadMe.txt` (full fixed-width
-record-layout spec, 16 record types) · `CFS-Codes.txt` (593-line code glossary). A
+record-layout spec — its summary table lists 16 record types, but the detail section
+documents **17**, adding `ExpendRepayment`, which has a layout and no listing entry) · `CFS-Codes.txt` (593-line code glossary). A
 separate PDF format spec is also published.
 
 **Lobby-activity bulk ZIP** (`TEC_LA_CSV.zip`): 17.2 MB / 137 MB, 11 files —

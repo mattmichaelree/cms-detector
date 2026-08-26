@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import pytest
 
+from lobbybook.core.docstore import store_document
 from lobbybook.sources import sunset
 
 EXCERPT = "tdcj-staff-report-with-final-results-excerpt.pdf"
@@ -121,7 +122,7 @@ def test_final_results_bill_and_issues(recs):
     assert len(issues) == 8
     assert issues[1] == (
         "A Changing Workforce and Inmate Population Make Multiple TDCJ Facilities "
-        "Almost Impossible to Adequately Staff."
+        "Almost Impossible to Adequately Staff"
     )
     assert issues[7] == "The State Has a Continuing Need for the Texas Department of Criminal Justice"
 
@@ -202,6 +203,9 @@ def test_store_roundtrip(conn, fixtures):
     doc = next(d for d in page["documents"] if d["doc_type"] == "staff_report_final_results"
                and d["cycle"] == "2024-25")
     parsed = sunset.parse_recommendations(_load(fixtures, EXCERPT))
+    # Artifact first, rows second — edge.source_doc is a FK onto document.
+    store_document(conn, doc_id="sunset:doc:test", source_family="sunset",
+                   content=b"%PDF-fixture", url=doc["url"], doc_type=doc["doc_type"])
     rid = sunset.store_review(conn, TDCJ, page["agency"], doc["cycle"])
     assert rid == f"{TDCJ}:2024-25"
     n = sunset.store_recommendations(conn, rid, parsed, "sunset:doc:test", doc["legislature"])

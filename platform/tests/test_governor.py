@@ -429,6 +429,121 @@ def test_press_release_listing_carries_no_eo_in_the_sampled_window(fixtures):
     assert [classify_action(i) for i in items] == [None] * 8
 
 
+# ------------------------------------------------- end-to-end (fixture-backed)
+
+
+class _FixtureFetcher:
+    """Serves the captured fixtures in place of the network so the full
+    ingest path — store, parse, upsert, edge — runs offline."""
+
+    def __init__(self, fixtures):
+        self.dir = fixtures / "governor"
+        self.requested: list[str] = []
+
+    def get(self, url, **kwargs):
+        self.requested.append(url)
+        if url.endswith("/news/category/appointment"):
+            name = "appointment_category.html"
+        elif url.endswith("/news/category/proclamation"):
+            name = "proclamation_category.html"
+        elif url.endswith("/news/category/press-release"):
+            name = "press_release_category.html"
+        elif url.endswith("slate-of-appointments"):
+            name = "appointment_post_slate.html"
+        elif "nielsen-to-texas-state-board" in url:
+            name = "appointment_post_nielsen.html"
+        elif url.endswith(".pdf"):
+            name = "EO-GA-41.pdf"
+        else:
+            name = "proclamation_post_severe_storm.html"
+        return _Resp((self.dir / name).read_bytes())
+
+
+class _Resp:
+    def __init__(self, content):
+        self.content = content
+        self.headers = {}
+        self.status_code = 200
+
+    def raise_for_status(self):
+        return None
+
+
+@pytest.fixture()
+def offline_fetch(monkeypatch, fixtures):
+    fake = _FixtureFetcher(fixtures)
+    monkeypatch.setattr("lobbybook.sources.governor.fetcher", lambda: fake)
+    return fake
+
+
+def test_ingest_appointments_listing_only(conn, offline_fetch):
+    """No post fetches: one listing GET, surname-level rows for all 8 items."""
+    stats = GovernorConnector().ingest_appointments(
+        conn, details=0, open_generic=False, ref=CAPTURED)
+    assert offline_fetch.requested == ["https://gov.texas.gov/news/category/appointment"]
+    assert stats == {"items": 8, "titles_parsed": 8, "posts_opened": 0, "appointments": 8}
+    names = {r["appointee_raw"] for r in conn.execute("SELECT appointee_raw FROM appointment")}
+    assert "Nielsen" in names and "Bramow" in names
+    # The listing page itself is stored as a document, before any parsing.
+    doc = conn.execute(
+        "SELECT * FROM document WHERE id='governor:listing:appointment'").fetchone()
+    assert doc["url"] == "https://gov.texas.gov/news/category/appointment"
+    assert doc["doc_type"] == "governor_listing_appointment"
+    assert conn.execute(
+        "SELECT COUNT(*) c FROM governor_news_item").fetchone()["c"] == 8
+
+
+def test_ingest_appointments_opens_one_post_for_full_names(conn, offline_fetch):
+    stats = GovernorConnector().ingest_appointments(
+        conn, details=1, open_generic=False, max_posts=3, ref=CAPTURED)
+    assert stats["posts_opened"] == 1
+    assert len(offline_fetch.requested) == 2
+    # The opened post upgrades a listing surname to the real full name.
+    assert conn.execute(
+        "SELECT COUNT(*) c FROM appointment WHERE appointee_raw LIKE '% %'"
+    ).fetchone()["c"] >= 1
+
+
+def test_max_posts_caps_the_live_request_count(conn, offline_fetch):
+    GovernorConnector().ingest_appointments(
+        conn, details=99, open_generic=True, max_posts=2, ref=CAPTURED)
+    assert len(offline_fetch.requested) == 3   # 1 listing + 2 posts, never more
+
+
+def test_ingest_actions_records_the_proclamation_feed(conn, offline_fetch):
+    counts = GovernorConnector().ingest_actions(
+        conn, categories=("proclamation",), ref=CAPTURED)
+    assert counts == {"proclamation": 8}
+    ids = [r["id"] for r in conn.execute("SELECT id FROM executive_action ORDER BY id")]
+    assert all(i.startswith("PROC:abbott:") for i in ids)
+
+
+def test_sample_pdf_stores_bytes_then_measures_extraction(conn, offline_fetch):
+    info = GovernorConnector().sample_pdf(
+        conn, "https://gov.texas.gov/uploads/files/press/EO-GA-41.pdf")
+    assert info["text_recovered"] is True
+    assert info["identity"]["number"] == "GA-41"
+    assert info["action_id"] == "EO:abbott:GA-41"
+    # Bytes are in the docstore, and the EO row cites that document.
+    ver = conn.execute(
+        "SELECT * FROM document_version WHERE document_id='governor:pdf:EO-GA-41.pdf'"
+    ).fetchone()
+    assert ver["version_no"] == 1
+    act = conn.execute(
+        "SELECT * FROM executive_action WHERE id='EO:abbott:GA-41'").fetchone()
+    assert act["kind"] == "eo"
+    assert act["number"] == "GA-41"
+    assert act["date"] == "2022-07-07"
+    assert act["doc_id"] == "governor:pdf:EO-GA-41.pdf"
+    assert act["title"] == "returning illegal immigrants to the border"
+    # governor -> issued -> EO, explicit, citing the signed PDF.
+    edge = conn.execute(
+        "SELECT * FROM edge WHERE dst_id='EO:abbott:GA-41'").fetchone()
+    assert (edge["src_id"], edge["predicate"], edge["provenance"]) == (
+        "abbott", "issued", "explicit")
+    assert edge["source_doc"] == "governor:pdf:EO-GA-41.pdf"
+
+
 # ------------------------------------------------------------------- live
 
 
