@@ -64,7 +64,10 @@ Verified by live inspection, Aug 2026.
 
 ## 4. data.texas.gov (Socrata)
 
-- 1,470 datasets domain-wide (Discovery API, verified). **Hard negative finding:
+- **823 datasets** domain-wide (Discovery API with `only=dataset`, re-verified during
+  implementation). The audit's original "1,470" is the count of *all assets* — it
+  includes charts, filters and maps. Both numbers reproduce exactly; use
+  `only=dataset` when sizing the corpus. **Hard negative finding:
   q=ethics → 0; q=lobby → 0; q=campaign finance → 0. TEC publishes nothing here** — its
   bulk data lives only on TEC's own infrastructure. Never assume this portal represents
   "the state's open data" for LobbyBook's core subjects.

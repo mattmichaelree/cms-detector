@@ -386,18 +386,46 @@ def mine_bill_citations(text: str, window: int = 90, back_window: int = 170) -> 
     return out
 
 
-def dedupe_citations(citations: list[dict]) -> list[dict]:
-    """Collapse repeats to one row per (bill_type, number, session), keeping a
-    mention count and the first context."""
+def dedupe_citations(citations: list[dict], resolve: bool = True) -> list[dict]:
+    """Collapse repeats to one row per (bill_type, number, session).
+
+    With ``resolve`` (the default), an unqualified mention is folded into the
+    qualified one **only when the document qualifies that bill number with
+    exactly one session** — ``session_source`` becomes ``'document'`` and the
+    edge drops to derived provenance. TEA's plan is the reason for the
+    restriction: it cites HB 3 as both 86R (school finance) and 88R (school
+    safety), so its bare ``HB3`` mentions stay unresolved, while ``HB 3906``,
+    qualified only as 86R, safely folds in.
+    """
+    qualified_sessions: dict[str, set[str]] = {}
+    for c in citations:
+        if c["session_id"]:
+            qualified_sessions.setdefault(f"{c['bill_type']}{c['number']}", set()).add(
+                c["session_id"]
+            )
+
     merged: dict[str, dict] = {}
     for c in citations:
-        rec = merged.get(c["bill_key"])
+        cite = dict(c)
+        if resolve and not cite["session_id"]:
+            sessions = qualified_sessions.get(f"{cite['bill_type']}{cite['number']}", set())
+            if len(sessions) == 1:
+                session = next(iter(sessions))
+                cite.update(
+                    session_id=session,
+                    session_source="document",
+                    bill_id=f"{session}-{cite['bill_type']}{cite['number']}",
+                    bill_key=f"{session}-{cite['bill_type']}{cite['number']}",
+                )
+        rec = merged.get(cite["bill_key"])
         if rec is None:
-            merged[c["bill_key"]] = {**c, "mentions": 1}
+            merged[cite["bill_key"]] = {**cite, "mentions": 1}
         else:
             rec["mentions"] += 1
-            if rec["session_source"] == "leading" and c["session_source"] == "trailing":
-                rec.update(session_source="trailing", context=c["context"])
+            # Prefer the strongest qualification we saw for this bill.
+            rank = {"trailing": 3, "leading": 2, "document": 1, None: 0}
+            if rank[cite["session_source"]] > rank[rec["session_source"]]:
+                rec.update(session_source=cite["session_source"], context=cite["context"])
     return sorted(
         merged.values(), key=lambda c: (c["session_id"] or "zzz", c["bill_type"], c["number"])
     )

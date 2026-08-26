@@ -72,6 +72,20 @@ from lobbybook.core.registry import Connector, SmokeResult, register
 RPT_PLATFORM_INDEX = "https://texasgop.org/platform/"
 TDP_PLATFORM_URL = "https://www.texasdemocrats.org/platform"
 
+
+class ChallengeWalled(RuntimeError):
+    """The host answered with a bot-mitigation challenge, not the document.
+
+    The audit found LP Texas and the Green Party behind Cloudflare JS
+    challenges (403 ``cf-mitigated``); texasgop.org was open to a plain client
+    when the fixtures in this repo were captured and has since started
+    challenging our client too — same 403 + ``cf-mitigated: challenge``, with
+    browser-profile headers making no difference, which is the signature of
+    TLS-fingerprint mitigation rather than a robots policy. This is raised so
+    a challenge is reported as a blocked source instead of being retried into
+    a wall or, worse, mistaken for "no editions found".
+    """
+
 _WS = re.compile(r"\s+")
 _TAG = re.compile(r"<[^>]+>")
 _ANCHOR = re.compile(r"<a\b([^>]*)>(.*?)</a>", re.I | re.S)
@@ -174,6 +188,19 @@ PARTIES: dict[str, PartyPolicy] = {
         ),
     ),
 }
+
+
+def _check_challenge(resp, url: str) -> None:
+    """Turn a bot-mitigation response into a typed, reportable failure."""
+    mitigated = resp.headers.get("cf-mitigated")
+    if mitigated or (resp.status_code == 403 and "cloudflare" in
+                     resp.headers.get("server", "").lower()):
+        raise ChallengeWalled(
+            f"{url}: HTTP {resp.status_code} from "
+            f"{resp.headers.get('server', 'unknown server')}"
+            f"{f' (cf-mitigated: {mitigated})' if mitigated else ''} — "
+            "bot-mitigation challenge, not the document"
+        )
 
 
 def policy(key: str) -> PartyPolicy:
@@ -558,6 +585,7 @@ class PlatformsConnector(Connector):
         if not p.index_url:
             return [], {"party": party_key, "skipped": "no_index_url"}
         resp = fetcher().get(p.index_url)
+        _check_challenge(resp, p.index_url)
         resp.raise_for_status()
         links = parse_platform_index(resp.content, str(resp.url))
         return links, {
@@ -606,6 +634,7 @@ class PlatformsConnector(Connector):
             return {"url": link.url, "skipped": f"not_native_pdf:{link.kind}", "planks": 0}
 
         resp = fetcher().get(link.url)
+        _check_challenge(resp, link.url)
         resp.raise_for_status()
         doc_id = f"platforms:{p.abbr}:{link.cycle}:platform"
         # Artifact first, parse second.
@@ -665,7 +694,11 @@ class PlatformsConnector(Connector):
             if not p.ingestable:
                 skipped.append({"party": key, "reason": p.skip_reason, "note": p.note})
                 continue
-            links, meta = self.discover(key)
+            try:
+                links, meta = self.discover(key)
+            except ChallengeWalled as exc:
+                skipped.append({"party": key, "reason": "challenge_walled", "note": str(exc)})
+                continue
             self.record_editions(conn, key, links)
             conn.commit()
             for link in [link for link in links if link.native_pdf][:limit]:
@@ -683,7 +716,16 @@ class PlatformsConnector(Connector):
 
     def smoke(self, conn: sqlite3.Connection) -> SmokeResult:
         """Two live requests: the index, then the newest native platform PDF."""
-        links, meta = self.discover("rpt")
+        try:
+            links, meta = self.discover("rpt")
+        except ChallengeWalled as exc:
+            # Reported as a blocked source, never as an empty corpus.
+            return SmokeResult(
+                ok=False,
+                detail=f"texasgop.org is bot-mitigation walled: {exc}",
+                stats={"blocked": "cloudflare_challenge", "reason": str(exc),
+                       "blocked_parties": blocked_parties()},
+            )
         self.record_editions(conn, "rpt", links)
         conn.commit()
         pdfs = [link for link in links if link.native_pdf]
@@ -730,6 +772,7 @@ class PlatformsConnector(Connector):
 
 __all__ = [
     "PARTIES",
+    "ChallengeWalled",
     "Plank",
     "PlatformLink",
     "PlatformsConnector",

@@ -41,7 +41,7 @@ import json
 import re
 import sqlite3
 from datetime import UTC, datetime
-from urllib.parse import urlencode
+from urllib.parse import quote, urlencode
 
 from lobbybook.core import db as dbx
 from lobbybook.core.docstore import store_document
@@ -116,7 +116,10 @@ def rows_url(dataset_id: str, limit: int = 100, where: str | None = None, offset
         params.append(("$offset", str(int(offset))))
     if where:
         params.append(("$where", where))
-    return f"{RESOURCE.format(dataset_id=dataset_id)}?{urlencode(params)}"
+    # SoQL parameter names keep their literal '$' (quote_via leaves it alone);
+    # values are still escaped, which is what a $where clause needs.
+    query = "&".join(f"{k}={quote(v, safe='')}" for k, v in params)
+    return f"{RESOURCE.format(dataset_id=dataset_id)}?{query}"
 
 
 def query_slug(query: str | None) -> str:

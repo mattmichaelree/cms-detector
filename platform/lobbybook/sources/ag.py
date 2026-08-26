@@ -449,7 +449,10 @@ def extract_opinion_pdf(content: bytes) -> dict:
 
 _ROW = re.compile(r"<tr[^>]*>(.*?)</tr>", re.S)
 _CELL = re.compile(r"<t[dh][^>]*>(.*?)</t[dh]>", re.S)
-_AFFECTED = re.compile(r"^((?:RQ-)?[A-Z]{1,2}-?\d{3,4}(?:-[A-Z]{2})?)\s*(?:\((\d{4})\))?", re.I)
+# Affected-opinion cell: modern zero-padded numbers ("KP-0326 (2020)"), the
+# unpadded older style ("DM-56 (1991)"), amended-opinion suffixes ("DM-45A")
+# and the 1990s letter-opinion series ("LO-98-125").
+_AFFECTED = re.compile(r"^([A-Z]{1,2}-\d{1,4}[A-Z]?(?:-\d{2,4})?)\s*(?:\((\d{4})\))?$", re.I)
 _DISCLAIMER = re.compile(r"<p>(This list of overruled[^<]*)</p>", re.S | re.I)
 
 # Free-text status phrasing, 40+ distinct forms live. Order is precedence:
@@ -485,19 +488,33 @@ def normalize_status(raw: str) -> str:
     return "listed"
 
 
+# A displacing AG document: an opinion (KP-0445), an amended one (DM-45A), a
+# letter opinion (LO-98-019), an open-records decision (ORD-624), and the
+# occasional un-hyphenated typo in the source ("JC0249").
+_BY_OPINION = re.compile(r"^(?:see\s+)?(?:ORD|[A-Z]{1,2})-?\d{1,4}[A-Z]?(?:-\d{2,4})?\b", re.I)
+_BY_BILL = re.compile(r"\b(?:h|s)\.?\s?[bjc]\.?\s?r?\.?\s?\d|\b\d{2,3}(?:st|nd|rd|th)\s+leg", re.I)
+_BY_CASE = re.compile(
+    r"\bv\.\s|\d+\s+s\.?w\.?\s?\d|\bf\.\s?\d|\bu\.s\.\s\d|(?:court|ct\.)\s+decision", re.I)
+
+
 def classify_by_what(raw: str, raw_html: str = "") -> str:
-    """What did the displacing: statute, bill, case, opinion, letter."""
-    low = (raw or "").lower()
-    if re.search(r"\bh\.?\s?b\.?\s?\d|\bs\.?\s?b\.?\s?\d|\bs\.?j\.?r\.?|leg\.", low):
-        return "bill"
-    if "att'y gen" in low or "attorney general op" in low or re.match(
-            r"^(?:tex\.?\s*)?(?:att)", low):
+    """What did the displacing: opinion, bill, case, statute, letter.
+
+    Order matters — a session law cites the code section it amended ("HB 1118
+    ... (amending Government Code section 2054.5191)"), and the *bill* is what
+    overruled the opinion, so the bill test runs before the statute test.
+    """
+    raw = raw or ""
+    low = raw.lower()
+    if _BY_OPINION.match(raw) or "att'y gen" in low or "attorney general op" in low:
         return "opinion"
-    if "code" in low or "const" in low or "§" in raw or "sect" in low:
-        return "statute"
-    if "<em>" in raw_html or " v. " in raw or re.search(r"\b\d+\s+s\.w\.|f\.\d|u\.s\.", low):
+    if _BY_BILL.search(raw):
+        return "bill"
+    if "<em>" in raw_html or _BY_CASE.search(raw):
         return "case"
-    if "letter" in low:
+    if "code" in low or "const" in low or "§" in raw or "sect" in low or "stat" in low:
+        return "statute"
+    if "letter" in low or re.match(r"^\d{1,2}/\d{1,2}/\d{2,4}$", raw.strip()):
         return "letter"
     return "unknown"
 
@@ -531,7 +548,10 @@ def parse_supersession(content: bytes) -> list[dict]:
             "status_raw": status_raw,
             "status": normalize_status(status_raw),
             "by_what": by_what or None,
-            "by_kind": classify_by_what(by_what, by_html),
+            # An entry can name no displacing document at all ("Statute on
+            # which opinion was based was repealed"); the status text is then
+            # the only evidence of what kind of change it was.
+            "by_kind": classify_by_what(by_what or status_raw, by_html),
             "ag_name": ag_name,
         })
     return out
@@ -642,29 +662,35 @@ def apply_supersession(
 ) -> dict:
     """Diff the overruled list into ag_supersession and ag_opinion.status.
 
-    Returns counts of new and changed entries — change detection here is the
-    diff of *this list*, not of the opinion numbering, because an opinion can
-    go stale years after it publishes without any new number appearing.
+    Change detection is a diff of *this list*, not of the opinion numbering:
+    an opinion goes stale years after it publishes, with no new number
+    anywhere. Both directions matter — a new entry means an opinion just
+    became bad law, and an entry that disappeared means the office withdrew a
+    status claim LobbyBook is still repeating. Vanished entries are reported,
+    never deleted; the last state they were seen in stays on the record.
     """
     retrieved = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
-    new = changed = 0
+    stored = {
+        (r["number"], r["status_raw"], r["by_what_key"])
+        for r in conn.execute(
+            "SELECT number, status_raw, by_what_key FROM ag_supersession WHERE source_url=?",
+            (source_url,),
+        )
+    }
+    seen: set[tuple[str, str, str]] = set()
     for r in rows:
         key = (r["number"], r["status_raw"], r["by_what"] or "")
-        prev = conn.execute(
-            "SELECT status, by_what FROM ag_supersession "
-            "WHERE number=? AND status_raw=? AND by_what_key=?", key
-        ).fetchone()
-        if prev is None:
-            new += 1
-        elif prev["by_what"] != r["by_what"]:
-            changed += 1
+        seen.add(key)
         dbx.upsert(
             conn, "ag_supersession",
             {"number": r["number"], "status_raw": r["status_raw"], "by_what_key": key[2],
              "status": r["status"], "by_what": r["by_what"], "by_kind": r["by_kind"],
              "year": r["year"], "ag_name": r["ag_name"], "source_url": source_url,
-             "retrieved_at": retrieved, "doc_id": doc_id},
+             "first_seen": retrieved, "retrieved_at": retrieved, "doc_id": doc_id},
             ["number", "status_raw", "by_what_key"],
+            # first_seen is set once: when the office started saying this.
+            update_cols=["status", "by_what", "by_kind", "year", "ag_name",
+                         "retrieved_at", "doc_id"],
         )
         note = f"{r['status_raw']} {r['by_what'] or ''}".strip()
         note = f"{note} — source: {source_url} (list is incomplete by its publisher's own statement)"
@@ -689,7 +715,9 @@ def apply_supersession(
         if r["by_kind"] in ("statute", "bill", "case", "opinion") and r["by_what"]:
             dbx.add_edge(conn, "ag_opinion", r["number"], "superseded_by", r["by_kind"],
                          r["by_what"], "explicit", doc_id)
-    return {"entries": len(rows), "new": new, "changed": changed}
+    gone = sorted(stored - seen)
+    return {"entries": len(rows), "new": len(seen - stored), "gone": len(gone),
+            "gone_keys": [f"{n} {s}" for n, s, _ in gone[:20]]}
 
 
 # ---------------------------------------------------------------- connector
@@ -766,7 +794,8 @@ class AGConnector(Connector):
         year         TEXT,
         ag_name      TEXT,
         source_url   TEXT NOT NULL,
-        retrieved_at TEXT,
+        first_seen   TEXT,                    -- when the office started saying it
+        retrieved_at TEXT,                    -- when it was last seen on the list
         doc_id       TEXT REFERENCES document(id),
         PRIMARY KEY (number, status_raw, by_what_key)
     );
@@ -945,13 +974,16 @@ class AGConnector(Connector):
         details = int(kwargs.get("details", 3))
         pdfs = int(kwargs.get("pdfs", 3))
         ops = self.ingest_opinions(conn)
-        # An opinion whose PDF has not been parsed yet is the work queue; the
+        # An opinion whose PDF has not been fetched yet is the work queue; the
         # index gives the number and the summary, the PDF gives the request
-        # cross-reference and the conclusion.
+        # cross-reference and the conclusion. The queue is keyed on the URL
+        # actually fetched, not on the index's number, so a PDF that disagrees
+        # with the index about its own number cannot make the queue immortal.
         fresh = [
             o for o in ops["pdf_urls"]
-            if not conn.execute("SELECT 1 FROM ag_opinion_text WHERE number=?",
-                                (o["number"],)).fetchone()
+            if not conn.execute(
+                "SELECT 1 FROM document WHERE url=? AND doc_type='ag_opinion_pdf'",
+                (o["pdf_url"],)).fetchone()
         ][:pdfs]
         sampled = [self.sample_opinion_pdf(conn, o["pdf_url"])["number"] for o in fresh]
         rqs = self.ingest_requests(conn, details=details)
@@ -982,6 +1014,7 @@ class AGConnector(Connector):
             "opinions": ops["opinions"],
             "recent_opinions": ops["recent"],
             "requests_dated": dated,
+            "requests_pending": rqs["pending"],
             "requestors_named": requestors,
             "oldest_series": mann["first_number"] if mann else None,
             "high_water": rqs["high_water"],

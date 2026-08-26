@@ -25,7 +25,7 @@ collections/expenditures are raw government records) / B (Fiscal Notes magazine)
   almost none bulk-downloadable.
 - **Sales tax allocation:** https://mycpa.cpa.state.tx.us/allocation/ — quarterly
   city/county/MSA/industry data back to **2002**, plus monthly allocation reports.
-- **data.texas.gov is a genuine Socrata portal with a working SODA API** — verified by
+- **data.texas.gov is a genuine Socrata portal with a working SODA API** (823 datasets; the 1,470 figure counts all assets including charts and maps — verified during implementation) — verified by
   live call (`https://data.texas.gov/resource/mmev-jnp9.json?$limit=3` returned JSON).
   Comptroller datasets present: active franchise taxpayers, sales-tax permit holders,
   mixed-beverage receipts, hotel tax permits, ag/timber exemptions. **No lobbying or
