@@ -100,3 +100,70 @@ def test_tlo_live_smoke(conn):
 
     r = get("tlo").smoke(conn)
     assert r.ok, r.detail
+
+
+def test_cloudflare_challenge_is_not_retried(monkeypatch):
+    """A challenge 403 is a verdict on our TLS fingerprint, not a transient
+    error. Retrying quadrupled our request count against a host that was always
+    going to refuse (observed live on texasgop.org)."""
+    import httpx
+
+    from lobbybook.core.fetch import Fetcher
+
+    calls = {"n": 0}
+
+    def fake_get(self, url, headers=None):
+        calls["n"] += 1
+        return httpx.Response(
+            403,
+            headers={"cf-mitigated": "challenge", "server": "cloudflare"},
+            request=httpx.Request("GET", url),
+        )
+
+    monkeypatch.setattr(httpx.Client, "get", fake_get)
+    f = Fetcher(max_retries=3)
+    f._last_hit["example.org"] = -1e6  # skip the throttle sleep
+    resp = f.get("https://example.org/walled")
+    assert resp.status_code == 403
+    assert calls["n"] == 1, "a challenge must not be retried"
+
+
+def test_ordinary_403_still_retries(monkeypatch):
+    """Plain 403s (e.g. intermittent Akamai on sos.state.tx.us) stay retryable —
+    the audit saw those clear on a later attempt."""
+    import httpx
+
+    from lobbybook.core.fetch import Fetcher
+
+    calls = {"n": 0}
+
+    def fake_get(self, url, headers=None):
+        calls["n"] += 1
+        return httpx.Response(403, request=httpx.Request("GET", url))
+
+    monkeypatch.setattr(httpx.Client, "get", fake_get)
+    monkeypatch.setattr("lobbybook.core.fetch.time.sleep", lambda _s: None)
+    f = Fetcher(max_retries=2)
+    f._last_hit["example.org"] = -1e6
+    resp = f.get("https://example.org/flaky")
+    assert resp.status_code == 403
+    assert calls["n"] == 3, "an ordinary 403 should exhaust its retries"
+
+
+def test_denylist_covers_txcourts_subdomains():
+    """CourtListener's pre-2015 Texas backfill serves every download_url from
+    ``www.search.txcourts.gov``; a bare ``search.txcourts.gov`` anchor let all
+    20/20 of them through, so a naive full-text fetcher would have walked into
+    TAMES unblocked. The legitimate opinion-PDF host must stay reachable."""
+    from lobbybook.core.fetch import DeniedURL, Fetcher
+
+    f = Fetcher()
+    for url in (
+        "http://www.search.txcourts.gov/RetrieveDocument.aspx?DocId=14428&Index=x",
+        "https://search.txcourts.gov/Case.aspx?cn=23-0679",
+        "https://www.research.txcourts.gov/anything",
+        "https://research.txcourts.gov/anything",
+    ):
+        with pytest.raises(DeniedURL):
+            f.get(url)
+    f._check_denylist("https://www.txcourts.gov/media/1461283/230679c.pdf")

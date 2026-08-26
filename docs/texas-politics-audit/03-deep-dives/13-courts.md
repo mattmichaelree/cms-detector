@@ -34,11 +34,21 @@ inspection, Aug 2026.
   1.7 with StructTreeRoot, embedded fonts, clean `pdftotext` extraction. No OCR needed for
   the modern corpus.
 - **CourtListener REST API v4** verified live (`/api/rest/v4/search/?court=tex`): JSON
-  with caseName, court, dateFiled, docketNumber, citations[] (reporter + Tex. Sup. Ct. J.
-  + LEXIS; **no vendor-neutral cite exists for Texas** — neutralCite empty on every
-  sample), citeCount, judge/panel, and nested opinions[] (author_id, joined_by_ids,
-  per_curiam, type, sha1, cites, download_url). Search JSON carries snippets only, not
-  full text — full text via the opinion-detail endpoint/PDF (detail endpoint UNVERIFIED).
+  with caseName, court, dateFiled, docketNumber, citeCount, judge/panel, and nested
+  opinions[] (author_id, joined_by_ids, per_curiam, type, sha1, cites, download_url).
+  Search JSON carries snippets only, not full text — full text via the opinion-detail
+  endpoint/PDF (detail endpoint UNVERIFIED).
+- **⚠ Corrected during implementation — the search endpoint carries no citation at all.**
+  The audit read the reporter/LEXIS cites off the *cluster detail* shape; the search
+  response exposes only `lexisCite` and `neutralCite`, and **both are empty on 60/60
+  records across three live responses spanning 2014→2025** — not merely on fresh
+  hand-downs awaiting a reporter assignment. A reporter citation can therefore never be a
+  required key or a join key on this feed; the opinion id is the only durable handle.
+- **⚠ `court_id` is not trustworthy provenance on the older backfill.** The Dec-2014
+  `court=tex` slice is 20/20 *criminal* matters SCOTX has no jurisdiction over —
+  `AP-76,936`, ten `WR-…` writs, six `PD-…` petitions, and COA dockets like
+  `10-14-00110-CR`. Derive the deciding court from the docket-number grammar and
+  cross-check `court_id`; never key authority off `court_id` alone.
 - **TAMES case pages** (HTML only; no API/RSS): verified a live SCOTX case showing
   parties, multiple attorneys with firms, **amici curiae (PhRMA, U.S. Chamber)**, full
   chronological docket, and downloadable petition/briefs/opinions/oral-argument audio.

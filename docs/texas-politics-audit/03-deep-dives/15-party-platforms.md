@@ -59,12 +59,19 @@ LOW-MED · relationship LOW · committee LOW · regulatory LOW · compliance NON
 
 ## 4. Ontology & native IDs
 
-Party · platform (cycle-versioned) · section/subsection · **plank — numbered but
-numbers RESTART at 1 within every subsection (verified in the 2024 PDF): the durable
-ID must be the compound {party, cycle, section, subsection, plank#}, never a bare
-"Plank 3"** · lettered sub-points · preamble · principles (a separate 1–10 list) ·
-resolutions (separately numbered) · legislative priorities (ranked, cycle-scoped) ·
-censures (named legislators) · convention committees (SD-level rosters in the PDF).
+Party · platform (cycle-versioned) · section/subsection · **plank — numbered
+CONTINUOUSLY 1→252 across every section and subsection, *not* restarting per
+subsection (corrected during implementation; re-verified by font-geometry extraction
+of the 2024 RPT PDF: 269 left-margin numbered items = Principles 1–10 + planks 1–252
++ Resolutions 1–7; the sequence returns to 1 exactly twice and only 1–10 ever repeat).
+The durable ID must still be the compound {party, cycle, section, subsection, plank#},
+never a bare "Plank 3" — because the three series collide with each other ("3" is a
+principle, a plank and a resolution in the same document) and because subsection names
+are not unique either: *Parents' Rights* appears as a subsection under BOTH Education
+(p.15) and Health and Human Services (p.20)** · lettered sub-points · preamble ·
+principles (a separate 1–10 list) · resolutions (separately numbered) · legislative
+priorities (ranked, cycle-scoped) · censures (named legislators) · convention
+committees (SD-level rosters in the PDF).
 The PDF's keyword index maps to *page numbers*, not plank IDs.
 
 ## 5. Edges
@@ -81,11 +88,13 @@ inferred with both citations).
 ## 6. Temporal semantics
 
 Platforms are explicitly cycle-scoped ("We, the 2024 Republican Party of Texas…") and
-valid for the biennium until superseded. **Misinformation risks:** plank numbers reset
-per subsection per cycle — "RPT Plank 3 says X" is meaningless without full
-qualification (cross-cycle drift inferred from the numbering scheme, not diffed this
-audit); priorities are cycle-labeled and never evergreen; TDP's dead canonical URL
-means cached copies can go silently stale with nothing live to diff against.
+valid for the biennium until superseded. **Misinformation risks:** plank numbers are
+cycle-scoped and renumber wholesale as planks are inserted or dropped between cycles —
+"RPT Plank 3 says X" is meaningless without the cycle, and ambiguous even within one
+cycle, since Principles, planks and Resolutions each carry their own "3" (cross-cycle
+drift must be diffed on text, never inferred from numbering — not diffed this audit);
+priorities are cycle-labeled and never evergreen; TDP's dead canonical URL means cached
+copies can go silently stale with nothing live to diff against.
 
 ## 7. Authority
 

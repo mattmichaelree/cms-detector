@@ -36,8 +36,13 @@ BROWSER_PROFILE_HOSTS = {"www.texasattorneygeneral.gov", "texasattorneygeneral.g
 DENYLIST = [
     re.compile(r"https?://(www\.)?lrl\.texas\.gov/.*\.(pdf|doc|txt)$", re.I),
     re.compile(r"https?://(www\.)?lrl\.texas\.gov/legis/billsearch/exportproc\.cfm", re.I),
-    re.compile(r"https?://search\.txcourts\.gov/", re.I),          # robots: Disallow /
-    re.compile(r"https?://research\.txcourts\.gov/", re.I),        # re:SearchTX, bot-walled
+    # Subdomain-tolerant on purpose: CourtListener's pre-2015 Texas backfill
+    # serves every ``download_url`` from ``www.search.txcourts.gov``, which a
+    # bare ``search\.txcourts\.gov`` anchor lets through. Verified against
+    # fixtures/courts/cl_search_tex_2014.json — 20/20 records. ``www.txcourts.gov``
+    # (the legitimate opinion-PDF host) is untouched by this pattern.
+    re.compile(r"https?://(?:[\w.-]+\.)?search\.txcourts\.gov/", re.I),    # robots: Disallow /
+    re.compile(r"https?://(?:[\w.-]+\.)?research\.txcourts\.gov/", re.I),  # re:SearchTX, bot-walled
     re.compile(r"https?://capitol\.texas\.gov/BillLookup/BillNumber\.aspx", re.I),
 ]
 
@@ -51,6 +56,21 @@ HOST_INTERVALS = {
     "hro.house.texas.gov": 2.0,
 }
 DEFAULT_INTERVAL = 1.5
+
+
+def _is_challenge(resp: httpx.Response) -> bool:
+    """True for a Cloudflare-style bot challenge.
+
+    A challenge is a verdict on our TLS/client fingerprint, not a transient
+    error: retrying only multiplies the request count against a host that will
+    keep refusing (each blocked page cost four requests before this check).
+    Verified on texasgop.org, where curl with the identical User-Agent gets 200
+    while httpx is challenged — so the browser-UA escape hatch does not help
+    either, and the caller should see the 403 and degrade.
+    """
+    if resp.status_code != 403:
+        return False
+    return "cf-mitigated" in resp.headers or "cloudflare" in resp.headers.get("server", "").lower()
 
 
 class DeniedURL(Exception):
@@ -120,6 +140,8 @@ class Fetcher:
                 time.sleep(delay)
                 delay *= 2
                 continue
+            if _is_challenge(resp):
+                return resp
             if resp.status_code in (403, 429) or resp.status_code >= 500:
                 if attempt == self.max_retries:
                     return resp
