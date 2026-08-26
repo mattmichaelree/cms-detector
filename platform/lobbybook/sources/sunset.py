@@ -47,6 +47,7 @@ BASE = "https://www.sunset.texas.gov"
 CYCLE_INDEX = BASE + "/review-cycles"
 AGENCY_INDEX = BASE + "/reviews-and-reports/agencies"
 FUTURE_INDEX = BASE + "/reviews-and-reports/future-reviews-year"
+# Agencies under review right now (16 entities in the 2026-27 cycle).
 CURRENT_REVIEWS = BASE + "/reviews-and-reports"
 
 _TAG = re.compile(r"<[^>]+>")
@@ -829,8 +830,14 @@ class SunsetConnector(Connector):
         stats = {"cycles": len(cycles), "documents": len(page["documents"]),
                  "agency": page["agency"], "recommendations": 0}
         ok = len(cycles) >= 20 and len(page["documents"]) >= 1
-        final = next((d for d in page["documents"]
-                      if d["doc_type"] == "staff_report_final_results"), None)
+        # An agency page lists outcome-bearing documents for several cycles
+        # (TDCJ carries every review since 1998); take the newest, which is the
+        # one whose format the parser is verified against.
+        final = next(
+            (d for d in sorted(page["documents"], key=lambda d: d["cycle"], reverse=True)
+             if d["doc_type"] in OUTCOME_BEARING),
+            None,
+        )
         if ok and final:
             res = self.ingest_document(conn, slug, final, page["agency"])
             stats["recommendations"] = res["recommendations"]

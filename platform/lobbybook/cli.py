@@ -75,6 +75,44 @@ def cmd_smoke(args) -> int:
     return 1 if failures else 0
 
 
+def cmd_sweep(args) -> int:
+    """Run every connector matching a cadence/tier filter."""
+    from lobbybook import orchestrator as orch
+
+    conn = dbx.connect()
+    dbx.init_db(conn)
+    results = orch.sweep(
+        conn,
+        cadence=args.cadence,
+        tier=args.tier,
+        only_overdue=not args.force,
+        mode=args.mode,
+    )
+    if not results:
+        print("nothing due")
+        return 0
+    failures = 0
+    for r in results:
+        mark = "ok" if r.ok else "FAIL"
+        failures += 0 if r.ok else 1
+        print(f"[{mark:>4}] {r.connector:<16} {r.seconds:6.1f}s  {r.detail[:90]}")
+    return 1 if failures else 0
+
+
+def cmd_status(_args) -> int:
+    from lobbybook import orchestrator as orch
+
+    conn = dbx.connect()
+    dbx.init_db(conn)
+    print(f"{'connector':<16} {'tier':<5} {'cadence':<20} {'last success':<22} due")
+    for row in orch.status(conn):
+        print(
+            f"{row['connector']:<16} {row['tier']:<5} {row['cadence']:<20} "
+            f"{row['last_success'] or '-':<22} {'YES' if row['overdue'] else ''}"
+        )
+    return 0
+
+
 def cmd_demo(args) -> int:
     """End-to-end dossier for one bill: TLO + fiscal + HRO + witnesses + journals."""
     conn = dbx.connect()
@@ -99,6 +137,13 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("smoke")
     p.add_argument("source", nargs="*")
     p.set_defaults(fn=cmd_smoke)
+    p = sub.add_parser("sweep")
+    p.add_argument("--cadence")
+    p.add_argument("--tier", type=int)
+    p.add_argument("--mode", choices=["incremental", "backfill"], default="incremental")
+    p.add_argument("--force", action="store_true", help="run even if not overdue")
+    p.set_defaults(fn=cmd_sweep)
+    sub.add_parser("status").set_defaults(fn=cmd_status)
     p = sub.add_parser("demo")
     p.add_argument("session")
     p.add_argument("bill")

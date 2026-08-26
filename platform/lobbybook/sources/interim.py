@@ -265,7 +265,6 @@ def senate_charges_url(content: bytes, base: str = LTGOV_CHARGES_PAGE) -> str | 
 
 
 # -------------------------------------------------------- report index page
-REPORT_LEG_RE = re.compile(r"Legislative Session\s+(\d{2,3})(?:st|nd|rd|th)", re.I)
 REPORT_URL_LEG_RE = re.compile(r"/interim/(\d{2,3})interim/", re.I)
 SIZE_SUFFIX_RE = re.compile(r"\s*\[PDF[^\]]*\]|\s*\(PDF[^)]*\)", re.I)
 

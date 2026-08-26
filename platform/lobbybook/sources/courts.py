@@ -39,7 +39,7 @@ from urllib.parse import urljoin
 
 from lobbybook.core import db as dbx
 from lobbybook.core.docstore import store_document
-from lobbybook.core.fetch import fetcher
+from lobbybook.core.fetch import DENYLIST, fetcher
 from lobbybook.core.registry import Connector, SmokeResult, register
 
 CL_SEARCH = "https://www.courtlistener.com/api/rest/v4/search/"
@@ -130,6 +130,34 @@ def parse_courtlistener(content: bytes) -> list[dict]:
             )
             out.append(rec)
     return out
+
+
+# The older Texas backfill links its PDFs on TAMES, and does it through the
+# `www.` alias — which the shared denylist's `https?://search\.txcourts\.gov/`
+# pattern does not match. This module therefore never follows a CourtListener
+# `download_url`; it counts them instead. (The core denylist would catch the
+# alias too if its patterns allowed a subdomain prefix.)
+TAMES_HOST_RE = re.compile(r"^https?://(?:[\w.-]+\.)?(?:search|research)\.txcourts\.gov/", re.I)
+
+
+def unfetchable_download_urls(rows: list[dict]) -> list[str]:
+    """CourtListener PDF links this platform is not allowed to follow.
+
+    Much of the older Texas backfill carries a ``download_url`` on
+    search.txcourts.gov (TAMES) — robots ``Disallow: /``. Naively walking
+    `download_url` for full text would walk straight into it, so the count is
+    surfaced as a metric and a full-text backfill has to source those PDFs
+    from the courts' own /media/ paths instead.
+    """
+    return [
+        r["download_url"]
+        for r in rows
+        if r.get("download_url")
+        and (
+            TAMES_HOST_RE.match(r["download_url"])
+            or any(p.search(r["download_url"]) for p in DENYLIST)
+        )
+    ]
 
 
 def freshness(rows: list[dict]) -> str | None:
@@ -616,6 +644,7 @@ class CourtsConnector(Connector):
             "max_date_filed": stat["max_date_filed"],
             "lag_days": stat["lag_days"],
             "total_available": total,
+            "unfetchable_pdfs": len(unfetchable_download_urls(rows)),
         }
 
     def poll_business_court(

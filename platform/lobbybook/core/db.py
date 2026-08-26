@@ -37,6 +37,11 @@ def init_db(conn: sqlite3.Connection) -> None:
 
     for ddl in iter_ddl():
         conn.executescript(ddl)
+    # The run ledger is core infrastructure (a scheduler needs it before any
+    # connector has run), not a connector's private table.
+    from lobbybook.orchestrator import DDL as RUN_DDL
+
+    conn.executescript(RUN_DDL)
     conn.commit()
 
 
