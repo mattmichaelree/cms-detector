@@ -256,6 +256,7 @@ CREATE TABLE IF NOT EXISTS rule_action (
     comment_end   TEXT,
     effective     TEXT,
     adopts_trd    TEXT,
+    proposal_pub_date TEXT,           -- adoptions name the date their proposal published
     doc_id        TEXT REFERENCES document(id)
 );
 
