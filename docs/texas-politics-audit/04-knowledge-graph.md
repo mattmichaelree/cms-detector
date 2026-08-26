@@ -19,8 +19,9 @@ what LobbyBook reasons over; the documents are what it cites.
    committee membership, rule text, lobby registrations, and positions are all useless
    without this.
 4. **Session is a first-class dimension.** Nearly every legislative fact is scoped to a
-   `session_id` (e.g., `88R`, `88S3`). Bill numbers, committee names, and rules are only
-   unique within one.
+   `session_id` using TLO's verified convention (`88R`; called sessions `881`–`884`).
+   Bill numbers, committee names, and rules are only unique within one — and bill
+   numbering resets per called session.
 5. **Never mint an ID where the state already has one.** Preserve native IDs verbatim and
    join through a crosswalk table.
 
