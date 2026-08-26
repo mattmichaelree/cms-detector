@@ -782,8 +782,14 @@ class GovernorConnector(Connector):
     # ---------------------------------------------------------------- runner
 
     def incremental(self, conn: sqlite3.Connection, **kwargs) -> dict:
+        """A daily pass: 3 listing GETs plus at most `max_posts` post GETs.
+
+        Slate posts are always opened (they name people nobody else names);
+        `details` buys full-name upgrades for individually-titled posts.
+        """
         details = int(kwargs.get("details", 2))
-        appts = self.ingest_appointments(conn, details=details)
+        max_posts = int(kwargs.get("max_posts", 8))
+        appts = self.ingest_appointments(conn, details=details, max_posts=max_posts)
         actions = self.ingest_actions(conn)
         return {"appointments": appts, "actions": actions}
 

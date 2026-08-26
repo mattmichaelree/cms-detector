@@ -450,7 +450,9 @@ class _FixtureFetcher:
             name = "press_release_category.html"
         elif url.endswith("slate-of-appointments"):
             name = "appointment_post_slate.html"
-        elif "nielsen-to-texas-state-board" in url:
+        elif "/news/post/governor-abbott-appoints-" in url:
+            # Stand-in: every single-appointee post shares this shape, so the
+            # captured Nielsen post serves for any of them.
             name = "appointment_post_nielsen.html"
         elif url.endswith(".pdf"):
             name = "EO-GA-41.pdf"
@@ -499,9 +501,11 @@ def test_ingest_appointments_opens_one_post_for_full_names(conn, offline_fetch):
     assert stats["posts_opened"] == 1
     assert len(offline_fetch.requested) == 2
     # The opened post upgrades a listing surname to the real full name.
-    assert conn.execute(
-        "SELECT COUNT(*) c FROM appointment WHERE appointee_raw LIKE '% %'"
-    ).fetchone()["c"] >= 1
+    names = {r["appointee_raw"] for r in conn.execute("SELECT appointee_raw FROM appointment")}
+    assert "Misti Nielsen" in names
+    assert sum(1 for n in names if " " in n) == 1
+    # ...and the seven unopened items stay at surname level.
+    assert "Bramow" in names
 
 
 def test_max_posts_caps_the_live_request_count(conn, offline_fetch):
