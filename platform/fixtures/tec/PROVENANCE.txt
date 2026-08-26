@@ -1,0 +1,61 @@
+TEC fixtures — where every byte came from
+=========================================
+
+All files below were captured live on 2026-08-26 from the Texas Ethics
+Commission. Nothing here is a re-typed or reformatted copy: the CSV/text
+fixtures are verbatim slices of the real bulk exports, so the offline tests
+assert against values TEC actually published.
+
+cf_search.html          GET https://www.ethics.state.tx.us/search/cf/
+lobby_search.html       GET https://www.ethics.state.tx.us/search/lobby/
+                        Verbatim pages. Used to test URL resolution, including
+                        the trap that the CF page keeps a dead
+                        /data/search/cf/TEC_CF_CSV.zip link inside an HTML
+                        comment next to the live CloudFront one.
+
+cf_zip_tail.bin         Last 32,768 bytes of
+                        https://prd.tecprd.ethicsefile.com/public/cf/public/TEC_CF_CSV.zip
+                        (file size at capture: 1,040,878,113 bytes), fetched
+                        with a single Range request. Contains the whole
+                        End-Of-Central-Directory record and the 8,355-byte
+                        central directory describing all 139 members. This is
+                        the real input to the central-directory prober.
+
+CFS-ReadMe.txt          Member of TEC_CF_CSV.zip, extracted by ranged fetch of
+expn_catg.csv           its local header + compressed bytes and raw-inflated
+                        (zlib, wbits=-15). CRC verified against the central
+                        directory. Verbatim.
+
+LobbyLAR-ReadMe.txt     Member of TEC_LA_CSV.zip (downloaded whole, 17,172,279
+                        bytes). Verbatim.
+
+LaSub_sample.csv        First 200 data rows of LaSub.csv (210,019 rows total)
+LaCvr_sample.csv        First 120 data rows of LaCvr.csv (284,772 rows total)
+                        from TEC_LA_CSV.zip. Header + leading rows, verbatim.
+
+contribs_sample.csv     140 rows each, verbatim, from the first ~1.2 MB of
+cont_ss_sample.csv      contribs_01.csv, cont_ss.csv and cont_t.csv inside
+cont_t_sample.csv       TEC_CF_CSV.zip (each pulled by ranged fetch and
+                        partially inflated). Selection is NOT a plain head
+                        slice: the first 60 rows in file order plus every
+                        later row carrying infoOnlyFlag='Y' or a COR* form
+                        type, so both amendment paths are exercised. That
+                        makes the superseded/correction *proportions* in these
+                        fixtures deliberately unrepresentative of the corpus;
+                        only per-row values are real.
+
+contribs_rereport_synthetic.csv
+                        *** SYNTHETIC — the only fabricated file here. ***
+                        Three rows copied from cont_t_sample.csv (real filer
+                        IDs, real contribution dates, real amounts, real
+                        contributor details) and rewritten as they would
+                        appear when re-reported on the next regular campaign
+                        finance report, per CFS-ReadMe.txt: regular form type
+                        instead of DAILYC*, and NEW reportInfoIdent (900000+)
+                        and contributionInfoId (999000001+) values that do not
+                        exist in TEC's data. It exists to prove the
+                        double-count trap end to end — the same $6,902.51 of
+                        transactions appearing in both a _t shard and a main
+                        shard — which cannot be demonstrated from a small
+                        verbatim slice, because the two halves of a real
+                        re-report pair live gigabytes apart.

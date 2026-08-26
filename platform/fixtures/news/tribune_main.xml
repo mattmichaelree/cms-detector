@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~files/feed-premium.xsl"?>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:feedpress="https://feed.press/xmlns" xmlns:media="http://search.yahoo.com/mrss/" xmlns:podcast="https://podcastindex.org/namespace/1.0" version="2.0">
+  <channel>
+    <feedpress:locale>en</feedpress:locale>
+    <atom:link rel="hub" href="https://feedpress.superfeedr.com/"/>
+    <title>The Texas Tribune</title>
+    <atom:link href="https://feeds.texastribune.org/feeds/main/" rel="self" type="application/rss+xml"/>
+    <link>https://www.texastribune.org/</link>
+    <description>Independent news. Trusted by Texans.</description>
+    <lastBuildDate>Wed, 26 Aug 2026 20:32:00 +0000</lastBuildDate>
+    <language>en-US</language>
+    <sy:updatePeriod>
+hourly</sy:updatePeriod>
+    <sy:updateFrequency>
+1</sy:updateFrequency>
+    <image>
+      <url>https://www.texastribune.org/wp-content/uploads/2025/09/cropped-cropped-texas-tribune-favicon-32x32.png</url>
+      <title>The Texas Tribune</title>
+      <link>https://www.texastribune.org/</link>
+      <width>32</width>
+      <height>32</height>
+    </image>
+    <site xmlns="com-wordpress:feed-additions:1">249301168</site>
+    <item>
+      <title>Judge rejects Minnesota request to keep ICE officer jailed in extradition fight with Texas</title>
+      <link>https://feeds.texastribune.org/link/16799/17428555/texas-minnesota-ice-officer-extradition-judge</link>
+      <dc:creator><![CDATA[Alex Nguyen and Berenice Garcia]]></dc:creator>
+      <pubDate>Tue, 25 Aug 2026 22:52:27 +0000</pubDate>
+      <category><![CDATA[Immigration]]></category>
+      <category><![CDATA[Brownsville]]></category>
+      <category><![CDATA[Cameron County]]></category>
+      <category><![CDATA[Greg Abbott]]></category>
+      <category><![CDATA[U.S. Supreme Court]]></category>
+      <category><![CDATA[Well C Homepage]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240861</guid>
+      <description><![CDATA[A lawsuit seeks to force Gov. Greg Abbott to speed the extradition of Christian Castro, who faces release from jail this week with charges still pending in Minnesota.<img src="https://feeds.texastribune.org/link/16799/17428555.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20261113-TTF-Tim-Walz-EH.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[Minnesota Gov. Tim Walz speaks at The Texas Tribune Festival in Austin on Nov. 13, 2025. Walz in June asked Texas Gov. Greg Abbott to approve the extradition of an ICE officer held in Texas. Abbott has not reached a decision on the request.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20261113-TTF-Tim-Walz-EH.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Eli Hartman for The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240861</post-id>
+    </item>
+    <item>
+      <title>Texas’ limits on certain drag shows ruled unconstitutional again</title>
+      <link>https://feeds.texastribune.org/link/16799/17428511/texas-drag-show-ban-law-unconstitutional-second-ruling</link>
+      <dc:creator><![CDATA[Ayden Runnels]]></dc:creator>
+      <pubDate>Tue, 25 Aug 2026 21:18:26 +0000</pubDate>
+      <category><![CDATA[Courts]]></category>
+      <category><![CDATA[State Government]]></category>
+      <category><![CDATA[Greg Abbott]]></category>
+      <category><![CDATA[Ken Paxton]]></category>
+      <category><![CDATA[Texas Legislature]]></category>
+      <category><![CDATA[Well A Homepage]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240835</guid>
+      <description><![CDATA[A federal judge reasserted his 2023 ruling that the U.S. 5th Circuit Court of Appeals sent back for reconsideration. The law went into effect in March as the case proceeded.<img src="https://feeds.texastribune.org/link/16799/17428511.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/0329-Trans-Visibility-March-SW-38.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[Over 300 activists and supporters marched from the Bexar County Courthouse to Crockett Park in “March for Us,” San Antonio&#039;s third annual celebration of Transgender Day of Visibility, on March 29, 2025, in San Antonio.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/0329-Trans-Visibility-March-SW-38.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Salgu Wissmath for The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240835</post-id>
+    </item>
+    <item>
+      <title>GOP nominee for San Antonio House seat apologizes for “crude and immature” social media posts</title>
+      <link>https://feeds.texastribune.org/link/16799/17432420/texas-state-house-gop-candidate-old-social-media-posts-jorge-borrego</link>
+      <dc:creator><![CDATA[Renzo Downey]]></dc:creator>
+      <pubDate>Wed, 26 Aug 2026 19:54:14 +0000</pubDate>
+      <category><![CDATA[Politics]]></category>
+      <category><![CDATA[elections]]></category>
+      <category><![CDATA[San Antonio]]></category>
+      <category><![CDATA[Texas House of Representatives]]></category>
+      <category><![CDATA[Texas Legislature]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240955</guid>
+      <description><![CDATA[Jorge Borrego said he has matured since the years when he used homophobic slurs and racist tropes, and referenced cocaine use, in a series of social media posts that bubbled up this week.<img src="https://feeds.texastribune.org/link/16799/17432420.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/Jorge-Borrego-FB-TT-scaled.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[Jorge Borrego, Republican candidate for Texas House District 118. The Bexar County district wraps around and includes a small part of San Antonio.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/Jorge-Borrego-FB-TT-scaled.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Social media]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240955</post-id>
+    </item>
+    <item>
+      <title>Ted Cruz says on podcast it’s “no secret that I want to be president”</title>
+      <link>https://feeds.texastribune.org/link/16799/17432315/ted-cruz-greg-abbott-president-texas-dan-patrick-podcast</link>
+      <dc:creator><![CDATA[Gabby Birenbaum]]></dc:creator>
+      <pubDate>Wed, 26 Aug 2026 16:54:56 +0000</pubDate>
+      <category><![CDATA[Congress]]></category>
+      <category><![CDATA[Dan Patrick]]></category>
+      <category><![CDATA[Democrats]]></category>
+      <category><![CDATA[Donald Trump]]></category>
+      <category><![CDATA[Greg Abbott]]></category>
+      <category><![CDATA[Houston]]></category>
+      <category><![CDATA[Republicans]]></category>
+      <category><![CDATA[Ted Cruz]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240928</guid>
+      <description><![CDATA[Lt. Gov. Dan Patrick also speculated during their conversation that Gov. Greg Abbott also aspires for the White House.<img src="https://feeds.texastribune.org/link/16799/17432315.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/Cruz-and-Abbott-RPT-MS.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[From left: U.S. Sen. Ted Cruz and Gov. Greg Abbott speaking the the Republican Party of Texas convention in Houston in June.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/Cruz-and-Abbott-RPT-MS.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Manoo Sirivelu for The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240928</post-id>
+    </item>
+    <item>
+      <title>How Corpus Christi’s water emergency exposed flaws in Texas’ water planning</title>
+      <link>https://feeds.texastribune.org/link/16799/17423219/texas-water-planning-drought-corpus-christi</link>
+      <dc:creator><![CDATA[Alejandra Martinez]]></dc:creator>
+      <pubDate>Wed, 19 Aug 2026 18:01:30 +0000</pubDate>
+      <category><![CDATA[Environment]]></category>
+      <category><![CDATA[Corpus Christi]]></category>
+      <category><![CDATA[Texas Water Development Board]]></category>
+      <category><![CDATA[water supply]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240340</guid>
+      <description><![CDATA[State water planners don’t use climate projections when they plan for future water supply. Experts say they should model for more extreme droughts rather than relying on historical data.<img src="https://feeds.texastribune.org/link/16799/17423219.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260815-Lake-Corpus-Christi-PG-06.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[Lake Corpus Christi&#039;s water level had risen to nearly 92% of capacity on Aug. 15, 2026, after dropping to 10.6% six months earlier amid a lingering drought.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260815-Lake-Corpus-Christi-PG-06.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Pete Garcia for The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240340</post-id>
+    </item>
+    <item>
+      <title>California couple confront their surrogate in a Texas court as dispute over newborn escalates</title>
+      <link>https://feeds.texastribune.org/link/16799/17432272/texas-california-surrogate-fight-court-rumi-gabriel</link>
+      <dc:creator><![CDATA[By Jamie Stengle and Anna Wilder, Associated Press]]></dc:creator>
+      <pubDate>Wed, 26 Aug 2026 14:57:44 +0000</pubDate>
+      <category><![CDATA[Courts]]></category>
+      <category><![CDATA[Health care]]></category>
+      <category><![CDATA[Politics]]></category>
+      <category><![CDATA[State Government]]></category>
+      <category><![CDATA[Uncategorized]]></category>
+      <category><![CDATA[abortion]]></category>
+      <category><![CDATA[Dallas]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240890</guid>
+      <description><![CDATA[The attorney for the couple’s surrogate McKenna West said in court she should be the mother of the newborn. The biological parents have a restraining order against West. <img src="https://feeds.texastribune.org/link/16799/17432272.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/Surrogacy-Hearing-AP-03.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[McKenna West, left, arrives with her legal team for a court hearing in Dallas, Tuesday, Aug. 25, 2026. ]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/Surrogacy-Hearing-AP-03.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[AP Photo/LM Otero]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240890</post-id>
+    </item>
+    <item>
+      <title>Meta to pay Texas $1 billion in child safety case</title>
+      <link>https://feeds.texastribune.org/link/16799/17432211/meta-texas-settlement-1-billion-dollars-social-media-child-safety-paxton</link>
+      <dc:creator><![CDATA[Eleanor Klibanoff]]></dc:creator>
+      <pubDate>Wed, 26 Aug 2026 14:35:40 +0000</pubDate>
+      <category><![CDATA[Courts]]></category>
+      <category><![CDATA[Attorney General's Office]]></category>
+      <category><![CDATA[Ken Paxton]]></category>
+      <category><![CDATA[social media]]></category>
+      <category><![CDATA[texas attorney general]]></category>
+      <category><![CDATA[Well A Homepage]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240902</guid>
+      <description><![CDATA[As part of Texas’ settlement, the tech giant behind Facebook and Instagram will apply stricter age verification measures and institute a daily two-hour limit for teens. <img src="https://feeds.texastribune.org/link/16799/17432211.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260722-Meta-Temple-Data-Center-LS-66.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[Meta will pay over $1 billion to Texas as part of a social media settlement with the state. ]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260722-Meta-Temple-Data-Center-LS-66.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Leila Saidane for The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240902</post-id>
+    </item>
+    <item>
+      <title>Talarico campaign asks court to unseal Paxton’s depositions in energy investing dispute</title>
+      <link>https://feeds.texastribune.org/link/16799/17430642/texas-james-talarico-ken-paxton-depositions-motion-to-unseal-securities-fraud-dispute</link>
+      <dc:creator><![CDATA[Kayla Guo]]></dc:creator>
+      <pubDate>Wed, 26 Aug 2026 11:06:10 +0000</pubDate>
+      <category><![CDATA[Courts]]></category>
+      <category><![CDATA[Politics]]></category>
+      <category><![CDATA[Byron Cook]]></category>
+      <category><![CDATA[Collin County]]></category>
+      <category><![CDATA[Democrats]]></category>
+      <category><![CDATA[energy]]></category>
+      <category><![CDATA[James Talarico]]></category>
+      <category><![CDATA[Ken Paxton]]></category>
+      <category><![CDATA[Mitch Little]]></category>
+      <category><![CDATA[Republicans]]></category>
+      <category><![CDATA[U.S. Senate]]></category>
+      <category><![CDATA[Well B Homepage]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240881</guid>
+      <description><![CDATA[The petition, to be filed in Collin County, seeks the transcripts from two rounds of testimony Paxton gave as part of a legal clash that entangled his financial adviser and former business associates.<img src="https://feeds.texastribune.org/link/16799/17430642.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260713-Talarico-Border-Eagle-Pass-TX-AG-5.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[State Rep. James Talarico, the Democratic nominee for U.S. Senate, listens to questions from the audience during a Q&amp;A session during a town hall meeting at the International Center for Trade in Eagle Pass on July 13, 2026.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260713-Talarico-Border-Eagle-Pass-TX-AG-5.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Aiden Gonzalez/The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240881</post-id>
+    </item>
+    <item>
+      <title>Austin races to regulate AI data centers before they strain city’s water and power</title>
+      <link>https://feeds.texastribune.org/link/16799/17430599/austin-data-center-rules</link>
+      <dc:creator><![CDATA[By Sam Stark, Austin Current]]></dc:creator>
+      <pubDate>Wed, 26 Aug 2026 10:00:00 +0000</pubDate>
+      <category><![CDATA[Economy]]></category>
+      <category><![CDATA[Energy]]></category>
+      <category><![CDATA[Austin]]></category>
+      <category><![CDATA[data centers]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240790</guid>
+      <description><![CDATA[Austin is considering new regulations for massive AI data centers amid growing concerns over their significant water and energy demands.
+<img src="https://feeds.texastribune.org/link/16799/17430599.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260618-EdgeConneX-Bastrop-LS-29.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[The Austin City Council is racing to get ahead of data centers before a facility is proposed inside the city limits. ]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260618-EdgeConneX-Bastrop-LS-29.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Leila Saidane for The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240790</post-id>
+    </item>
+    <item>
+      <title>A new Texas law declaws neighborhood groups that oppose housing projects</title>
+      <link>https://feeds.texastribune.org/link/16799/17430600/texas-petition-new-housing-city-council-nimby</link>
+      <dc:creator><![CDATA[Joshua Fechter]]></dc:creator>
+      <pubDate>Wed, 26 Aug 2026 10:00:00 +0000</pubDate>
+      <category><![CDATA[Economy]]></category>
+      <category><![CDATA[Politics]]></category>
+      <category><![CDATA[State Government]]></category>
+      <category><![CDATA[Uncategorized]]></category>
+      <category><![CDATA[Greg Abbott]]></category>
+      <category><![CDATA[San Antonio]]></category>
+      <category><![CDATA[Well C Homepage]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240804</guid>
+      <description><![CDATA[Lawmakers gutted an old state law that required a city council supermajority to approve a new housing development if neighbors petitioned the proposal.<img src="https://feeds.texastribune.org/link/16799/17430600.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260824-NIMBY-Housing-EH-14.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[The South Austin Christian Church  near South Congress Avenue in Austin on Monday, Aug. 24, 2026. ]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260824-NIMBY-Housing-EH-14.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Eli Hartman for The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240804</post-id>
+    </item>
+    <item>
+      <title>TribCast: The Big Bend border barrier backlash</title>
+      <link>https://feeds.texastribune.org/link/16799/17428510/tribcast-big-bend-border-barrier-trump</link>
+      <dc:creator><![CDATA[Eleanor Klibanoff]]></dc:creator>
+      <pubDate>Tue, 25 Aug 2026 21:42:38 +0000</pubDate>
+      <category><![CDATA[Immigration]]></category>
+      <category><![CDATA[Big Bend National Park]]></category>
+      <category><![CDATA[border security]]></category>
+      <category><![CDATA[border wall]]></category>
+      <category><![CDATA[César Blanco]]></category>
+      <category><![CDATA[Donald Trump]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240826</guid>
+      <description><![CDATA[TribCast is joined by state Sen. César Blanco and politics reporter Alejandro Serrano to discuss the growing bipartisan outrage over building border barriers in Texas' largest national park.<img src="https://feeds.texastribune.org/link/16799/17428510.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/TribCast-Aug-25-2026.jpg?fit=1024%2C677&amp;ssl=1">
+        <media:description><![CDATA[A sign outside Far Flung Outdoor Center Terlingua opposing the border wall on Aug. 12, 2026.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/TribCast-Aug-25-2026.jpg?fit=1024%2C677&amp;ssl=1" width="1024" height="677"/>
+        <media:credit><![CDATA[Sarah M. Vasquez for The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240826</post-id>
+    </item>
+    <item>
+      <title>Tracking the money raised and spent in the U.S. Senate race between James Talarico and Ken Paxton</title>
+      <link>https://feeds.texastribune.org/link/16799/17383612/texas-senate-talarico-paxton-fundraising-spending-money-donors</link>
+      <dc:creator><![CDATA[By Hien An Ngo]]></dc:creator>
+      <pubDate>Mon, 20 Jul 2026 20:00:00 +0000</pubDate>
+      <category><![CDATA[Congress]]></category>
+      <category><![CDATA[Politics]]></category>
+      <category><![CDATA[campaign finance]]></category>
+      <category><![CDATA[James Talarico]]></category>
+      <category><![CDATA[Ken Paxton]]></category>
+      <category><![CDATA[U.S. Senate]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=236623</guid>
+      <description><![CDATA[See the latest fundraising totals, where the money is coming from and how super PACs are spending in what’s poised to be Texas’ most expensive Senate race.<img src="https://feeds.texastribune.org/link/16799/17383612.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/png" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/07/paxton-talarico-Artboard-1.png?fit=1024%2C682&amp;ssl=1">
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/07/paxton-talarico-Artboard-1.png?fit=1024%2C682&amp;ssl=1" width="1024" height="682"/>
+        <media:credit><![CDATA[Hien An Ngo]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">236623</post-id>
+    </item>
+    <item>
+      <title>Shawn Thierry, who broke with Democrats over trans issues, appointed Harris County district judge</title>
+      <link>https://feeds.texastribune.org/link/16799/17428439/shawn-thierry-greg-abbott-houston-district-judge-trans-care</link>
+      <dc:creator><![CDATA[Eleanor Klibanoff]]></dc:creator>
+      <pubDate>Tue, 25 Aug 2026 19:32:15 +0000</pubDate>
+      <category><![CDATA[Courts]]></category>
+      <category><![CDATA[Politics]]></category>
+      <category><![CDATA[Greg Abbott]]></category>
+      <category><![CDATA[Harris County]]></category>
+      <category><![CDATA[Shawn Thierry]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240810</guid>
+      <description><![CDATA[The former Houston legislator left the Democratic Party over its stance on gender-transitioning care for minors, and is now embraced by Republicans.<img src="https://feeds.texastribune.org/link/16799/17428439.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/0215-Shawn-Thierry-MF-14.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[Shawn Thierry, then a Democratic state lawmaker from Houston, speaks to a constituent at St. Francis Xavier Catholic Church in Houston on Feb. 15, 2024. Thierry switched to the Republican Party in August of that same year.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/0215-Shawn-Thierry-MF-14.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Mark Felix for The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240810</post-id>
+    </item>
+    <item>
+      <title>Judge orders witness to Houston ICE shooting released from detention</title>
+      <link>https://feeds.texastribune.org/link/16799/17428440/texas-houston-ice-shooting-witness-release-judge-order-habeas-petition</link>
+      <dc:creator><![CDATA[Uriel J. García]]></dc:creator>
+      <pubDate>Tue, 25 Aug 2026 18:52:48 +0000</pubDate>
+      <category><![CDATA[Courts]]></category>
+      <category><![CDATA[Immigration]]></category>
+      <category><![CDATA[Houston]]></category>
+      <category><![CDATA[Illegal immigration in Texas]]></category>
+      <category><![CDATA[Immigration and Customs Enforcement]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240806</guid>
+      <description><![CDATA[Daniel Tirado Pantoja, who was a backseat passenger in Lorenzo Salgado Araujo’s van when he was shot by ICE officers in July, is the second witness to be ordered released by a federal judge. <img src="https://feeds.texastribune.org/link/16799/17428440.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/07/D.VILLASANA_ARAUJO_02.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[On July 14, people visit the site where Lorenzo Salgado Araujo was fatally shot by an ICE agent.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/07/D.VILLASANA_ARAUJO_02.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Danielle Villasana for The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240806</post-id>
+    </item>
+    <item>
+      <title>Who’s leading in Texas’ U.S. Senate race? We’re tracking poll results between Ken Paxton and James Talarico.</title>
+      <link>https://feeds.texastribune.org/link/16799/17404964/texas-us-senate-james-talarico-ken-paxton-polls</link>
+      <dc:creator><![CDATA[By Hien An Ngo]]></dc:creator>
+      <pubDate>Fri, 07 Aug 2026 10:00:00 +0000</pubDate>
+      <category><![CDATA[Politics]]></category>
+      <category><![CDATA[Beto O'Rourke]]></category>
+      <category><![CDATA[campaign finance]]></category>
+      <category><![CDATA[Congress]]></category>
+      <category><![CDATA[elections]]></category>
+      <category><![CDATA[James Talarico]]></category>
+      <category><![CDATA[Ken Paxton]]></category>
+      <category><![CDATA[Ted Cruz]]></category>
+      <category><![CDATA[Well B Homepage]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=239110</guid>
+      <description><![CDATA[The latest survey has Talarico leading by three points. Most polls show Talarico with a slight advantage over Paxton. <img src="https://feeds.texastribune.org/link/16799/17404964.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/png" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/Artboard-1-copy.png?fit=1024%2C682&amp;ssl=1">
+        <media:description><![CDATA[Hien An Ngo]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/Artboard-1-copy.png?fit=1024%2C682&amp;ssl=1" width="1024" height="682"/>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">239110</post-id>
+    </item>
+    <item>
+      <title>Lawsuit over state investigations into Texas teachers’ posts about Charlie Kirk dismissed</title>
+      <link>https://feeds.texastribune.org/link/16799/17248091/texas-education-agency-charlie-kirk-investigations-lawsuit</link>
+      <dc:creator><![CDATA[Jaden Edison]]></dc:creator>
+      <pubDate>Tue, 06 Jan 2026 16:16:58 +0000</pubDate>
+      <category><![CDATA[State Government]]></category>
+      <category><![CDATA[Mike Morath]]></category>
+      <category><![CDATA[Texas Education Agency]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=215928</guid>
+      <description><![CDATA[The Texas Education Agency received hundreds of complaints about educators’ online reactions to the conservative activist’s death. <img src="https://feeds.texastribune.org/link/16799/17248091.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/01/2020240801-Charlie-Kirk-REUTERS-01.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[Turning Point USA founder Charlie Kirk speaks during a rally for vice presidential nominee JD Vance at Arizona Christian University in Glendale, Arizona on July 31, 2024.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/01/2020240801-Charlie-Kirk-REUTERS-01.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Joe Rondone/The Republic/USA TODAY Network via REUTERS]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">215928</post-id>
+    </item>
+    <item>
+      <title>What to know about possible border barriers in Big Bend</title>
+      <link>https://feeds.texastribune.org/link/16799/17422555/texas-big-bend-national-park-border-wall-plans-explainer</link>
+      <dc:creator><![CDATA[By Uriel J. García, graphic by Alex Ford]]></dc:creator>
+      <pubDate>Tue, 18 Aug 2026 22:04:29 +0000</pubDate>
+      <category><![CDATA[Courts]]></category>
+      <category><![CDATA[Immigration]]></category>
+      <category><![CDATA[State Government]]></category>
+      <category><![CDATA[Big Bend]]></category>
+      <category><![CDATA[Big Bend National Park]]></category>
+      <category><![CDATA[border]]></category>
+      <category><![CDATA[border security]]></category>
+      <category><![CDATA[border wall]]></category>
+      <category><![CDATA[Brewster County]]></category>
+      <category><![CDATA[Hudspeth County]]></category>
+      <category><![CDATA[Illegal immigration in Texas]]></category>
+      <category><![CDATA[Presidio County]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240265</guid>
+      <description><![CDATA[The Trump administration has said the remote West Texas region needs measures to stop illegal immigration. But a bipartisan group of elected officials is pushing to halt that plan, especially in the national park.<img src="https://feeds.texastribune.org/link/16799/17422555.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/Greenlee-Big-Bend-Clearing-21.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[Southwest Valley employees clear an area near the Santa Elena Canyon trailhead parking lot in Big Bend National Park on Aug. 13, 2026.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/Greenlee-Big-Bend-Clearing-21.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Kaylee Greenlee for The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240265</post-id>
+    </item>
+    <item>
+      <title>Industry warns of blackouts, economic woes if Texas overreacts to data center, transmission line anger</title>
+      <link>https://feeds.texastribune.org/link/16799/17427292/texas-765-transmissions-lines-data-centers-pauses-delays</link>
+      <dc:creator><![CDATA[Paul Cobler]]></dc:creator>
+      <pubDate>Mon, 24 Aug 2026 10:00:00 +0000</pubDate>
+      <category><![CDATA[Economy]]></category>
+      <category><![CDATA[Energy]]></category>
+      <category><![CDATA[Politics]]></category>
+      <category><![CDATA[State Government]]></category>
+      <category><![CDATA[Electric Reliability Council of Texas]]></category>
+      <category><![CDATA[energy]]></category>
+      <category><![CDATA[ERCOT]]></category>
+      <category><![CDATA[Greg Abbott]]></category>
+      <category><![CDATA[Permian Basin]]></category>
+      <category><![CDATA[transmission lines]]></category>
+      <category><![CDATA[West Texas]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240600</guid>
+      <description><![CDATA[Energy regulators and industry experts warn that the state’s delays to major projects amid backlash from residents could create rolling blackouts and strangle growth of other industries that need power. <img src="https://feeds.texastribune.org/link/16799/17427292.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>behind</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260503-Center-Aerials-JS-13-full.jpg?fit=1024%2C683&amp;ssl=1">
+        <media:description><![CDATA[Power lines connect to the Stargate data center in Abilene on May 2, 2026.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260503-Center-Aerials-JS-13-full.jpg?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Jon Shapley for The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240600</post-id>
+    </item>
+    <item>
+      <title>Abbott asks court to reject Minnesota bid to force extradition of ICE officer</title>
+      <link>https://feeds.texastribune.org/link/16799/17427625/texas-minnesota-ice-officer-extradition-lawsuit-greg-abbott</link>
+      <dc:creator><![CDATA[Alex Nguyen]]></dc:creator>
+      <pubDate>Mon, 24 Aug 2026 18:22:00 +0000</pubDate>
+      <category><![CDATA[Immigration]]></category>
+      <category><![CDATA[Brownsville]]></category>
+      <category><![CDATA[Greg Abbott]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240686</guid>
+      <description><![CDATA[The Texas governor said he has doubts Christian Castro is a fugitive subject to extradition, adding the state is still investigating. A hearing on keeping him in custody is Tuesday.<img src="https://feeds.texastribune.org/link/16799/17427625.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/jpeg" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260612-RPT-Convention-EG-64-.jpg?fit=1024%2C682&amp;ssl=1">
+        <media:description><![CDATA[Gov. Greg Abbott speaks to delegates and attendees at the 2026 Texas State Republican Convention on Friday, June 12, 2026 in Houston.]]></media:description>
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/20260612-RPT-Convention-EG-64-.jpg?fit=1024%2C682&amp;ssl=1" width="1024" height="682"/>
+        <media:credit><![CDATA[Eddie Gaspar/The Texas Tribune]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240686</post-id>
+    </item>
+    <item>
+      <title>Here’s how to cast a ballot in Texas’ midterm election on Nov. 3</title>
+      <link>https://feeds.texastribune.org/link/16799/17428063/texas-general-election-november-2026-voter-guide</link>
+      <dc:creator><![CDATA[By María Méndez, graphics by Apurva Mahajan ]]></dc:creator>
+      <pubDate>Tue, 25 Aug 2026 10:00:00 +0000</pubDate>
+      <category><![CDATA[Politics]]></category>
+      <category><![CDATA[Congress]]></category>
+      <category><![CDATA[elections]]></category>
+      <category><![CDATA[Texas Legislature]]></category>
+      <category><![CDATA[Texas Secretary of State]]></category>
+      <category><![CDATA[voting]]></category>
+      <guid isPermaLink="false">https://www.texastribune.org/?p=240708</guid>
+      <description><![CDATA[Voters will weigh in on dozens of races, including U.S. senator, governor and many other offices.<img src="https://feeds.texastribune.org/link/16799/17428063.gif" height="1" width="1"/>]]></description>
+      <thumbnail_position>default</thumbnail_position>
+      <media:content type="image/png" url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/TT-E26-PrimaryVoterGuide-Lead-scaled.png?fit=1024%2C683&amp;ssl=1">
+        <media:thumbnail url="https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/08/TT-E26-PrimaryVoterGuide-Lead-scaled.png?fit=1024%2C683&amp;ssl=1" width="1024" height="683"/>
+        <media:credit><![CDATA[Alfredo Palacios]]></media:credit>
+      </media:content>
+      <post-id xmlns="com-wordpress:feed-additions:1">240708</post-id>
+    </item>
+  </channel>
+</rss>

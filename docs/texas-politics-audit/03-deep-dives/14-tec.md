@@ -38,7 +38,7 @@ expenditures via `expendInfoId`) · `cover.csv`/`cover_ss.csv`/`cover_t.csv` (co
 sheets/totals; cover.csv alone 195 MB) · `purpose.csv` (Cover Sheet 3) · `spacs.csv` ·
 `contribs_01–103.csv` (~104 shards) · `cont_ss.csv`/`cont_t.csv` (special-session /
 daily-pre-election kept separate **specifically to avoid duplicates**) ·
-`expend_01–13.csv` · `expn_t.csv` · `expn_catg.csv` (21 expenditure categories) ·
+`expend_01–13.csv` · `expn_t.csv` · `expn_catg.csv` (**20** expenditure categories — the file is 21 lines including its header; the audit's original "21" counted the header) ·
 pledges/loans/debts/credits/travel/assets/finals · `CFS-ReadMe.txt` (full fixed-width
 record-layout spec, 16 record types) · `CFS-Codes.txt` (593-line code glossary). A
 separate PDF format spec is also published.
@@ -110,6 +110,23 @@ networks · any money→legislative-action claim (never state as causation).
    the lobby export **silently drops superseded originals**. Citing an original CF
    figure later revised by a correction affidavit is the misinformation hazard —
    always resolve the correction chain.
+
+**Implementation findings (Aug 2026), which sharpen the double-count trap:**
+- **Dedup by line-item ID does NOT catch the re-report duplication.** A transaction
+  reported on a daily pre-election (`_t`) report and again on the next regular report
+  appears twice with *different* `contributionInfoId` values. Verified with real TEC
+  rows: the same $6,902.51 contributes $13,805.02 to a naive sum across files and
+  $6,902.51 once rows are tagged by source shard. Schedule tagging is the only
+  correct guard — ID-based dedup silently fails.
+- **The readme drifts from the archive:** it names `returns.csv` and `final.csv`; the
+  live archive ships neither (the real member is `finals.csv`). Parse the archive's own
+  central directory, not the readme's file list.
+- **Ranged extraction out of the 1.04 GB archive works and is cheap** — read the ZIP
+  tail, parse the central directory (with a ZIP64 fallback), ranged-fetch a member's
+  local header plus its compressed bytes, raw-inflate with `zlib.decompressobj(-15)`,
+  and verify CRC32 against the directory. Pulling two members cost 2 MB, 0.2% of the
+  archive; note that a member's *local* header lengths differ from the central
+  directory's and must be re-read.
 
 ## 7. Authority
 

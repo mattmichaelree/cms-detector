@@ -1,0 +1,21 @@
+recordType,expendCategoryCodeValue,expendCategoryCodeLabel
+EXCAT,ACCOUNT,Accounting/Banking
+EXCAT,ADVERTISE,"Advertising Expense"
+EXCAT,CONSULT,"Consulting Expense"
+EXCAT,DONATIONS,"Contributions/Donations Made By Candidate/Officeholder/Political Committee"
+EXCAT,CREDITCARD,"Credit Card Payment"
+EXCAT,EVENT,"Event Expense"
+EXCAT,FEES,Fees
+EXCAT,FOOD,"Food/Beverage Expense"
+EXCAT,GIFTS,"Gift/Awards/Memorials Expense"
+EXCAT,LEGAL,"Legal Services"
+EXCAT,LOAN,"Loan Repayment/Reimbursement"
+EXCAT,OVERHEAD,"Office Overhead/Rental Expense"
+EXCAT,OTHER,Other
+EXCAT,POLLING,"Polling Expense"
+EXCAT,PRINTING,"Printing Expense"
+EXCAT,SALARIES,"Salaries/Wages/Contract Labor"
+EXCAT,FUNDRAISE,"Solicitation/Fundraising Expense"
+EXCAT,TRANSPORT,"Transportation Equipment And Related Expense"
+EXCAT,TRAVELIN,"Travel In District"
+EXCAT,TRAVELOUT,"Travel Out of District"

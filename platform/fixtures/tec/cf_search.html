@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Search Campaign Finance</title>
+	<meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><link rel="icon" type="image/x-icon" href="/assets/images/RoundIcon.png" /><base href="localhost"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/assets/styles/navbar.transparent.css"><link rel="stylesheet" type="text/css" href="/assets/styles/navbar.mobileSize.css"><link rel="stylesheet" type="text/css" href="/assets/styles/body.container.css"><link rel="stylesheet" type="text/css" href="/assets/styles/footer.css"><link rel="stylesheet" type="text/css" href="/assets/styles/styles.css"><link rel="stylesheet" type="text/css" href="/assets/styles/header.navbar.css"><link rel="stylesheet" type="text/css" href="/assets/styles/searchbar.css"><script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script><script type="text/javascript" src="/assets/js/app.js"></script><link rel="stylesheet" type="text/css" href="/assets/styles/myTables.css">	<!--=== ADD PAGE STYLES HERE ===-->
+	<style>
+		.tab-content .tab-pane > h2 {
+			color: black;
+			font-weight: bold;
+			text-align: center;
+		}
+		.ordinal {
+			vertical-align:super;
+		}
+
+	</style>
+</head>
+<body class="dark header-fixed boxed-layout container container-resize">
+	<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a><header role="banner" class="header header-sticky"><!--=== BANNER ===-->
+<style>
+	/*google search box tweaks */
+	#___gcse_0 * {  
+	box-sizing: content-box !important;}
+	#___gcse_0 input {  
+	line-height: normal!important;}
+</style>
+<div class="banner banner-container navbar-transparent">
+	<a class="banner logo" href="/"> 
+		<img class="img-responsive" src="/assets/images/BWSealofTex.jpeg" alt="Seal of Texas"/>
+		<div class="banner motto">
+			<p style="font-size:32px;color:#666666">Texas Ethics Commission</p>
+			<p style="color:#666666">Promoting Public Confidence in Government</p>
+		</div>
+	</a>
+	<!--<label id="gsc-i-id1">Website Searching</label>-->
+	<script>
+	  (function() {
+		var cx = '005652230455404628419:m3twd_6vwak';
+		var gcse = document.createElement('script');
+		gcse.type = 'text/javascript'; 
+		gcse.async = true;
+		gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(gcse, s);
+	  })();
+	  window.onload = function(){
+		//document.getElementById('gsc-i-id1').placeholder ='Search This Website'; 
+		document.getElementById('gsc-i-id1').alt = 'website search';  /*pdw I added for WAI*/
+<!--document.getElementById('gsc-i-id1').innerHTML = 'website search';  /*pdw I added for WAI*/
+	  }; 
+	</script>
+	
+	<div class="banner_right_half">
+	
+		<gcse:search></gcse:search>
+
+		<div class="nav_tog_container"> 
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span style="color:white" class="glyphicon glyphicon-menu-hamburger"></span>
+			<!--<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>-->
+			</button>
+		</div>
+	</div>
+</div>
+<!--=== END BANNER ===-->
+<!--=== NAVBAR ===-->
+<div class="collapse  navbar-responsive-collapse in" style="background-color:#666666">
+	<nav class="navbar navbar-transparent" role="navigation" >
+		<div class="container-fluid" style="text-align:center">
+		<!--pdw add role definition for ul, li, a in dropdown per accessibility-->
+			<ul role="menubar" class="nav navbar-nav"> <!--pdw remove navbar-right helps positioning dropdown-->
+				<li role="menuitem" class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						Resources<span class="caret"></span>
+					</a>
+					<ul role="menu" class="dropdown-menu">
+						
+						
+						<li role="menuitem" class="dropdown"><a href="/resources/advertising">Advertising</a></li>
+						<li role="menuitem" class="dropdown"><a href="/resources/cf">Campaign Finance</a></li>
+						<li role="menuitem" class="dropdown"><a href="/resources/rulings">Court Rulings</a></li>
+					    <!--<li role="menuitem" class="dropdown"><a href="/resources/charts">Data Charts</a></li> -->
+						<li role="menuitem" class="dropdown"><a href="/filinginfo/deadlines/ReportsDue.php">Deadlines</a></li>
+						<li role="menuitem" class="dropdown"><a href="/resources/FAQs">Frequently Asked Questions (FAQs)</a></li>
+						<li role="menuitem" class="dropdown"><a href="/resources/judicial">Judicial</a></li>
+						<li role="menuitem" class="dropdown"><a href="/resources/laws-regulations">Laws & Regulations</a></li>
+						<li role="menuitem" class="dropdown"><a href="/legislation/">Legislative Reports and Agency Policies</a></li>
+						<li role="menuitem" class="dropdown"><a href="/resources/lobby">Lobbying</a></li>
+                        <li role="menuitem" class="dropdown"><a href="/resources/local">Local Filing Authorities</a></li>
+						<li role="menuitem" class="dropdown"><a href="/meetings">Meeting Minutes</a></li>
+						<li role="menuitem" class="dropdown"><a href="/resources/pfs">Personal Financial Statement (PFS)</a></li>
+						<!--<li role="menuitem" class="dropdown"><a href="/resources/press/">Press</a></li>-->
+						<li role="menuitem" class="dropdown"><a href="/resources/guides">Reference Guides</a></li>
+					</ul>
+				</li>
+				
+				<li role="menuitem" class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						Opinions/Statutes/Rules
+						<span class="caret"></span>
+					</a>
+					<ul role="menu" class="dropdown-menu">
+						<li role="menuitem" ><a href="/opinions">Opinions</a></li>
+						<li role="menuitem"><a href="/statutes">Statutes</a></li>
+						<li role="menuitem"><a href="/rules">Rules</a></li>
+					</ul> 
+				</li>
+				
+				<li role="menuitem" class="dropdown">
+					<a class="dropdown-toggle" 
+					data-toggle="dropdown" href="#">Filing Reports
+						<span class="caret"></span></a>
+					<ul  role="menu" role="electronic-filing" class="dropdown-menu">
+						<li role="menuitem"><a tabindex="-1" 
+							href="https://prd.tecprd.ethicsefile.com/File/">
+						Login Now</a></li>
+                        <li role="menuitem"><a tabindex="-1"
+							href="/filinginfo/reportdue/">
+							When Are My Reports Due?</a></li>
+						<li role="menuitem"><a tabindex="-1"
+							href="/filinginfo/NTF/Notice.php">
+							Notices</a></li>
+						<li role="menuitem" class="dropdown-submenu">
+						  <a  class="test" tabindex="-1" role="resource-category-faq" 
+							href="#">TEC Filers<span class="caret"></span></a>
+							<!--<ul role="menu" class="dropdown-menu">-->
+							<ul class="subM" role="menu"  id="tecDropDn">
+								<li role="menuitem"><a href="/filinginfo/TECindex.php">
+								Campaign Finance Reports</a></li>
+								<li role="menuitem"><a href="/filinginfo/lobby">
+								Lobby Reports </a></li>
+								<li role="menuitem"><a href="/filinginfo/pfs">
+								Personal Financial Statement Reports</a></li>
+								<li role="menuitem"><a href="/filinginfo/QuickFileAReport.php#cor">
+								Corrected Reports</a></li>
+								<li role="menuitem"><a href="/filinginfo/other/spkindex.php">
+								Speaker  Reports</a></li>
+								<li role="menuitem"><a href="/filinginfo/other/legindex.php">
+								Legislative Caucus Reports</a></li>
+							</ul>
+						</li>
+						<li role="menuitem" class="dropdown-submenu">
+						  <a  class="test" tabindex="-1" role="resource-category-faq" 
+							href="#">Local Filers<span class="caret"></span></a>
+							<!--<ul role="menu" class="dropdown-menu">-->
+							<ul class="subM" role="menu"  id="localDropDn">
+								<li role="menuitem"><a href="/filinginfo/LOCALindex.php">
+									Campaign Finance Reports</a></li>
+								<li role="menuitem"><a href="/filinginfo/local/PFSindex.php">
+									Personal Financial Statement Reports</a></li>
+								<li role="menuitem"><a href="/filinginfo/PaperCorr.php">
+									Corrected Reports</a></li>
+							</ul>
+						</li>
+						<li role="mneuitem"><a href="/filinginfo/1295">
+							1295 Filers: Certificates of Interested Parties</a></li>
+						<li role="mneuitem"><a href="/filinginfo/rfac.php">
+							Report of Foreign Adversary Contact</a></li>
+					</ul>
+				</li>
+				
+				<li role="menuitem" class="dropdown">
+					<a class="dropdown-toggle" 
+					data-toggle="dropdown" href="#">Training
+						<span class="caret"></span></a>
+					<ul  role="menu" class="dropdown-menu">
+						<li role="menuitem"><a href="/training/index.php#exe">
+							Executive Branch Online Training</a></li>
+						<li role="menuitem"><a href="/training/index.php#leg">
+							Legislative Branch Online Training</a></li>						
+						<li role="menuitem"><a href="/training/index.php#public">
+							Public Education Symposiums</a></li>
+						<li role="menuitem"><a href="/training/index.php#online">
+							Online Training For Filers</a></li>
+						<li role="menuitem"><a href="/training/index.php#lfa">
+							Local Filing Authorities</a></li>	
+					</ul>
+				</li>
+
+				<li role="menuitem" class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						Forms/Instructions
+						<span class="caret"></span>
+					</a>
+					<ul  role="menu" role="forms-instructions" class="dropdown-menu">
+						<li role="menuitem"><a href="/forms/COHindex.php">
+							Candidate/Officeholder</a></li>	
+						<li role="menuitem"><a href="/forms/PACindex.php">
+							Political Committee</a></li>
+						<li role="menuitem"><a href="/forms/PTYindex.php">
+							Political Party</a></li>
+						<li role="menuitem"><a href="/forms/dce/dceINDfrm.php">
+							Individuals/Entities Direct Campaign Expenditure</a></li>
+						<li role="menuitem"><a href="/forms/other/legfrm.php">
+							Legislative Caucus</a></li>
+						<li role="menuitem"><a href="/forms/other/spkfrm.php">
+							Speaker</a></li>
+						<li role="menuitem"><a href="/forms/PFSindex.php">
+							Personal Financial Statement</a></li>
+						<li role="menuitem"><a href="/forms/lobby/">
+							Lobbyist</a></li>
+						<li role="menuitem"><a href="/forms/TREASindex.php">
+							Treasurer Appointment</a></li>
+						<li role="menuitem"><a href="/forms/security/">
+							Security</a></li>						
+						<li role="menuitem"><a href="/forms/affd/affs.php">
+							Affidavit</a></li>
+						<li role="menuitem"><a href="/forms/conflict/">
+							Conflict Of Interest</a></li>
+						<li role="menuitem"><a href="/enforcement/index.php#sworn_collapse3">
+							Sworn Complaint</a></li>
+						<li role="menuitem"><a href="/forms/other/">
+							Other</a></li>
+					</ul>
+				</li>
+				
+				<li role="menuitem" class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						Search
+						<span class="caret"></span>
+					</a>
+					<ul  role="menu" class="dropdown-menu">
+					
+						<li role="menuitem"><a href="/search/cf">
+						Campaign Finance Reports</a></li>
+						<li role="menuitem"><a href="/search/lobby">
+						Lobby Registrations/ActivityReports</a></li>
+						<li role="menuitem"><a href="/opinions/#search">
+						TEC Opinions</a></li>
+						<li role="menuitem"><a href="/search/1295/">
+						1295 Acknowledged Certificates</a></li>
+						<li role="menuitem"><a href="/enforcement/index.php#sworn_collapse4">
+						Sworn Complaints</a></li>
+						<li role="menuitem"><a href="/enforcement/index.php#del_accordion2">
+						Delinquent Filers</a></li>
+					</ul>
+				</li>
+				
+				<li role="menuitem"><a href="/">Home</a></li>
+			</ul>
+		</div>
+		<script>
+$(document).ready(function(){
+  var openedSubMenu = "";		//The id of an Opened Sub Menu
+
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+	
+	//Define opened Sub Menu id
+	if(openedSubMenu == "")
+		openedSubMenu = $(this).next('ul').attr("id");
+	
+	//Clear opened Sub Menu if the opened on is closed
+	else if(openedSubMenu == $(this).next('ul').attr("id"))
+		openedSubMenu = "";
+		
+	//Close the opened Sub Menu and Define the new one
+	else{
+		$('#'+openedSubMenu).toggle();
+		openedSubMenu = $(this).next('ul').attr("id");
+	}
+  });
+  
+  //Clear the open Sub Menus when clicked away
+  $(window).click(function() {
+	if(openedSubMenu != ""){
+		$('#'+openedSubMenu).toggle();
+		openedSubMenu = "";
+	}
+  });
+});
+</script>
+	</nav><!--=== END NAVBAR ===-->
+</div>
+<!--=== CAROUSEL ===-->
+<!--data-ride prevents pausing?<div id="myCarousel" class="carousel slide" >-->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="slides" style="background-color:#36758D">
+            <!--<li class="item active">
+              <img class="carouselImg" src="/assets/images/HaugCeilingCropped.jpg" alt="Representatives Chamber">
+    
+            </li>-->
+            <li class="item active">
+              <img class="carouselImg" src="/assets/images/HaugClockCropped.jpg" alt="Clock">
+                <div class="carousel-caption">
+                    <!-- Use these next two lines to point to the meeting page prior to the meeting being posted -->
+                    <!--<p> <a style="color:white; text-shadow: 2px 5px 5px #000000; font-size:26px; font-family:arial black;font-weight:bold;" 
+                        href="/data/filinginfo/deadlines/2025/January2025ReportDue.pdf">Semiannual Report Due January 15, 2025</a></p>-->
+                    <!-- Use these next two lines to point to the meeting page when the meeting is posted -->
+
+                    <p> <a style="color:white; text-shadow: 2px 5px 5px #000000; font-size:26px; font-family:arial black;font-weight:bold;" 
+                        href="/meetings/index.php">Next Commission Meeting: September 23, 2026</a></p>
+					
+					<!--<p> <a style="color:white; text-shadow: 2px 5px 5px #000000; font-size:26px; font-family:arial black;font-weight:bold;" 
+                        href="/meetings/meetings_2025-2029.php#2026">Next Commission Meeting: February 11, 2026</a></p>	-->
+						
+					<!--<p> <a style="color:white; text-shadow: 2px 5px 5px #000000; font-size:26px; font-family:arial black;font-weight:bold;" 
+                        href="/meetings/indexBW.php">Next Commission Meeting: February 11, 2026</a></p>-->
+						
+                    <!-- <p> <a style="color:white; text-shadow: 2px 5px 5px #000000; font-size:26px; font-family:arial black;font-weight:bold;" 
+                        href="/training/indexBW3.php#public">
+                            Filing your first campaign finance report Recording</a></p> -->
+                </div>
+            </li>
+            <li class="item">
+              <img class="carouselImg" src="/assets/images/HaugStairsCropped.jpg" alt="Capitol Stairs">
+                  <div class="carousel-caption">
+                    <!--<p style="color:white;text-shadow:1px 3px 5px black; font-size:26px; 
+                    font-family:arial black;font-weight:bold">
+                        TEC is operating by:
+                        <br />Phone: 512-463-5800<br />
+                        <a style="text-decoration: underline; color: white" href="mailto:reception@ethics.state.tx.us">Email: reception@ethics.state.tx.us</a>
+                    </p>-->
+                    <!--<p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px; 
+                        font-family:arial black;font-weight:bold; text-decoration: underline" 
+                        href="mailto:reception@ethics.state.tx.us">TEC is primarily operating by email: reception@ethics.state.tx.us</a>
+                    </p>-->
+                    <!--<p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px; 
+                        font-family:arial black;font-weight:bold; text-decoration: underline" 
+                        href="/about/index.php#jobs">TEC Employment Opportunities</a>
+                    </p>-->
+                <!--    <p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px; 
+                        font-family:arial black;font-weight:bold; text-decoration: underline" 
+                        href="/data/training/2023 Texas Ethics Commission Legislature Training Agenda.pdf">Legislature Training TBD</a>
+                    </p>
+                -->
+		<!--
+                	<p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px; 
+                        font-family:arial black;font-weight:bold; text-decoration: underline" 
+                        href="/data/filinginfo/deadlines/2023/88thLegislativeSpecialSession-1stCalled.pdf">Special Session #1 - No report required</a>
+			<br />
+                	<p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px; 
+                        font-family:arial black;font-weight:bold; text-decoration: underline" 
+			href="/data/filinginfo/deadlines/2023/88thLegislativeSpecialSession-2ndCalled.pdf">Special Session #2 Report Due Aug 14</a>
+			<br />
+                	<p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px; 
+                        font-family:arial black;font-weight:bold; text-decoration: underline" 
+			href="/data/filinginfo/deadlines/2023/88thLegislativeSpecialSession-3rdCalled.pdf">Special Session #3 Report Due Dec 7</a>
+			<br />
+                	<p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px; 
+                        font-family:arial black;font-weight:bold; text-decoration: underline" 
+			href="/data/filinginfo/deadlines/2024/88thLegislativeSpecialSession-4thCalled.pdf">Special Session #4 Report Due Jan 4</a>
+                -->
+        <!--            <p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px;
+                        font-family:arial black;font-weight:bold; text-decoration: underline"
+                        href="/data/filinginfo/deadlines/2024/Nov2024GeneralElection.pdf">Reports Due Before Nov 5 General Election</a>
+			<br />
+                        <a style="color:white;text-shadow:1px 3px 5px black; font-size:26px;
+                        font-family:arial black;font-weight:bold; text-decoration: underline"
+                        href="/data/filinginfo/deadlines/2024/Nov2024SE-HD56.pdf">Reports Due Before Nov 5 Special Election HD-56</a>
+                    </p>
+        -->
+                    <p style="color:white;text-shadow:1px 3px 5px black; font-size:26px;
+                        font-family:arial black;font-weight:bold">
+                        <a style="color:white;" href="/filinginfo/rfac.php">New Form RFAC <br />(Report of Foreign Adversary Contact) available</a>
+                    </p>
+                	
+                </div>
+            </li>
+    
+            <li class="item">
+              <img src="/assets/images/HaugDomeCropped.jpg" alt="Capitol Dome">
+              <div class="carousel-caption">
+             <!-- <p> <a style="color:black;text-shadow:2px 2px #cca222;font-size:28px;-->
+              <!--<p> <a style="color:white;text-shadow:2px 2px #1D5C74;font-size:28px;
+              font-family:arial black;font-weight:bold" 
+                href="/filinginfo/schedules/filing_schedules.php">
+                Find Your Filing Schedule</a></p>-->
+                <p style="color:white;text-shadow:2px 2px #1D5C74;font-size:28px;
+                    font-family:arial black;font-weight:bold">
+
+		        <p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px;
+                        font-family:arial black;font-weight:bold; text-decoration: underline"
+            href="/data/filinginfo/deadlines/2026/July2026ReportDue.pdf">Semiannual Report due July 15</a>
+			<!--href="/data/filinginfo/deadlines/2026/May2026PrimaryRunoffElection.pdf">Reports due before May 26 Primary Runoff</a>-->
+                        <!--href="/data/filinginfo/deadlines/2026/ReportsDue_SD4.pdf">Reports due before May 2 SD4 Special Election</a>-->
+                        </p>
+
+
+<!--
+                         <p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px;
+                        font-family:arial black;font-weight:bold; text-decoration: underline"
+                        href="/data/filinginfo/deadlines/2026/March2026PrimaryElection.pdf">Reports due before Mar 3 Primary Election</a>
+                        </p>
+                       
+			 <p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px;
+                        font-family:arial black;font-weight:bold; text-decoration: underline"
+                        href="/data/filinginfo/deadlines/2026/January2026SROE-SD9.pdf">Reports due before Jan 31 SD9 Runoff Election</a>
+                        </p>
+
+			 <p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px;
+                        font-family:arial black;font-weight:bold; text-decoration: underline"
+                        href="/data/filinginfo/deadlines/2026/January2026ReportDue.pdf">Semiannual Report Due January 15</a>
+                        </p>
+-->			
+			<!-- <p><a style="color:white;text-shadow:1px 3px 5px black; font-size:26px;
+                        font-family:arial black;font-weight:bold; text-decoration: underline"
+                        href="/data/filinginfo/NTF/2025/2026LobbyRegistration.pdf">2026 Lobby Registration Opens Dec 1</a>
+                        </p> -->
+                        <!--<a style="color:white;" href="/data/filinginfo/NTF/2024/2025LobbyRegistration.pdf">2025 Lobby Registration begins Dec 1</a></p>-->
+			<!--<a style="color:white;" href="/data/filinginfo/deadlines/2025/PFS_Deadline_and_Extension-Annual2025.pdf">Annual PFS due April 30</a></p>-->
+			<!--
+                	<a style="color:white;" href="/data/filinginfo/deadlines/2024/March2024PrimaryElection.pdf">Reports due before Mar 5 Primary Election</a>
+			<br />
+                        <a style="color:white;" href="/data/filinginfo/deadlines/2024/January2024ReportDue.pdf">Semiannual due January 16</a>
+                        </p>
+			-->
+			<!--<a style="color:white;" href="/data/filinginfo/deadlines/2024/January2024SROE-HD2.pdf">Reports due before Jan 30 Special Runoff Election for HD 2</a></p>-->
+                        <!--
+                        <a style="color:white;" href="/data/filinginfo/deadlines/2022/November2022GeneralElection.pdf">Reports due before Nov 8 General Election</a>
+                                    <br/><a style="color:white;" href="/data/filinginfo/deadlines/2022/September2022-50DayPTYC.pdf">PTYCORP Moratorium and 50-Day Report due Sept 19</a>
+                        -->
+                        <!--
+                        <a style="color:white;" href="/data/filinginfo/deadlines/2021/February2021SROE-HD68.pdf">Reports due before Feb 23 Special Runoff Election for HD 68</a></p>
+                        <a style="color:white;" href="/data/filinginfo/deadlines/2022/May2022PrimaryRunoffElection.pdf">Reports due before May 24 Primary Runoff</a><br/>
+                        <a style="color:white;" href="/data/filinginfo/deadlines/2022/May2022SE-HD147.pdf">Reports due before May 7 Special Election for HD 147</a>
+                        -->
+                        <!--	
+                        <a style="color:white;" href="/filinginfo/schedules/filing_schedules.php">Find Your Filing Schedule</a></p>
+                        -->
+                        <!--
+                        TEC website and filing apps will be down<br />
+                        Sunday Aug 9 8AM-NOON<br />
+                        for DIR network maintenance.
+                        -->
+                        <!--<a style="color:white;" href="/data/filinginfo/deadlines/2022/PFS_Deadline_and_Extension-AnnualMay2022.pdf">Annual PFS due May 2</a><br/>-->
+                        <!--
+                        <a style="color:white;" href="/data/filinginfo/deadlines/2021/July2021ReportDue.pdf">Semiannual due July 15</a></p>
+                        -->
+                                    <!--
+                        <a style="color:white;" href="/data/filinginfo/deadlines/2021/87thLegislativeSpecialSession-3rdCalled.pdf">Special Session Report due Nov 18</a><br />
+                        <a style="color:white;" href="/data/filinginfo/deadlines/2021/87thLegislativeSpecialSession-2ndCalled.pdf">Special Session Report due Oct 4</a><br />
+                        <a style="color:white;" href="/data/filinginfo/deadlines/2021/87thLegislativeSpecialSession-1stCalled.pdf">Special Session Report due Sept 7</a></p>
+                                    -->
+                        <!--<a style="color:white;" href="/">TEC website and filing system unavailable from Noon Nov 24 through Noon Nov 26</a><br />-->
+                <!--<a style="color:white;" href="/data/filinginfo/deadlines/2022/March2022PrimaryElection.pdf">Reports due before Mar 1 Primary Election</a>--><!--<br />-->
+                        <!--<a style="color:white;" href="/data/filinginfo/deadlines/2022/July2022ReportDue.pdf">January Semiannual due January 18</a>-->
+                </p>
+              </div>
+            </li>
+        </div>
+    
+          <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only" style="color:#565656">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only" style="color:#565656">Next</span>
+        </a>
+        
+        <div id="carouselButtons">
+            <button id="playButton" type="button" class="btn btn-default btn-xs btnIcon">
+                <span class="glyphicon glyphicon-play"></span>Play
+            </button>
+            <button id="pauseButton" type="button" class="btn btn-default btn-xs btnIcon">
+                <span class="glyphicon glyphicon-pause"></span>Pause
+            </button>
+        </div>
+    
+    </div>
+    
+    <style>
+        /*Carousel Image*/
+        .carouselImg {
+            /*width: 100%;*/
+            /*height: 244px;*/
+            pointer-events: none;
+        }
+        
+        /*Play and Pause Div*/
+        #carouselButtons {
+            margin-left: 125px;
+            text-align: center;
+            position: absolute;
+            bottom: 10px;
+            /*z-index: 9999;*/
+        }
+        #carouselButtons:hover {
+            opacity: 1;
+        }
+        
+        /*Play and Pause Button Icons*/
+        .btnIcon {
+            color: #36758D;
+        }
+        
+        /*Play and Pause Buttons*/
+        #playButton, #pauseButton{
+            border: 1px solid #36758D;
+            width: 60px;
+            height: 30px;
+            background-color: white;
+        }
+    </style>
+    
+    <script>
+        $(function () {
+            $('#myCarousel').carousel({
+                interval:5000,
+                pause: "false"
+            });
+            $('#playButton').click(function () {
+                $('#myCarousel').carousel('cycle');
+                console.log("Played");
+            });
+            $('#pauseButton').click(function () {
+                $('#myCarousel').carousel('pause');
+                console.log("Paused");
+            });
+        });
+    </script>
+    <!--=== END CAROUSEL ===-->
+    
+</header><!--WCAG no  tags-->	
+	<!--=== BODY CONTENT ===-->
+	<div id="content">
+	  <div class="divheader">
+			<h1>Search Campaign Finance Reports</h1>
+	  </div>
+	  <br/>
+		
+	 <div class="container">
+	   <div class="row">
+		  <div class="col-sm-4">
+			<ul class="nav nav-pills nav-stacked nav-caret">
+				<li class="active"><a class="nav-toggle" href="#" data-toggle="tab" data-target="#search">
+					Custom Search of Campaign Finance Reports </a></li>
+				<li><a class="nav-toggle" href="#" data-toggle="tab" data-target="#db">
+					Database of Campaign Finance Reports </a></li>				
+				<li><a class="nav-toggle" href="#" data-toggle="tab" data-target="#cande">
+					Political Contribution and Expenditure Totals</a></li>
+				<li><a class="nav-toggle" href="#" data-toggle="tab" data-target="#cash">
+					Total Contributions Maintained as of the Last Day of the Reporting Period</a></li>
+				<li><a class="nav-toggle" href="#" data-toggle="tab" data-target="#lists">
+					Active Campaign Filer Lists</a></li>
+				<li><a class="nav-toggle" href="#" data-toggle="tab" data-target="#dce">
+					Direct Campaign Expenditure (DCE) Reports</a></li>					
+				<li><a class="nav-toggle" href="#" data-toggle="tab" data-target="#gov">
+					Governor For A Day & Speaker's Reunion Day Reports</a></li>
+				<li><a href="/filinginfo/local/LocalAuthorityLinks.php">
+					Reports Filed With Local Authorities</a></li>
+		 </ul>
+	   </div>
+	   <div class="col-sm-8 content-area">
+		<div class="tab-content" id="ContentArea">
+			<div class="tab-pane fade reportContent in active" id="search">
+				<h2>Custom Search of Campaign Finance Reports</h2>
+            <!-- <p style="color:red;text-align:center"><strong>Custom Search Is Down For Maintance Today, 7/18/2019</strong></p>-->
+				<p>Only reports filed with TEC are available on our website. To access 
+					reports filed by local filers, please contact the local filing authority 
+					for that filer.</p>
+				<p><strong>Note:</strong>
+                    Reports filed by judicial canidates and officeholders are available  online going back to 2016.  
+                    Earlier reports are available by request to <a href="mailto:openrecords@ethics.state.tx.us">openrecords@ethics.state.tx.us</a>. </p>
+                <p>Required custom search fields are identified in red. 
+					Searches work best with Chrome or Firefox browser and popups must be enabled.</p>
+				<hr/>
+				<div class="panel-group" id="search_accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="#search_accordion" href="#search_accordion0">
+							CSV Record Layouts</a>
+						  </h2>
+						</div>		
+						<div id="search_accordion0" class="panel-collapse collapse">
+						  <ul>
+							<a href="/data/search/cf/CampaignFinanceCSVFileFormat.pdf">
+								Explanation of the CSV Record Layout of New Reports (1000000+)</a><br/>
+							<a href="/data/search/cf/TX_ERF13_7.pdf">
+								Explanation of the CSV Record Layout of Older Reports (342-660600)</a>
+						  </ul>
+						</div>
+					</div>
+					<br/>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title"><a href="/search/cf/SimpleSearch.php">
+							Simple Searches Returning Full Report(s) and/or Stats</a>
+						  </h2>
+						</div>
+					</div>
+					<br/>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title"><a href="/search/cf/AdvancedSearch.php">
+							Advanced Searches Returning Individual Transaction(s)</a>
+						  </h2>
+						</div>
+					</div>
+				</div>
+			</div>					
+			
+			<div class="tab-pane fade reportContent" id="db">
+				<h2>Database of  Campaign Finance Reports</h2>
+				<hr/>
+				<div class="panel-group" id="db_accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="#db_accordion" href="#db_accordion0">
+							CSV Record Layouts</a>
+						  </h2>
+
+						</div>		
+						<div id="db_accordion0" class="panel-collapse collapse">
+						  <ul>
+							<a href="/data/search/cf/CFS-ReadMe.txt">
+								CSV Record Layout Definition of Database Records</a>
+                            <br>
+                            <a href="/data/search/cf/CFS-Codes.txt">
+                                Explanation of Codes used in Database Records</a>
+						  </ul>
+						</div>
+					</div>
+					<br/>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+
+                          <h2 class="panel-title">
+                            <!--<em>Currently Unavailable</em>-->
+                            <a href="https://prd.tecprd.ethicsefile.com/public/cf/public/TEC_CF_CSV.zip">
+								Campaign Finance CSV Database (As of 08/25/2026)</a>
+                          </h2>
+                          
+
+<!--						  <h2 class="panel-title"><a href="/data/search/cf/TEC_CF_CSV.zip">
+								Campaign Finance CSV Database (As of 11/11/2019)</a>
+						  </h2>
+-->
+						</div>
+					</div>
+				</div>
+			</div>	
+			
+			<div class="tab-pane fade reportContent" id="cande">
+				<h2>Political Contribution and Expenditure Totals </h2>
+				<p>The total political contributions and expenditures, as reported by candidates, 
+				officeholders, and political committees, are listed below. These totals can be found 
+				on the report cover sheet page 2 boxes 2 and 4 respectively.</p>
+				<p>Most individuals or entities filing campaign finance reports with the Texas 
+				Ethics Commission (TEC) are required to file reports electronically unless the 
+				individual or entity is eligible to claim a statutory exemption.  See 
+				<a href="/filinginfo/elf_filing_who.php"><em>Who Has To File Electronically?</em></a> 
+				for statutory exemption information.</p>
+				<p>All reports filed on paper after July 2010 can be viewed in PDF format. However, only the 
+				<strong>total amounts</strong> are viewable for paper-filed reports filed previous 
+				to 2010.</p>
+				<hr/>
+				  <table class="years"> 
+					
+					<tr class="years">
+						<td class="yearstd"><a href="/search/cf/cANDelists2026-2022.php#2026">2026</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2026-2022.php#2025">2025</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2026-2022.php#2024">2024</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2026-2022.php#2023">2023</a></td>
+			            <td class="yearstd"><a href="/search/cf/cANDelists2026-2022.php#2022">2022</a></td>
+					</tr>
+					<tr class="years">
+						<td class="yearstd"><a href="/search/cf/cANDelists2021-2016.php#2021">2021</a></td>
+                        <td class="yearstd"><a href="/search/cf/cANDelists2021-2016.php#2020">2020</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2021-2016.php#2019">2019</a></td>	
+						<td class="yearstd"><a href="/search/cf/cANDelists2021-2016.php#2018">2018</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2021-2016.php#2017">2017</a></td>
+														  
+					</tr>
+					<tr class="years">	
+						<td class="yearstd"><a href="/search/cf/cANDelists2021-2016.php#2016">2016</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2015-2011.php#2015">2015</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2015-2011.php#2014">2014</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2015-2011.php#2013">2013</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2015-2011.php#2012">2012</a></td>
+														  
+					</tr>
+					<tr class="years">
+						<td class="yearstd"><a href="/search/cf/cANDelists2015-2011.php#2011">2011</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2010-2006.php#2010">2010</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2010-2006.php#2009">2009</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2010-2006.php#2008">2008</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2010-2006.php#2007">2007</a></td>
+														  
+					</tr>
+					<tr class="years">
+						<td class="yearstd"><a href="/search/cf/cANDelists2010-2006.php#2006">2006</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2005-2001.php#2005">2005</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2005-2001.php#2004">2004</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2005-2001.php#2003">2003</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2005-2001.php#2002">2002</a></td>
+														  
+					</tr>
+					<tr class="years">
+						<td class="yearstd"><a href="/search/cf/cANDelists2005-2001.php#2001">2001</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2000-1996.php#2000">2000</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2000-1996.php#1999">1999</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2000-1996.php#1998">1998</a></td>
+						<td class="yearstd"><a href="/search/cf/cANDelists2000-1996.php#1997">1997</a></td>
+														  
+					</tr>
+					<tr class="years">
+						<td class="yearstd"><a href="/search/cf/cANDelists2000-1996.php#1996">1996</a></td>
+					</tr>
+				  </table>
+			</div>
+			
+			<div class="tab-pane fade reportContent" id="cash">
+				<h2>Total Contributions Maintained as of the Last Day of the Reporting Period</h2>
+				<p>Total Contributions Maintained as of the last day of the reporting period is also referred  
+					to as cash on hand.  This total can be found on cover sheet page 2  box 5 of the report.</p>
+				<hr/>
+				<div class="panel-group" id="cash_accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="#cash_accordion" href="#cash_accordion0">
+							PAC Monthly Reports</a>
+						  </h2>
+						</div>
+						<div id="cash_accordion0" class="panel-collapse collapse">
+							<p>Monthly PAC reports are due by the 5<span class="ordinal">th</span> of each month. A monthly 
+							report covers a period beginning the 26<span class="ordinal">th</span> day of one month (except 
+							for the first monthly report) and ending on the 25<span class="ordinal">th</span> day of the 
+							next month. The report for that period is due by the 5<span class="ordinal">th</span> day of the 
+							month after the month in which the reporting period ends. See <a href="/data/resources/guides/pac_guide.pdf">
+							<em>When To File Monthly Reports</em></a> for examples and information. Monthly reports must 
+							be filed regardless of whether the political committee accepted any contributions or expenditures 
+							during the reporting period.</p>
+							  <table class="years">
+							    <tr class="years">
+								
+								<td class="yearstd"><a href=	"/search/cf/PAC_CashOnHand2026-2022.php#2026">2026</a>
+								</td>
+								<td class="yearstd"><a href= 	"/search/cf/PAC_CashOnHand2026-2022.php#2025">2025</a>
+								</td>
+								<td class="yearstd"><a href= 	"/search/cf/PAC_CashOnHand2026-2022.php#2024">2024</a>
+								</td>
+								<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2026-2022.php#2023">2023</a></td>
+								<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2026-2022.php#2022">2022</a></td>
+								</tr>
+								<tr class="years">
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2021-2016.php#2021">2021</a></td>
+                                    <td class="yearstd"><a href="/search/cf/PAC_CashOnHand2021-2016.php#2020">2020</a></td>
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2021-2016.php#2019">2019</a></td>	
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2021-2016.php#2018">2018</a></td>
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2021-2016.php#2017">2017</a></td>
+																				  
+								</tr>
+								<tr class="years">
+								    <td class="yearstd"><a href="/search/cf/PAC_CashOnHand2021-2016.php#2016">2016</a></td>
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2015-2011.php#2015">2015</a></td>
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2015-2011.php#2014">2014</a></td>
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2015-2011.php#2013">2013</a></td>
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2015-2011.php#2012">2012</a></td>
+																			  
+								</tr>
+								<tr class="years">
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2015-2011.php#2011">2011</a></td>
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2010-2007.php#2010">2010</a></td>
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2010-2007.php#2009">2009</a></td>
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2010-2007.php#2008">2008</a></td>
+									<td class="yearstd"><a href="/search/cf/PAC_CashOnHand2010-2007.php#2007">2007</a></td>
+									<td class="yearstd"></td>									  
+								</tr>
+							  </table>
+						</div>
+					</div>
+					<br/>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="#cash_accordion" href="#cash_accordion1">
+							Pre-Election Reports</a>
+						  </h2>
+						</div>
+						<div id="cash_accordion1" class="panel-collapse collapse">
+							<p>A candidate who did not select modified reporting and is opposed in an upcoming 
+							election must file reports of contributions and expenditures by the 
+							30<span class="ordinal">th</span> day and the 8<span class="ordinal">th</span> day 
+							before an election. Election data is captured only for general and 
+							primary elections. Data is sorted by name unless followed by <span style="color:red">*</span>  
+							which has the data sorted by amount. Consult the <a href="/resources/guides">Campaign 
+							Finance Guides</a> for more information 
+							regarding this requirement. </p>
+						
+							<table class="years">
+								<tr class="years" style="background-color:#bfbfbf">
+									<th class="yearstd">Election Type</th>
+									<th class="yearstd">8 Days Before</th>
+									<th class="yearstd">30 Days Before</th>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">Primary, 2026</td>
+									<td class="yearstd"><a href="/search/cf/2026/CashOnHand_8BFEB26_Prod.html">
+									Due 02/23/2026</a></td>
+									<td class="yearstd"><a href="/search/cf/2026/CashOnHand_30BFEB26_Prod.html">
+									Due 02/02/2026</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">General, 2024</td>
+									<td class="yearstd"><a href="/search/cf/2024/CashOnHand_8BOCT24_Prod.html">
+									Due 10/28/2024</a></td>
+									<td class="yearstd"><a href="/search/cf/2024/CashOnHand_30BOCT24_Prod.html">
+									Due 10/07/2024</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">Primary, 2024</td>
+									<td class="yearstd"><a href="/search/cf/2024/CashOnHand_8BFEB24_Prod.html">
+									Due 02/26/2024</a></td>
+									<td class="yearstd"><a href="/search/cf/2024/CashOnHand_30BFEB24_Prod.html">
+									Due 02/05/2024</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">General, 2022</td>
+									<td class="yearstd"><a href="/search/cf/2022/CashOnHand_8BOct22.html">
+									Due 10/31/2022</a></td>
+									<td class="yearstd"><a href="/search/cf/2022/CashOnHand_30BOct22.html">
+									Due 10/11/2022</a></td>
+								</tr>
+                                <tr class="years">
+									<td style="font-weight:bold">Primary, 2022</td>
+									<td class="yearstd"><a href="/search/cf/2022/CashOnHand_8BFeb22.html">
+									Due 02/22/2022</a></td>
+									<td class="yearstd"><a href="/search/cf/2022/CashOnHand_30BJan22.html">
+									Due 01/31/2022</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">General, 2020</td>								
+									<td class="yearstd"><a href="/search/cf/2020/CashOnHand_8BOct20.html">
+									Due 10/26/2020</a></td>
+									<td class="yearstd"><a href="/search/cf/2020/CashOnHand_30BOct20.html">
+									Due 10/05/2020</a></td>
+								</tr>
+                                				<tr class="years">
+									<td style="font-weight:bold">Primary, 2020</td>
+									<td class="yearstd"><a href="/search/cf/2020/CashOnHand_8BFeb2020.html">
+									Due 02/24/2020</a></td>
+									<td class="yearstd"><a href="/search/cf/2020/CashOnHand_30BFeb20.html">
+									Due 02/03/2020</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">General, 2018</td>								
+									<td class="yearstd"><a href="/search/cf/2018/CashOnHand_8B_Oct18.html">
+									Due 10/29/2018</a></td>
+									<td class="yearstd"><a href="/search/cf/2018/CashOnHand_30BOct18.html">
+									Due 10/09/2018</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">Primary, 2018</td>
+									<td class="yearstd"><a href="/search/cf/2018/CashOnHand_8B_Feb2018.html">
+									Due 02/26/2018</a></td>
+									<td class="yearstd"><a href="/search/cf/2018/CashOnHand_30B_Feb2018.html">
+									Due 02/05/2018</a></td>
+								</tr>
+								
+								<tr class="years">
+									<td style="font-weight:bold">General, 2016</td>
+									<td class="yearstd"><a href="/search/cf/2016/CashOnHand_8B_Oct16.html">
+									Due 10/31/2016</a></td>
+									<td class="yearstd"><a href="/search/cf/2016/CashOnHand30B_Oct16.html">
+									Due 10/11/2016</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">Primary, 2016</td>
+									<td class="yearstd"><a href="/search/cf/2016/CashOnHand_8B_Feb2016.html">
+									Due 02/22/2016</a>    
+									<a href="/data/search/cf/2016/CashOnHandByAmt_8B_Feb2016.pdf" style="color:red">
+									* </a></td>
+									<td class="yearstd"><a href="/search/cf/2016/CashOnHand_30B_Feb2016.html">
+									Due 02/01/2016</a>   
+									<a href="/data/search/cf/2016/CashOnHandByAmt_30B_Feb2016.pdf" style="color:red">
+									* </a></td>
+								</tr>
+								
+								<tr class="years">
+									<td style="font-weight:bold">General, 2014</td>
+									<td class="yearstd"><a href="/search/cf/2014/CashOnHand_8B_Oct27.html">
+									Due 10/27/2014</a></td>
+									<td class="yearstd"><a href="/search/cf/2014/CashOnHand_30B_Oct06.html">
+									Due 10/06/2014</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">Primary, 2014</td>
+									<td class="yearstd"><a href="/search/cf/2014/CashOnHand8B.html">
+									Due 02/24/2014</a></td>
+									<td class="yearstd"><a href="/search/cf/2014/CashOnHand30B.html">
+									Due 02/03/2014</a></td>
+								</tr>
+								
+								<tr class="years">
+									<td style="font-weight:bold">General, 2012</td>
+									<td class="yearstd"><a href="/search/cf/2012/CashOnHand_8B_Oct12.html">
+									Due 10/29/2012</a></td>
+									<td class="yearstd"><a href="/search/cf/2012/CashOnHand30B_Oct12.html">
+									Due 10/09/2012</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">Primary, 2012</td>
+									<td class="yearstd"><a href="/search/cf/2012/CashOnHand_8B_May12.html">
+									Due 05/21/2012</a></td>
+									<td class="yearstd"><a href="/search/cf/2012/CashOnHand_30B_Apr12.html">
+									Due 04/30/2012</a></td>
+								</tr>
+								
+								<tr class="years">
+									<td style="font-weight:bold">General, 2010</td>
+									<td class="yearstd"><a href="/search/cf/2010/CashOnHand_8B_Oct10.html">
+									Due 10/25/2010</a></td>
+									<td class="yearstd"><a href="/search/cf/2010/CashOnHand_30B_Oct10.html">
+									Due 10/04/2010</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">Primary, 2010</td>
+									<td class="yearstd"><a href="/search/cf/2010/CashOnHand_8B_Mar10.html">
+									Due 02/22/2010</a></td>
+									<td class="yearstd"><a href="/search/cf/2010/CashOnHand_30B_Mar10.html">
+									Due 02/01/2010</a></td>
+								</tr>
+								
+								<tr class="years">
+									<td style="font-weight:bold">General, 2008</td>
+									<td class="yearstd"><a href="/search/cf/2008/CashOnHand_8B_Oct08.html">
+									Due 10/27/2008</a></td>
+									<td class="yearstd"><a href="/search/cf/2008/CashOnHand_30B_Oct08.html">
+									Due 10/06/2008</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">Primary, 2008</td>
+									<td class="yearstd"><a href="/search/cf/2008/CashOnHand_8B_Feb08.html">
+									Due 02/25/2008</a></td>
+									<td class="yearstd"><a href="/search/cf/2008/CashOnHand_30B_Feb08.html">
+									Due 02/04/2008</a></td>
+								</tr>
+								
+								<tr class="years">
+									<td style="font-weight:bold">General, 2006</td>
+									<td class="yearstd"><a href="/search/cf/2006/CashOnHand_8BG.html">
+									Due 10/30/2006</a></td>
+									<td class="yearstd"><a href="/search/cf/2006/CashOnHand_30BG.html">
+									Due 10/10/2006</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">Primary, 2006</td>
+									<td class="yearstd"><a href="/search/cf/2006/CashOnHand_8BP.html">
+									Due 02/27/2006</a></td>
+									<td class="yearstd"><a href="/search/cf/2006/CashOnHand_30BP.html">
+									Due 02/06/2006</a></td>
+								</tr>
+						   </table>
+							<!--</div>-->
+						</div>
+					</div>
+					<br/>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+						  <a data-toggle="collapse" data-parent="#cash_accordion" href="#cash_accordion2">
+							Semi-Annual Reports</a>
+						  </h2>
+						</div>
+						<div id="cash_accordion2" class="panel-collapse collapse">
+							<p>Candidate and Officeholders with treasurer appointments on 
+							file must file reports of contributions and expenditures twice a 
+							year in January and July   regardless of whether they accepted
+							 contributions or expenditures during the filing period.</p>
+							<table class="years">
+								<tr class="years">
+									<th class="yearstd">Year</th>
+									<th class="yearstd">January Reports</th>
+									<th class="yearstd">July Reports</th>
+								</tr>								<tr class="years">
+									<td style="font-weight:bold">2026</td>
+									<td class="yearstd"><a href="/search/cf/2026/CashOnHand_JanSA26.html">Due 01/15/2026</a></td>
+									<td class="yearstd"><a href="/search/cf/2026/CashOnHand_JulSA26.html">Due 07/15/2026</a></td>
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">2025</td>
+									<td class="yearstd"><a href="/search/cf/2025/CashOnHand_JanSA25.html">Due 01/15/2025</a></td>
+									<td class="yearstd"><a href="/search/cf/2025/CashOnHand_JulSA25.html">Due 07/15/2025</a></td>
+								</tr>
+                                <tr class="years">
+									<td style="font-weight:bold">2024</td>
+									<td class="yearstd"><a href="/search/cf/2024/CashOnHand_JanSA24.html">Due 01/16/2024</a></td>
+									<td class="yearstd"><a href="/search/cf/2024/CashOnHand_JulSA24.html">Due 07/15/2024</a></td>
+								</tr>
+                                <tr class="years">
+									<td style="font-weight:bold">2023</td>
+									<td class="yearstd"><a href="/search/cf/2023/CashOnHand_JanSA23.html">Due 01/17/2023</a></td>
+									<td class="yearstd"><a href="/search/cf/2023/CashOnHand_JulSA23.html">Due 07/17/2023</a></td>
+									
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">2022</td>
+									<td class="yearstd"><a href="/search/cf/2022/CashOnHand_JanSA22.html">Due 01/18/2022</a></td>
+									<td class="yearstd"><a href="/search/cf/2022/CashOnHand_JulySA22.html">Due 07/15/2022</a></td>
+									
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">2021</td>
+									<td class="yearstd"><a href="/search/cf/2021/CashOnHand_JanSA21.html">Due 01/15/2021</a></td>
+									<td class="yearstd"><a href="/search/cf/2021/CashOnHand_JulSA21.html">Due 07/15/2021</a></td>
+									
+								</tr>
+                               <tr class="years">
+									<td style="font-weight:bold">2020</td>
+									<td class="yearstd"><a href="/search/cf/2020/CashOnHand_JanSA20.html">Due 01/15/2020</a></td>
+									<td class="yearstd"><a href="/search/cf/2020/CashOnHand_JulSA20.html">Due 07/15/2020</a></td>
+									
+								</tr>
+                                <tr class="years">
+									<td style="font-weight:bold">2019</td>
+									<td class="yearstd"><a href="/search/cf/2019/CashOnHand_JanSA19.html">Due 01/15/2019</a></td>
+									<td class="yearstd"><a href="/search/cf/2019/CashOnHand_JulSA19.html">Due 07/15/2019</a></td>
+									
+								</tr>
+								<tr class="years">
+									<td style="font-weight:bold">2018</td>
+									<td class="yearstd"><a href="/search/cf/2018/CashOnHand_JanSA18.html">Due 01/18/2018</a> (Extended due to inclement weather)</td>
+									<td class="yearstd"><a href="/search/cf/2018/CashOnHand_JulSA18.html">Due 07/16/2018</a></td>
+								</tr>
+								<tr class="years">
+									<td  style="font-weight:bold">2017</td>
+									<td class="yearstd"><a href="/search/cf/2017/CashOnHand_JanSA17.html">Due 01/17/2017</a></td>
+									<td class="yearstd"><a href="/search/cf/2017/CashOnHand_JulSA17.html">Due 07/17/2017</a></td>
+								</tr>
+								
+								<tr class="years">
+									<td  style="font-weight:bold">2016</td>
+									<td class="yearstd"><a href="/search/cf/2016/CashOnHand_JanSA16.html">Due 01/15/2016</a></td>
+									<td class="yearstd"><a href="/search/cf/2016/CashOnHand_JulSA16.html">Due 07/15/2016</a></td>
+								</tr>
+								<tr class="years">
+									<td  style="font-weight:bold">2015</td>
+									<td class="yearstd"><a href="/search/cf/2015/CashOnHand_JanSA15.html">Due 01/15/2015</a></td>
+									<td class="yearstd"><a href="/search/cf/2015/CashOnHand_JulSA15.pdf">Due 07/15/2015</a></td>
+								</tr>
+								<tr class="years">
+									<td  style="font-weight:bold">2014</td>
+									<td class="yearstd"><a href="/search/cf/2014/CashOnHand_JanSA14.html">Due 01/15/2014</a></td>
+									<td class="yearstd"><a href="/search/cf/2014/CashOnHand_JulSA14.html">Due 07/15/2014</a></td>
+								</tr>
+								<tr class="years">
+									<td  style="font-weight:bold">2013</td>
+									<td class="yearstd"><a href="/search/cf/2013/CashOnHand_JanSA13.html">Due 01/15/2013</a></td>
+									<td class="yearstd"><a href="/search/cf/2013/CashOnHand_JulSA13.html">Due 07/15/2013</a></td>
+								</tr>
+								<tr class="years">
+									<td  style="font-weight:bold">2012</td>
+									<td class="yearstd"><a href="/search/cf/2012/CashOnHand_JanSA12.html">Due 01/17/2012</a></td>
+									<td class="yearstd"><a href="/search/cf/2012/CashOnHand_JulSA12.html">Due 07/16/2012</a></td>
+								</tr>
+								<tr class="years">
+									<td  style="font-weight:bold">2011</td>
+									<td class="yearstd"><a href="/search/cf/2011/CashOnHand_JanSA11.html">Due 01/18/2011</a></td>
+									<td class="yearstd"><a href="/search/cf/2011/CashOnHand_JulSA11.html">Due 07/20/2011</a></td>
+								</tr>
+								<tr class="years">
+									<td  style="font-weight:bold">2010</td>
+									<td class="yearstd"><a href="/search/cf/2010/CashOnHand_JanSA10.html">Due 01/15/2010</a></td>
+									<td class="yearstd"><a href="/search/cf/2010/CashOnHand_JulSA10.html">Due 07/15/2010</a></td>
+								</tr>
+								<tr class="years">
+									<td  style="font-weight:bold">2009</td>
+									<td class="yearstd"><a href="/search/cf/2009/CashOnHand_JanSA09.html">Due 01/15/2009</a></td>
+									<td class="yearstd"><a href="/search/cf/2009/CashOnHand_JulSA09.html">Due 07/15/2009</a></td>
+								</tr>
+								<tr class="years">
+									<td  style="font-weight:bold">2008</td>
+									<td class="yearstd"><a href="/search/cf/2008/CashOnHand_JanSA08.html">Due 01/15/2008</a></td>
+									<td class="yearstd"><a href="/search/cf/2008/CashOnHand_JulSA08.html">Due 07/15/2008</a></td>
+								</tr>
+								<tr class="years">
+									<td  style="font-weight:bold">2007</td>
+									<td class="yearstd"><a href="/search/cf/2007/CashOnHand_JanSA07.html">Due 01/16/2007</a></td>
+									<td class="yearstd"><a href="/search/cf/2007/CashOnHand_JulSA07.html">Due 07/16/2007</a></td>
+								</tr>
+								<tr class="years">
+									<td  style="font-weight:bold">2006</td>
+									<td class="yearstd"><a href="/search/cf/2006/CashOnHand_JanSA06.html">Due 01/17/2006</a></td>
+									<td class="yearstd"><a href="/search/cf/2006/CashOnHand_JulSA06.html">Due 07/17/2006</a></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tab-pane fade reportContent" id="dce">
+				<h2>Direct Campaign Expenditure Reports<br/>
+					Filed On Or After January 1, 2010</h2>
+				<hr>
+				<table class="years">
+					<tr class="years">
+						<td class="yearstd"><a href="/search/cf/2026/DirectExpenditures2026.html">2026</a></td>
+						<td class="yearstd"><a href="/search/cf/2025/DirectExpenditures2025.html">2025</a></td>
+				        <td class="yearstd"><a href="/search/cf/2024/DirectExpenditures2024.html">2024</a></td>		
+						<td class="yearstd"><a href="/search/cf/2023/DirectExpenditures2023.html">2023</a></td>
+						<td class="yearstd"><a href="/search/cf/2022/DirectExpenditures2022.html">2022</a></td>
+					</tr>
+						
+					<tr class="years">
+						<td class="yearstd"><a href="/search/cf/2021/DirectExpenditures2021.html">2021</a></td>	
+						<td class="yearstd"><a href="/search/cf/2020/DirectExpenditures2020.html">2020</a></td>
+						<td class="yearstd"><a href="/search/cf/2019/DirectExpenditures2019.html">2019</a></td>	
+						<td class="yearstd"><a href="/search/cf/2018/DirectExpenditures2018.html">2018</a></td>
+						<td class="yearstd"><a href="/search/cf/2017/Direct_Expns-2017.html">2017</a></td>
+														  
+					</tr>
+					<tr class="years">
+						<td class="yearstd"><a href="/search/cf/2016/Direct_Expns-2016.html">2016</a></td>
+						<td class="yearstd"><a href="/search/cf/2015/Direct_Expns-2015.php"target="_blank">2015</a></td>
+						<td class="yearstd"><a href="/search/cf/2014/Direct_Expns-2014.php">2014</a></td>
+						<td class="yearstd"><a href="/search/cf/2013/Direct_Expns-2013.php">2013</a></td>
+						<td class="yearstd"><a href="/search/cf/2012/Direct_Expns-2012.php">2012</a></td>
+														  
+					</tr>
+					<tr class="years">
+					    <td class="yearstd"><a href="/search/cf/2011/Direct_Expns-2011.php">2011</a></td>
+						<td class="yearstd"><a href="/search/cf/2010/Direct_Expns-2010.php">2010</a></td>
+						<td class="yearstd"></td>
+						<td class="yearstd"></td>
+						<td class="yearstd"></td>
+					</tr>
+				</table>
+			</div>
+			
+			
+			<div class="tab-pane fade reportContent" id="lists">
+				<h2>Active Campaign Filer Lists</h2>
+				<hr/>
+				<div class="panel-group" id="lists_accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="#lists_accordion" href="#lists_accordion0">
+							Candidates/Officeholders with Treasurer Appointment</a>
+						  </h2>
+						</div>
+						<div id="lists_accordion0" class="panel-collapse collapse">
+							<p>The following list is comprised of candidates and officeholders with current 
+							Campaign Treasurer Appointments on file with the Texas Ethics Commission. 
+							This list is sorted by 'Office Sought' and is updated daily. </p>
+							<ul>
+								<li><a href="/data/search/cf/CTA_Office_Sought.pdf">
+							PDF Format</a></li>
+								<li><a href="/data/search/cf/CTA_Office_Sought.xlsx">
+							Excel Format</a></li>
+							</ul>	
+						</div>
+					</div>
+					<br/>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="#lists_accordion" href="#lists_accordion1">
+							Political Committees with Treasurer Appointment</a>
+						  </h2>
+						</div>
+						<div id="lists_accordion1" class="panel-collapse collapse">
+							<p>The following list is comprised of active PACs with current 
+							Campaign Treasurer Appointments on file with the Texas Ethics Commission. 
+							This list is sorted by PAC name and is updated daily. </p>
+							<ul>
+								<li><a href="/data/search/cf/PacList.xlsx">
+							Excel Format</a></li>
+							</ul>	
+						</div>
+					</div>
+
+					<br/>
+<!--
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="lists_accordion" href="#lists_accordion2">
+							Declarations of Speaker Candidacy - 87th Session</a>
+						  </h2>
+						</div>
+						<div id="lists_accordion2" class="panel-collapse collapse">				
+						  <ul>					
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Ashby-2020.pdf">Trenton Ashby</a>
+								&nbsp;<a href="/data/search/cf/speakers/TerminationOfSpeakerCandidacy-Ashby-2020.pdf">(Withdrawn 11/06/2020)</a></li>
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Cyrier-2020.pdf">John Cyrier</a></li>
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Longoria-2020.pdf">Oscar Longoria</a>
+								&nbsp;<a href="/data/search/cf/speakers/TerminationOfSpeakerCandidacy-Longoria-2020.pdf">(Withdrawn 11/05/2020)</a></li>
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-MartinezFischer-2020.pdf">Trey Martinez Fischer</a>
+								&nbsp;<a href="/data/search/cf/speakers/TerminationOfSpeakerCandidacy-MartinezFischer-2020.pdf">(Withdrawn 11/05/2020)</a></li>
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Moody-2020.pdf">Joseph "Joe" Moody</a>
+								&nbsp;<a href="/data/search/cf/speakers/TerminationOfSpeakerCandidacy-Moody-2020.pdf">(Withdrawn 11/16/2020)</a></li>
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Morrison-2020.pdf">Geanie Morrison</a>
+								&nbsp;<a href="/data/search/cf/speakers/TerminationOfSpeakerCandidacy-Morrison-2020.pdf">(Withdrawn 11/13/2020)</a></li>
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Paddie-2020.pdf">Christopher Paddie</a></li>
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Phelan-2020.pdf">Matthew "Dade" Phelan</a></li>
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Thompson-2020.pdf">Senfronia Thompson</a>
+								&nbsp;<a href="/data/search/cf/speakers/TerminationOfSpeakerCandidacy-Thompson-2020.pdf">(Withdrawn 12/29/2020)</a></li>
+						  </ul>								
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="lists_accordion" href="#lists_accordion2">
+							Declarations of Speaker Candidacy - 88th Session</a>
+						  </h2>
+						</div>
+						<div id="lists_accordion2" class="panel-collapse collapse">				
+						  <ul>					
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Phelan-2022.pdf">Matthew "Dade" Phelan</a></li>
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Tinderholt-2022.pdf">Tony Tinderholt</a></li>
+						  </ul>								
+						</div>
+					</div>
+-->
+                                        <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                  <h2 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="lists_accordion" href="#lists_accordion2">
+                                                        Declarations of Speaker Candidacy - 89th Session</a>
+                                                  </h2>
+                                                </div>
+                                                <div id="lists_accordion2" class="panel-collapse collapse">
+                                                  <ul>
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Bryant-2024.pdf">John Bryant</a> (Withdrawn 12/13/2024)</li> 
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Burrows-2024.pdf">Dustin Burrows</a></li> 
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Cook-2024.pdf">Mr. David L. Cook</a></li> 
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Frank-2024.pdf">Mr. James B. Frank</a></li> 
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Morrow-2024.pdf">Mr. Robert P. Morrow</a>  (Withdrawn 1/13/2025)</li> 
+							<li><a href="/data/search/cf/speakers/SpeakerDeclaration-Oliverson-2024.pdf">Dr. Thomas John "Tom" Oliverson</a></li> 
+                                                        <li><a href="/data/search/cf/speakers/SpeakerDeclaration-Phelan-2023.pdf">Matthew "Dade" Phelan</a></li> 
+<!--                                                        <li><a href="/data/search/cf/speakers/SpeakerDeclaration-Phelan-2023.pdf">Matthew "Dade" Phelan</a> (Withdrawn 12/06/2024)</li> -->
+                                                        <li><a href="/data/search/cf/speakers/SpeakerDeclaration-RodriguezRamos-2024.pdf">Ana-Maria Rodriguez Ramos</a></li>
+                                                        <li><a href="/data/search/cf/speakers/SpeakerDeclaration-Slawson-2024.pdf">Shelby L. Slawson</a></li>
+                                                        <li><a href="/data/search/cf/speakers/SpeakerDeclaration-Smithee-2024.pdf">John T. Smithee</a></li>
+                                                  </ul>
+                                                </div>
+                                        </div>
+
+					<br/>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="#lists_accordion" href="#lists_accordion3">
+							Legislative Caucuses with Written Notice</a>
+						  </h2>
+						</div>
+						<div id="lists_accordion3" class="panel-collapse collapse">
+							<p>The following list is comprised of active caucuses that have filed a written notice on legislative 
+							letterhead with the Texas Ethics Commission when they are formed. 
+							This list is sorted by Caucus name and is updated monthly. </p>
+							<ul>
+								<li><a href="/data/search/cf/LEG_List.xlsx">
+							Excel Format</a></li>
+							</ul>	
+						</div>
+					</div>
+					<br/>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="#lists_accordion" href="#lists_accordion4">
+							Out-of-State Committees (FEC and Other State Committees)</a>
+						  </h2>
+						</div>
+						<div id="lists_accordion4" class="panel-collapse collapse">
+							<p>Pursuant to Sec. 254.1581, Chapter 254, Title 15, Election Code, an out-of-state 
+							political committee is required to file reports for each reporting period under 
+							Subchapter F, Chapter 254, Election Code, in which the out-of-state political committee 
+							accepts political contributions or makes political expenditures in connection with a 
+							state or local election in Texas. Section 254.1581, Election Code, applies to a report 
+							required to be filed under this section. Ethics Commission rule &sect; 20.13 states that an 
+							out-of-state political committee that files reports electronically in another jurisdiction 
+							may comply with Section 254.1581, Election Code, by sending a letter to the commission 
+							within the time prescribed by that section specifying in detail where the electronic report 
+							may be found on the website of the agency with which the out-of-state political committee is
+							required to file its reports. An out-of-state political committee that does not file reports 
+							electronically in another jurisdiction may comply with Section 254.1581, Election Code, by 
+							sending a copy of the cover sheets of the report and a copy of each page on which the committee 
+							reports a contribution or expenditure accepted or made in connection with a state or local 
+							election in Texas. The dates listed below the committee reflect the date the document was 
+							received by TEC.</p>
+							<ul>
+								<li><a href="/search/cf/FEC_List.html">
+							HTML Format</a></li>
+							</ul>	
+						</div>
+					</div>
+                    <br/>
+					<!--<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="#lists_accordion" href="#lists_accordion40">
+							Hybrid Committees</a>
+						  </h2>
+						</div>
+						<div id="lists_accordion40" class="panel-collapse collapse">
+							<p>Political committees who have submitted a TA indicating 
+								that the committee intends to accept corporate and/or labor contributions.  These PACs file GPAC, MPAC, SPAC, JSPAC, or SCSPAC reports.</p>
+							<ul>
+								<li><a href="/search/cf/HybridPAC.php">
+							HTML Format</a></li>
+							</ul>	
+						</div>
+					</div>
+					<br/>-->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="#lists_accordion" href="#lists_accordion5">
+							Direct Campaign Expenditure Only Committees (Super PACs)</a>
+						  </h2>
+						</div>
+						<div id="lists_accordion5" class="panel-collapse collapse">
+							<p>Political committees who have submitted a statement indicating 
+								that the committee intends to act as a direct campaign expenditure only committee 			
+								are commonly referred to as Super PACs.  These PACs file GPAC/MPAC reports.</p>
+								<ul>
+									<li><a href="/search/cf/SuperPac.html">
+									HTML Format</a></li>
+								</ul>
+						<!--	<ul>
+								<li>List of Filers with Assigned Filer ID 
+                                (<a href="/search/cf/SuperPac.html">HTML)</a></li>
+                            	<li>Filed Statement But Without Filer ID's</li>
+                                	<ol>
+                                      <li><a href="/data/search/cf/DCE/DCE_Statement-AustinitesForEquity.pdf">Austinites for Equity</a></li>
+                                      <li><a href="/data/search/cf/DCE/DCE_Statement-Workers-Voice.pdf">Workers' Voice</a></li>
+                                    </ol>
+							</ul>-->	
+						</div>
+					</div>
+				</div>
+			</div>
+						
+			
+			<div class="tab-pane fade reportContent" id="gov">
+				<h2>Governor For A Day & Speaker's Reunion Day Reports</h2>
+				<hr/>
+				<div class="panel-group" id="gov_accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="#gov_accordion" href="#gov_accordion0">
+							Governor For A Day</a>
+						  </h2>
+						</div>
+						<div id="gov_accordion0" class="panel-collapse collapse">
+							<p>Chapter 303 of the Government Code regulates contributions and expenditures 
+								for a Governor For A Day ceremony. The chairperson responsible for conducting 
+								the ceremony is responsible for keeping records and filing reports required 
+								under this chapter. </p>							
+								<table class="years">
+					<tr class="years">
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Creighton-2026-6.pdf">Jun 30, 2026</a></td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Parker-2025-6.pdf">Jun 11, 2025</a></td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Parker-2023-6.pdf">Jun 28, 2023</a></td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Buckingham-2023-1.pdf">Jan 6, 2023</a></td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Eltife-2019-6-Supplemental.pdf">Jun 6, 2019 (Supplemental)</a></td>				
+                    </tr>
+					<tr class="years">
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Eltife-2019-6.pdf">Jun 6, 2019</a></td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Deshields-2013-7.pdf">Jul 16, 2013</a></td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Solis-2013-7-Corrected.pdf">Jul 3, 2013 (Corrected)</td>	
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Solis-2013-7.pdf">Jul 3, 2013</td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Erben-2007-9.pdf">Sep 12, 2007</a></td>								  					</tr>
+					<tr class="years">
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Perez-2007-8.pdf">Aug 31, 2007</a></td>				  
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Erben-2007-1.pdf">Jan 8, 2007</a></td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Erben-2006-9.pdf">Sep 26, 2006</a></td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Shields-2006-2.pdf">Feb 10, 2006</a></td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Shields-2005-1-19.pdf">Jan 19, 2005</a></td>								  
+					</tr>
+					<tr class="years">
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Shields-2005-1-19.pdf">Jan 19, 2005</a></td>								  
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Shields-2004-7.pdf">Jun 30, 2004</a></td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-2003-11.pdf">Nov 13, 2003</td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-2003-9.pdf">Sep 19, 2003</td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-2003-8.pdf">Aug 5, 2003</td>								  
+					</tr>
+					<tr class="years">
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-2003-6.pdf">Jun 25, 2003</td>								 
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-2002-12.pdf">Dec 11, 2002</td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-2001-7.pdf">Jul 6, 2001</td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-2000-6.pdf">Jun 7, 2000</td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-1997-11.pdf">Nov 20, 1997</td>											
+					</tr>
+					<tr class="years">	
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-1997-6.pdf">Jun 20, 1997</td>					
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-1996-11.pdf">Nov 14, 1996</a></td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-1995-11.pdf">Nov 21, 1995</td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-1995-6.pdf">Jun 30, 1995</td>
+						<td class="yearstd"><a href="/data/search/cf/gov-for-day/Fondren-1994-8.pdf">Aug 10, 1994</td>								  
+					</tr>
+				</table>
+						</div>
+					</div>
+					<br/>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h2 class="panel-title">
+							<a data-toggle="collapse" data-parent="#gov_accordion" href="#gov_accordion1">
+							Speaker's Reunion Day</a>
+						  </h2>
+						</div>
+						<div id="gov_accordion1" class="panel-collapse collapse">
+							<p>Chapter 303 of the Government Code regulates contributions and expenditures 
+								for a Speaker's Reunion Day ceremony. The chairperson responsible for conducting 
+								the ceremony is responsible for keeping records and filing reports required under 
+								this chapter. </p>
+							<table class="years">
+							 <tr class="years">
+								<td class="yearstd"></td>
+								<td class="yearstd"></td>
+								<td class="yearstd"></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Moody-2025-May.pdf">May 27, 2025</td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Geren-2023-June.pdf">Jun 19, 2023</td>
+							</tr>
+							<tr class="years">
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Moody-2019-6.pdf">Jun 5, 2019</td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Bonnen-2017-6.pdf">Jun 23, 2017</a></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Bonnen-2015-6.pdf">Jun 5, 2015</a></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Bonnen-2013-6.pdf">Jun 11, 2013</a></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Woolley-2011-6.pdf">Jun 1, 2011</a></td>
+							  </tr>
+								<tr class="years">			
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Eiland-2010-9.pdf">Sep 30, 2010</a></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Eiland-2009-6.pdf">Jun 30, 2009</a></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Turner-2007-7.pdf">Jul 26, 2007</a></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Turner-2007-6-25.pdf">Jun 25, 2007</a></td>	
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Turner-2007-6-22.pdf">Jun 22, 2007</a></td>
+							  </tr>
+								<tr class="years">	
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Turner-2005-6.pdf">Jun 23, 2005</a></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Turner-2004-10.pdf">Oct 6, 2004</a></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Turner-2003-6.pdf">Jun 19, 2003</a></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Uher-2001-7.pdf">Jul 10, 2001</a></td>	
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Uher-1999-11.pdf">Nov 3, 1999</a></td>
+							  </tr>
+								<tr class="years">	
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Uher-1999-6.pdf">Jun 7, 1999</a></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Uher-1998-8.pdf">Aug 13, 1998</a></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Uher-1997-6.pdf">Jun 24, 1997</a></td>
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Uher-1995-8.pdf">Aug 8, 1995</a></td>	
+								<td class="yearstd"><a href="/data/search/cf/spk-reunion/Uher-1995-6.pdf">Jun 19, 1995</a></td>
+							  </tr>
+							</table>
+					</div>
+				</div>
+			  </div>
+			</div>
+		</div>
+	   </div>
+	    </div>
+	 </div>
+	 </div>
+	
+	<br/>
+	<style>
+		div.horizontal_rule {
+			margin-top: 50px;
+			/*margin-bottom: 20px;*/
+			border-bottom: 3px solid #cca222;
+		}
+	</style>
+		<div class="horizontal_rule"></div>
+		<!-- why class=myfooter doesn't make gray??-->
+<footer role="contentinfo" id="foot" class="myfooter container-fluid" style="background-color:#e6e6e6">
+	<div class="wrap">
+	  <div id="footer-widgets" style="float:left">
+		<ul><a href="/about/">About Us</a> |
+			<a href="/contact">Contact Us</a> |
+			<a href="/legislation">Legislative Reports and Agency Policies<br/>
+			<a href="/about/ExternalLinks.php">External Links</a> |
+			
+	<!--<a href="#">Site Map</a> | -->
+			<a href="/sitepolicies/">Site Policies</a> <br/>
+			<a href="//www.texas.gov/">Texas.gov</a> | 
+			<a href="//veterans.portal.texas.gov/">Texas Veterans Portal</a> | 
+			<a href="https://www.sos.state.tx.us/elections/index.shtml">
+				Texas Secretary of State Elections</a> <br/>
+				<!-- Copyright &copy;2017, 2018, 2019, 2020, 2021 Texas Ethics Commission. All Rights Reserved. -->
+				Copyright &copy;2018-2025 Texas Ethics Commission. All Rights Reserved.
+		</ul>
+	  </div>
+	  <div id="footer-bottom-right" style="float:right"> 
+		<a id="texam250" href="https://www.texasamerica250.com/">
+			<img src="/assets/images/texas_america_250.jpg" alt="Texas America 250" style="width:200px; padding-bottom:10px"> 
+		</a>
+		<ul>
+			<a href="/programs/email" title="Sign Up For Email Updates"><img src="/assets/images/email3.jpg"
+			alt="Sign Up for Email Updates" border="0" width="30" height="30" > Sign Up for Email Updates</a> <br/>
+			<a href="https://twitter.com/TX_Ethics">
+				<img src="/assets/images/Twitter_Logo_NewBlue.png" alt="Twitter Logo Link" 
+				border="0" width="30" height="30" >Twitter</a>	<br/>	
+		</ul>
+	  </div>
+	</div>
+
+</footer>
+	<script>$(document).ready(function() { App.init(); });</script></body>
+</html>
