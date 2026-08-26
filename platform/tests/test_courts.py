@@ -12,6 +12,8 @@ Every assertion below is on a value that actually appears in those bytes.
 
 from __future__ import annotations
 
+import re
+
 import pytest
 
 from lobbybook.core import db as dbx
@@ -26,6 +28,7 @@ from lobbybook.sources.courts import (
     store_biz_opinion,
     store_cl_opinion,
     store_statute_cites,
+    unfetchable_download_urls,
 )
 
 BIZ_PDF = "25-bc01b-0030-preston-hollow-capital-v-truist-bank-2026-tex-bus-59.pdf"
@@ -114,11 +117,44 @@ def test_cca_feed_is_the_stale_one_the_audit_warned_about(fixtures):
     assert hernandez and hernandez[0]["style"] == "HERNANDEZ, LUZALBERT v. the State of Texas"
 
 
-def test_recent_texas_opinions_carry_no_reporter_citation(cl_tex):
-    """Not a bug: Texas has no vendor-neutral cite, and S.W.3d cites are
-    assigned later, so `citation` is empty across a fresh hand-down sample.
-    Reporter cites must therefore never be a required key."""
-    assert all(r["citations"] == [] for r in cl_tex)
+def test_no_texas_opinion_in_any_sample_carries_a_reporter_citation(cl_tex, fixtures):
+    """The audit expected `citations[]` to carry reporter + Tex. Sup. Ct. J. +
+    LEXIS cites. Across 60 records in three live responses spanning 2014-2025,
+    every one of `citation`, `lexisCite` and `neutralCite` came back empty — so
+    a reporter cite may never be a required key, and `court_opinion.citation`
+    is null for CourtListener rows until another source supplies one."""
+    older = parse_courtlistener(_fx(fixtures, "cl_search_tex_2014.json"))
+    cca = parse_courtlistener(_fx(fixtures, "cl_search_texcrimapp.json"))
+    assert len(cl_tex) + len(older) + len(cca) == 60
+    assert all(r["citations"] == [] for r in cl_tex + older + cca)
+
+
+def test_older_backfill_pdf_links_all_point_at_denylisted_tames(cl_tex, fixtures):
+    """Compliance trap in the data itself: every PDF link in the 2014 sample
+    is a TAMES RetrieveDocument.aspx URL — the host that is robots
+    `Disallow: /`. Recent records link to the courts' own /media/ paths, which
+    are fetchable. A full-text backfill must therefore check the link host,
+    not assume CourtListener links are followable."""
+    older = parse_courtlistener(_fx(fixtures, "cl_search_tex_2014.json"))
+    blocked = unfetchable_download_urls(older)
+    assert len(blocked) == len(older) == 20
+    assert blocked[0].startswith("http://www.search.txcourts.gov/RetrieveDocument.aspx")
+    assert unfetchable_download_urls(cl_tex) == []
+    assert cl_tex[0]["download_url"].startswith("https://www.txcourts.gov/media/")
+
+
+def test_courtlistener_mislabels_the_older_texas_backfill(fixtures):
+    """Everything in the 2014 `court=tex` sample is labelled "Texas Supreme
+    Court", but the dockets are CCA (AP-/WR-/PD-) and COA (10-14-...-CR)
+    numbers. court_id alone is not trustworthy provenance on old records."""
+    older = parse_courtlistener(_fx(fixtures, "cl_search_tex_2014.json"))
+    assert {r["court_id"] for r in older} == {"tex"}
+    dockets = {r["docket"] for r in older}
+    assert "AP-76,936" in dockets            # Court of Criminal Appeals
+    assert "10-14-00110-CR" in dockets       # 10th Court of Appeals
+    # Not one docket in the sample has the SCOTX shape ("23-0679"): the whole
+    # 2014 slice is criminal-side work filed under the SCOTX court id.
+    assert not [d for d in dockets if re.fullmatch(r"\d{2}-\d{4}", d or "")]
 
 
 # ------------------------------------------------------------- Business Court

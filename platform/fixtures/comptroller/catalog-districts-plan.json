@@ -1,0 +1,775 @@
+{
+  "results" :
+    [
+      {
+        "resource" :
+          {
+            "name" : "Texas U.S. Congressional Districts Plan C2193 (Effective Jan 18, 2022)",
+            "id" : "739c-52ri",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The 87th Legislature, 3rd Called Special Session, enacted S.B. 6 (PLAN C2193) which applies to elections beginning with the primary and general elections in 2022. For more information, visit: https://redistricting.capitol.texas.gov.",
+            "attribution" : "Texas Legislative Council",
+            "attribution_link" : "https://redistricting.capitol.texas.gov/",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2023-07-20T15:49:56.000Z",
+            "createdAt" : "2021-12-02T14:38:59.000Z",
+            "metadata_updated_at" : "2023-07-20T15:49:56.000Z",
+            "data_updated_at" : "2021-12-02T14:42:55.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 12,
+                "page_views_last_month" : 60,
+                "page_views_total" : 1430,
+                "page_views_last_week_log" : 3.700439718141092,
+                "page_views_last_month_log" : 5.930737337562887,
+                "page_views_total_log" : 10.482807956726667
+              },
+            "columns_name" : [ "the_geom", "District" ],
+            "columns_field_name" : [ "the_geom", "district" ],
+            "columns_datatype" : [ "MultiPolygon", "Number" ],
+            "columns_description" :
+              [
+                "area geometry for mapping purposes",
+                "Texas congressional district"
+              ],
+            "columns_format" : [ {}, {} ],
+            "download_count" : 1784,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-12-02T14:43:06.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_tags" : [ "map", "congress", "texas", "district" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Dataset-Category_Agency",
+                  "value" : "State of Texas"
+                },
+                {
+                  "key" : "Dataset-Category_Category-Tile",
+                  "value" : "Public Reports and Maps"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.texas.gov" },
+        "permalink" : "https://data.texas.gov/d/739c-52ri",
+        "link" : "https://data.texas.gov/dataset/Texas-U-S-Congressional-Districts-Plan-C2193-Effec/739c-52ri",
+        "owner" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          },
+        "creator" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Texas U.S. Congressional Districts Plan C235 (2013-2022, based on 2010 Census)",
+            "id" : "wj43-k9nx",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The 83rd Legislature, 1st Called Session, enacted S.B. 4 (PLAN C235). This plan is effective January 2013. All data is based on the 2010 census. For more information, visit: https://redistricting.capitol.texas.gov/Current-districts#us-congress-section.",
+            "attribution" : "Texas Legislative Council",
+            "attribution_link" : "https://data.capitol.texas.gov/dataset/planc235",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2023-07-20T15:50:26.000Z",
+            "createdAt" : "2021-07-29T19:11:29.000Z",
+            "metadata_updated_at" : "2023-07-20T15:50:26.000Z",
+            "data_updated_at" : "2021-07-29T19:17:55.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 8,
+                "page_views_last_month" : 25,
+                "page_views_total" : 1190,
+                "page_views_last_week_log" : 3.1699250014423126,
+                "page_views_last_month_log" : 4.700439718141093,
+                "page_views_total_log" : 10.217957697864113
+              },
+            "columns_name" : [ "the_geom", "District" ],
+            "columns_field_name" : [ "the_geom", "district" ],
+            "columns_datatype" : [ "MultiPolygon", "Number" ],
+            "columns_description" :
+              [ "Boundary information", "U.S. Congressional District" ],
+            "columns_format" : [ {}, {} ],
+            "download_count" : 3260,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-07-29T19:18:01.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_tags" : [ "district", "map", "c235", "congress" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Dataset-Category_Agency",
+                  "value" : "State of Texas"
+                },
+                {
+                  "key" : "Dataset-Category_Category-Tile",
+                  "value" : "Public Reports and Maps"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.texas.gov" },
+        "permalink" : "https://data.texas.gov/d/wj43-k9nx",
+        "link" : "https://data.texas.gov/dataset/Texas-U-S-Congressional-Districts-Plan-C235-2013-2/wj43-k9nx",
+        "owner" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          },
+        "creator" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Texas State Senate Districts Plan S2168 (Effective Jan 18, 2022)",
+            "id" : "cfti-fcdb",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The 87th Legislature, 3rd Called Special Session, enacted S.B. 4 (PLAN S2168) which applies to elections beginning with the primary and general elections in 2022. For more information, visit: https://redistricting.capitol.texas.gov.",
+            "attribution" : "Texas Legislative Council",
+            "attribution_link" : "https://redistricting.capitol.texas.gov/",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2023-07-20T15:50:02.000Z",
+            "createdAt" : "2021-12-02T14:31:28.000Z",
+            "metadata_updated_at" : "2023-07-20T15:50:02.000Z",
+            "data_updated_at" : "2021-12-02T14:36:53.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 8,
+                "page_views_last_month" : 32,
+                "page_views_total" : 1071,
+                "page_views_last_week_log" : 3.1699250014423126,
+                "page_views_last_month_log" : 5.044394119358453,
+                "page_views_total_log" : 10.066089190457772
+              },
+            "columns_name" : [ "District", "the_geom" ],
+            "columns_field_name" : [ "district", "the_geom" ],
+            "columns_datatype" : [ "Number", "MultiPolygon" ],
+            "columns_description" :
+              [
+                "Texas state senate district number",
+                "area geometry for mapping purposes"
+              ],
+            "columns_format" : [ {}, {} ],
+            "download_count" : 903,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-12-02T14:36:59.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_tags" : [ "texas", "senate", "map", "district" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Dataset-Category_Agency",
+                  "value" : "State of Texas"
+                },
+                {
+                  "key" : "Dataset-Category_Category-Tile",
+                  "value" : "Public Reports and Maps"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.texas.gov" },
+        "permalink" : "https://data.texas.gov/d/cfti-fcdb",
+        "link" : "https://data.texas.gov/dataset/Texas-State-Senate-Districts-Plan-S2168-Effective-/cfti-fcdb",
+        "owner" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          },
+        "creator" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Texas State House Districts Plan H2316 (Effective Jan 18, 2022)",
+            "id" : "srhv-sc4z",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The 87th Legislature, 3rd Called Special Session, enacted H.B. 1 (PLAN H2316) which applies to elections beginning with the primary and general elections in 2022. For more information, visit: https://redistricting.capitol.texas.gov.",
+            "attribution" : "Texas Legislative Council",
+            "attribution_link" : "https://redistricting.capitol.texas.gov/",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2023-07-20T15:50:09.000Z",
+            "createdAt" : "2021-12-02T14:20:05.000Z",
+            "metadata_updated_at" : "2023-07-20T15:50:09.000Z",
+            "data_updated_at" : "2021-12-02T14:26:39.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 10,
+                "page_views_last_month" : 37,
+                "page_views_total" : 1035,
+                "page_views_last_week_log" : 3.4594316186372978,
+                "page_views_last_month_log" : 5.247927513443585,
+                "page_views_total_log" : 10.016808287686555
+              },
+            "columns_name" : [ "District", "the_geom" ],
+            "columns_field_name" : [ "district", "the_geom" ],
+            "columns_datatype" : [ "Number", "MultiPolygon" ],
+            "columns_description" :
+              [
+                "State representative district number",
+                "area geometry for mapping purposes"
+              ],
+            "columns_format" : [ {}, {} ],
+            "download_count" : 825,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-12-02T14:26:55.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_tags" : [ "map", "district", "house", "texas" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Dataset-Category_Agency",
+                  "value" : "State of Texas"
+                },
+                {
+                  "key" : "Dataset-Category_Category-Tile",
+                  "value" : "Public Reports and Maps"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.texas.gov" },
+        "permalink" : "https://data.texas.gov/d/srhv-sc4z",
+        "link" : "https://data.texas.gov/dataset/Texas-State-House-Districts-Plan-H2316-Effective-J/srhv-sc4z",
+        "owner" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          },
+        "creator" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Texas U.S. Congressional Districts Plan C2100 (2013-2022, based on 2020 Census)",
+            "id" : "8pna-966y",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The 83rd Legislature, 1st Called Session, enacted S.B. 4 (PLAN C235). The districts are identical to the interim plan, ordered by the U.S. District Court for the Western District of Texas, used in 2012 to elect members of the Texas delegation to the U.S. Congress. This plan is effective January 2013. PLAN C2100 is the representation of the current congressional districts drawn on 2020 census geography.\n\nTexas has 36 congressional districts, as determined by apportionment following the 2010 census. According to results of 2020 census congressional reapportionment, Texas will have 38 districts, and each district will have an ideal 2020 census population of 766,987. For more information, visit https://redistricting.capitol.texas.gov/Current-districts#us-congress-section.",
+            "attribution" : "Texas Legislative Council",
+            "attribution_link" : "https://redistricting.capitol.texas.gov/Current-districts#us-congress-section",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2023-07-20T15:50:14.000Z",
+            "createdAt" : "2021-12-02T14:00:49.000Z",
+            "metadata_updated_at" : "2023-07-20T15:50:14.000Z",
+            "data_updated_at" : "2021-12-02T14:05:49.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 9,
+                "page_views_last_month" : 44,
+                "page_views_total" : 1152,
+                "page_views_last_week_log" : 3.3219280948873626,
+                "page_views_last_month_log" : 5.491853096329675,
+                "page_views_total_log" : 10.171176797651771
+              },
+            "columns_name" : [ "the_geom", "District" ],
+            "columns_field_name" : [ "the_geom", "district" ],
+            "columns_datatype" : [ "MultiPolygon", "Number" ],
+            "columns_description" :
+              [
+                "area geometry for mapping purposes",
+                "Congressional district number"
+              ],
+            "columns_format" : [ {}, {} ],
+            "download_count" : 2313,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-12-02T14:05:59.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_tags" : [
+                              "district",
+                              "census",
+                              "texas",
+                              "congress",
+                              "map"
+                            ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Dataset-Category_Agency",
+                  "value" : "State of Texas"
+                },
+                {
+                  "key" : "Dataset-Category_Category-Tile",
+                  "value" : "Public Reports and Maps"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.texas.gov" },
+        "permalink" : "https://data.texas.gov/d/8pna-966y",
+        "link" : "https://data.texas.gov/dataset/Texas-U-S-Congressional-Districts-Plan-C2100-2013-/8pna-966y",
+        "owner" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          },
+        "creator" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Texas Senate Districts Plan S2100 (2013-2022, based on 2020 Census)",
+            "id" : "qguh-hu4t",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The 83rd Legislature, 1st Called Session, enacted S.B. 2 (PLAN S172). The districts are identical to the interim plan, ordered by the U.S. District Court for the Western District of Texas, used to elect members in 2012 to the Texas Senate. This plan is effective January 2013. PLAN S2100 is the representation of the current state senate districts drawn on 2020 census geography.\n\nTexas has 31 state senate districts. Each district has an ideal 2020 census population of 940,178. For more information, please visit https://redistricting.capitol.texas.gov/Current-districts",
+            "attribution" : "Texas Legislative Council",
+            "attribution_link" : "https://redistricting.capitol.texas.gov/Current-districts",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2023-07-20T15:51:31.000Z",
+            "createdAt" : "2021-12-02T13:46:25.000Z",
+            "metadata_updated_at" : "2023-07-20T15:51:31.000Z",
+            "data_updated_at" : "2021-12-02T13:50:56.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 5,
+                "page_views_last_month" : 30,
+                "page_views_total" : 634,
+                "page_views_last_week_log" : 2.584962500721156,
+                "page_views_last_month_log" : 4.954196310386876,
+                "page_views_total_log" : 9.310612781659529
+              },
+            "columns_name" : [ "District", "the_geom" ],
+            "columns_field_name" : [ "district", "the_geom" ],
+            "columns_datatype" : [ "Number", "MultiPolygon" ],
+            "columns_description" :
+              [
+                "State senate district number",
+                "area geometry for mapping purposes"
+              ],
+            "columns_format" : [ {}, {} ],
+            "download_count" : 803,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-12-02T13:51:02.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_tags" : [ "census", "texas", "senate", "map", "district" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Dataset-Category_Agency",
+                  "value" : "State of Texas"
+                },
+                {
+                  "key" : "Dataset-Category_Category-Tile",
+                  "value" : "Public Reports and Maps"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.texas.gov" },
+        "permalink" : "https://data.texas.gov/d/qguh-hu4t",
+        "link" : "https://data.texas.gov/dataset/Texas-Senate-Districts-Plan-S2100-2013-2022-based-/qguh-hu4t",
+        "owner" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          },
+        "creator" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Texas State House Districts Plan H2100 (2021-2022, based on 2020 Census)",
+            "id" : "iwb6-7khs",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The 83rd Legislature, 1st Called Session, enacted S.B. 3 (PLAN H358), the plan used to elect members to the Texas House from 2014-2018. The U.S. District Court for the Western District of Texas ordered changes to districts 90, 97 and 99 in Tarrant County for the 2020 elections. The resulting statewide plan (PLAN H414) is effective January 2021. PLAN H2100 is the representation of the current state house districts drawn on 2020 census geography.\n\nTexas has 150 state representative districts. Each district has an ideal 2020 census population of 194,303. For more information, visit https://redistricting.capitol.texas.gov/Current-districts#st-house-section",
+            "attribution" : "Texas Legislative Council",
+            "attribution_link" : "https://redistricting.capitol.texas.gov/Current-districts#st-house-section",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2023-07-20T15:50:31.000Z",
+            "createdAt" : "2021-12-02T13:54:26.000Z",
+            "metadata_updated_at" : "2023-07-20T15:50:31.000Z",
+            "data_updated_at" : "2021-12-02T13:58:45.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 8,
+                "page_views_last_month" : 35,
+                "page_views_total" : 840,
+                "page_views_last_week_log" : 3.1699250014423126,
+                "page_views_last_month_log" : 5.169925001442312,
+                "page_views_total_log" : 9.715961990255146
+              },
+            "columns_name" : [ "District", "the_geom" ],
+            "columns_field_name" : [ "district", "the_geom" ],
+            "columns_datatype" : [ "Number", "MultiPolygon" ],
+            "columns_description" :
+              [
+                "State representative district number",
+                "area geometry for mapping purposes"
+              ],
+            "columns_format" : [ {}, {} ],
+            "download_count" : 940,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-12-02T13:58:56.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_tags" : [ "house", "texas", "census", "district", "map" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Dataset-Category_Agency",
+                  "value" : "State of Texas"
+                },
+                {
+                  "key" : "Dataset-Category_Category-Tile",
+                  "value" : "Public Reports and Maps"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.texas.gov" },
+        "permalink" : "https://data.texas.gov/d/iwb6-7khs",
+        "link" : "https://data.texas.gov/dataset/Texas-State-House-Districts-Plan-H2100-2021-2022-b/iwb6-7khs",
+        "owner" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          },
+        "creator" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Texas State House Districts Plan H414 (2021-2022, based on 2010 Census)",
+            "id" : "3xaz-c3yv",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The 83rd Legislature, 1st Called Session, enacted S.B. 3 (PLAN H358), the plan used to elect members to the Texas House from 2014-2018. The U.S. District Court for the Western District of Texas ordered changes to districts 90, 97 and 99 in Tarrant County for the 2020 elections. The resulting statewide plan (PLAN H414) is effective January 2021. All data is based on the 2010 census.  For more information, visit: https://redistricting.capitol.texas.gov/Current-districts#st-house-section.",
+            "attribution" : "Texas Legislative Council",
+            "attribution_link" : "https://data.capitol.texas.gov/dataset/planh414",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2023-07-20T15:50:36.000Z",
+            "createdAt" : "2021-07-29T18:57:53.000Z",
+            "metadata_updated_at" : "2023-07-20T15:50:36.000Z",
+            "data_updated_at" : "2021-07-29T19:07:11.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 7,
+                "page_views_last_month" : 13,
+                "page_views_total" : 757,
+                "page_views_last_week_log" : 3.0,
+                "page_views_last_month_log" : 3.8073549220576037,
+                "page_views_total_log" : 9.566054038171092
+              },
+            "columns_name" : [ "the_geom", "District" ],
+            "columns_field_name" : [ "the_geom", "district" ],
+            "columns_datatype" : [ "MultiPolygon", "Number" ],
+            "columns_description" :
+              [ "Boundary information", "State representative district #" ],
+            "columns_format" : [ {}, {} ],
+            "download_count" : 895,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-07-29T19:07:26.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_tags" : [ "house", "district", "h414", "map" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Dataset-Category_Agency",
+                  "value" : "State of Texas"
+                },
+                {
+                  "key" : "Dataset-Category_Category-Tile",
+                  "value" : "Public Reports and Maps"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.texas.gov" },
+        "permalink" : "https://data.texas.gov/d/3xaz-c3yv",
+        "link" : "https://data.texas.gov/dataset/Texas-State-House-Districts-Plan-H414-2021-2022-ba/3xaz-c3yv",
+        "owner" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          },
+        "creator" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Texas Senate Districts Plan S172 (2013-2022, based on 2010 Census)",
+            "id" : "q97u-ruqw",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The 83rd Legislature, 1st Called Session, enacted S.B. 2 (PLAN S172). This plan is effective January 2013. All data is based on the 2010 census. For more information, visit: https://redistricting.capitol.texas.gov/Current-districts.",
+            "attribution" : "Texas Legislative Council",
+            "attribution_link" : "https://data.capitol.texas.gov/dataset/plans172",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2023-07-20T15:51:40.000Z",
+            "createdAt" : "2021-07-16T15:35:50.000Z",
+            "metadata_updated_at" : "2023-07-20T15:51:40.000Z",
+            "data_updated_at" : "2021-07-16T15:42:22.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 2,
+                "page_views_last_month" : 8,
+                "page_views_total" : 507,
+                "page_views_last_week_log" : 1.5849625007211563,
+                "page_views_last_month_log" : 3.1699250014423126,
+                "page_views_total_log" : 8.988684686772165
+              },
+            "columns_name" : [ "District", "the_geom" ],
+            "columns_field_name" : [ "district", "the_geom" ],
+            "columns_datatype" : [ "Number", "MultiPolygon" ],
+            "columns_description" :
+              [ "State senate district #", "Boundary information" ],
+            "columns_format" : [ {}, {} ],
+            "download_count" : 501,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-07-16T15:42:33.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Dataset-Category_Agency",
+                  "value" : "State of Texas"
+                },
+                {
+                  "key" : "Dataset-Category_Category-Tile",
+                  "value" : "Public Reports and Maps"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.texas.gov" },
+        "permalink" : "https://data.texas.gov/d/q97u-ruqw",
+        "link" : "https://data.texas.gov/dataset/Texas-Senate-Districts-Plan-S172-2013-2022-based-o/q97u-ruqw",
+        "owner" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          },
+        "creator" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Texas State Board of Education Districts Plan E2100 (2013-2022, based on 2020 Census)",
+            "id" : "8mm9-dkhy",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The 82nd Legislature, Regular Session, enacted H.B. 600 (PLAN E120). This plan is effective January 2013. PLAN E2100 is the representation of the current State Board of Education Districts drawn on 2020 census geography.\n\nTexas has 15 State Board of Education districts. Each district has an ideal 2020 census population of 1,943,034. For more information, please visit https://redistricting.capitol.texas.gov/Current-districts#sboe-section",
+            "attribution" : "Texas Legislative Council",
+            "attribution_link" : "https://redistricting.capitol.texas.gov/Current-districts#sboe-section",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2023-07-20T15:49:40.000Z",
+            "createdAt" : "2021-12-02T14:51:11.000Z",
+            "metadata_updated_at" : "2023-07-20T15:49:40.000Z",
+            "data_updated_at" : "2021-12-02T14:54:31.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 6,
+                "page_views_last_month" : 31,
+                "page_views_total" : 812,
+                "page_views_last_week_log" : 2.807354922057604,
+                "page_views_last_month_log" : 5.0,
+                "page_views_total_log" : 9.667111542075027
+              },
+            "columns_name" : [ "District", "the_geom" ],
+            "columns_field_name" : [ "district", "the_geom" ],
+            "columns_datatype" : [ "Number", "MultiPolygon" ],
+            "columns_description" :
+              [
+                "State Board of Education district number",
+                "area geometry for mapping purposes"
+              ],
+            "columns_format" : [ {}, {} ],
+            "download_count" : 843,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-12-02T14:54:37.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_tags" : [ "district", "e2100", "map", "sboe", "texas" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Dataset-Category_Agency",
+                  "value" : "State of Texas"
+                },
+                {
+                  "key" : "Dataset-Category_Category-Tile",
+                  "value" : "Public Reports and Maps"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.texas.gov" },
+        "permalink" : "https://data.texas.gov/d/8mm9-dkhy",
+        "link" : "https://data.texas.gov/dataset/Texas-State-Board-of-Education-Districts-Plan-E210/8mm9-dkhy",
+        "owner" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          },
+        "creator" :
+          {
+            "id" : "cp9p-f756",
+            "user_type" : "interactive",
+            "display_name" : "Texas Open Data Portal Administrator"
+          }
+      }
+    ],
+  "resultSetSize" : 70,
+  "timings" : { "serviceMillis" : 20, "searchMillis" : [ 2, 7 ] },
+  "warnings" : []
+}
