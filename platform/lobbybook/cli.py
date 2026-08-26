@@ -69,9 +69,16 @@ def cmd_smoke(args) -> int:
             print(f"[FAIL] {name}: {type(exc).__name__}: {exc}")
             failures += 1
             continue
-        mark = "ok" if r.ok else "FAIL"
+        if r.ok:
+            mark = "ok"
+        elif r.blocked:
+            # The source refused us; the connector is not at fault, so this
+            # must not read as a bug and must not fail the run.
+            mark = "blkd"
+        else:
+            mark = "FAIL"
+            failures += 1
         print(f"[{mark:>4}] {name}: {r.detail}")
-        failures += 0 if r.ok else 1
     return 1 if failures else 0
 
 

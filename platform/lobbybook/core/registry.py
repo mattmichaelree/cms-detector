@@ -19,6 +19,11 @@ class SmokeResult:
     ok: bool
     detail: str
     stats: dict = field(default_factory=dict)
+    #: True when the source refused us rather than the connector misbehaving —
+    #: a CDN challenge, a rate limit, a login wall. A blocked smoke is still not
+    #: ``ok``, but it is not evidence of a bug, so the CLI reports it separately
+    #: and does not fail the run on it. Anything else is ours to fix.
+    blocked: bool = False
 
 
 class Connector:

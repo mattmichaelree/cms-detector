@@ -167,3 +167,35 @@ def test_denylist_covers_txcourts_subdomains():
         with pytest.raises(DeniedURL):
             f.get(url)
     f._check_denylist("https://www.txcourts.gov/media/1461283/230679c.pdf")
+
+
+def test_blocked_smoke_is_not_a_failure(capsys):
+    """A source refusing us (CDN challenge, rate limit) is not a connector bug.
+    It must be reported distinctly and must not fail the run, or `smoke` becomes
+    a permanently red signal that nobody reads."""
+    from lobbybook.cli import main
+    from lobbybook.core import registry
+    from lobbybook.core.registry import Connector, SmokeResult
+
+    class Blocked(Connector):
+        name = "_blocked_probe"
+
+        def smoke(self, conn):
+            return SmokeResult(ok=False, blocked=True, detail="walled by the CDN")
+
+    class Broken(Connector):
+        name = "_broken_probe"
+
+        def smoke(self, conn):
+            return SmokeResult(ok=False, detail="parser returned nothing")
+
+    registry._REGISTRY["_blocked_probe"] = Blocked
+    registry._REGISTRY["_broken_probe"] = Broken
+    try:
+        assert main(["smoke", "_blocked_probe"]) == 0
+        assert "[blkd]" in capsys.readouterr().out
+        assert main(["smoke", "_broken_probe"]) == 1
+        assert "[FAIL]" in capsys.readouterr().out
+    finally:
+        registry._REGISTRY.pop("_blocked_probe", None)
+        registry._REGISTRY.pop("_broken_probe", None)

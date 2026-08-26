@@ -29,9 +29,20 @@ Tier 2** · Verified by live inspection + Wayback CDX, Aug 2026.
 - **Minor parties:** LP Texas and Green Party platform pages are **Cloudflare
   JS-challenge-walled (403 cf-mitigated)** — unreachable to plain crawlers; content
   known only via snippets.
-- robots: RPT fully open (Yoast sitemap, no RSS); **TDP explicitly blocks ClaudeBot,
-  GPTBot, and ~25 other AI crawlers** (search indexing allowed) — a compliance
-  constraint; rely on Wayback for that domain or seek permission.
+- robots: RPT fully open (Yoast sitemap, no RSS — `User-agent: * / Disallow:` with
+  `Crawl-delay: 10`); **TDP explicitly blocks ClaudeBot, GPTBot, and ~25 other AI
+  crawlers** (search indexing allowed) — a compliance constraint; rely on Wayback for
+  that domain or seek permission.
+- **⚠ Corrected during implementation — RPT's stated policy and its CDN now disagree.**
+  Cloudflare challenges *every* texasgop.org path except `robots.txt` itself with
+  `403 cf-mitigated: challenge`, under both our identified bot UA **and** a browser UA,
+  even for static `/wp-content/uploads/…` PDFs — so the wall is a TLS/HTTP2
+  client-fingerprint heuristic, not a UA or policy decision, and the browser-UA escape
+  hatch that works for texasattorneygeneral.gov does nothing here. Treat RPT as a
+  **blocked source** for library-based fetchers: plan on Wayback, an operator-run
+  capture, or a permission conversation, and never budget retries against it (a
+  challenge is a verdict, not a transient error). The 2024 platform in
+  `platform/fixtures/platforms/` was captured before the wall went up.
 
 ## 2. Native formats (verified)
 

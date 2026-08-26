@@ -722,6 +722,7 @@ class PlatformsConnector(Connector):
             # Reported as a blocked source, never as an empty corpus.
             return SmokeResult(
                 ok=False,
+                blocked=True,
                 detail=f"texasgop.org is bot-mitigation walled: {exc}",
                 stats={"blocked": "cloudflare_challenge", "reason": str(exc),
                        "blocked_parties": blocked_parties()},
