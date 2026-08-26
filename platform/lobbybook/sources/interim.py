@@ -182,11 +182,25 @@ def parse_house_charges(
     text = "\n".join(_drop_page_numbers(p) for p in pages)
 
     heads: list[tuple[int, int, str]] = []
-    for m in re.finditer(r"^(?![•])([A-Z][A-Z0-9,&'’\.\-\(\) ]{3,90})$", text, re.M):
-        name = m.group(1).strip()
-        letters = [c for c in name if c.isalpha()]
-        if len(letters) < 4 or not all(c.isupper() for c in letters):
-            continue
+    parent: str | None = None
+    for m in re.finditer(
+        r"^(?![•])(?P<caps>[A-Z][A-Z0-9,&'’\.\-\(\) ]{3,90})$"
+        r"|^(?P<sub>Subcommittee on [^\n]{3,70})$",
+        text,
+        re.M,
+    ):
+        if m.group("sub"):
+            # Seven subcommittees restart charge numbering at 1 inside their
+            # parent's section; without a section of their own their charge
+            # numbers collide with the parent's.
+            sub = m.group("sub").strip()
+            name = f"{parent}: {sub}" if parent else sub
+        else:
+            name = m.group("caps").strip()
+            letters = [c for c in name if c.isalpha()]
+            if len(letters) < 4 or not all(c.isupper() for c in letters):
+                continue
+            parent = name
         heads.append((m.start(), m.end(), name))
 
     charges: list[dict] = []

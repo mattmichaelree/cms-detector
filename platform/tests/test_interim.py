@@ -71,9 +71,12 @@ def test_bill_refs_ignore_bare_legislature_mentions():
 # ------------------------------------------------------------ House charges
 def test_house_committee_coverage(house):
     committees = {c["committee_raw"] for c in house}
-    # 25 standing committees plus the three new select committees; the cover
-    # block and the bare 'SELECT COMMITTEES' divider must not become sections.
-    assert len(committees) == 28
+    # 25 standing committees, the three new select committees, and seven
+    # subcommittees that restart charge numbering inside their parent. The
+    # cover block and the bare 'SELECT COMMITTEES' divider are not sections.
+    assert len(committees) == 35
+    assert "INTERGOVERNMENTAL AFFAIRS: Subcommittee on State-Federal Relations" in committees
+    assert "TRANSPORTATION: Subcommittee on Transportation Funding" in committees
     assert "AGRICULTURE AND LIVESTOCK" in committees
     assert "JUDICIARY AND CIVIL JURISPRUDENCE" in committees
     assert "WAYS AND MEANS" in committees
@@ -97,11 +100,18 @@ def test_house_charge_text_and_titles(house):
     assert "feral hogs" in c["text"]
 
 
-def test_every_committee_charge_one_is_monitoring(house):
+def test_every_standing_committee_charge_one_is_monitoring(house):
     """The audit's observation, checked against the document: charge 1 of every
-    committee is the monitoring charge."""
-    firsts = [c for c in house if c["charge_no"] == "1"]
-    assert len(firsts) == 28
+    standing committee is the monitoring charge. (The three new select
+    committees and the subcommittees are the documented exceptions — two of the
+    three selects still open with one, General Aviation does not.)"""
+    firsts = [
+        c for c in house
+        if c["charge_no"] == "1"
+        and "SELECT" not in c["committee_raw"]
+        and "Subcommittee" not in c["committee_raw"]
+    ]
+    assert len(firsts) == 25
     assert all(c["charge_type"] == "monitoring" for c in firsts)
     assert all(c["title"] == "Monitoring" for c in firsts)
 
@@ -201,7 +211,7 @@ def test_store_charges_and_edges(conn, fixtures):
     stats = interim.store_charges(conn, charges, "interim:charges:house:89")
     conn.commit()
     assert stats["charges"] == 186
-    assert stats["committees"] == 28
+    assert stats["committees"] == 35
 
     row = conn.execute(
         """SELECT * FROM interim_charge
