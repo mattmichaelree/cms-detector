@@ -7,10 +7,12 @@ else exists to keep that one honest.
 
 from __future__ import annotations
 
+import httpx
 import pytest
 
 from lobbybook.sources.platforms import (
     PARTIES,
+    ChallengeWalled,
     PlatformsConnector,
     blocked_parties,
     detect_cycle,
@@ -277,6 +279,39 @@ def test_tdp_is_skipped_without_any_fetch(conn, monkeypatch):
     assert result["planks"] == 0
 
 
+# ------------------------------------------------------- bot mitigation
+class _Challenging:
+    """Exactly what texasgop.org returned to this client on 2026-08-26."""
+
+    def get(self, url: str, **_kw) -> httpx.Response:
+        return httpx.Response(
+            403,
+            headers={"cf-mitigated": "challenge", "server": "cloudflare"},
+            text="<html>Just a moment...</html>",
+            request=httpx.Request("GET", url),
+        )
+
+
+def test_challenge_is_reported_as_blocked_not_as_an_empty_corpus(conn, monkeypatch):
+    """A 403 challenge must never look like "the party published nothing"."""
+    import lobbybook.sources.platforms as mod
+
+    monkeypatch.setattr(mod, "fetcher", lambda: _Challenging())
+    connector = PlatformsConnector()
+    with pytest.raises(ChallengeWalled) as exc:
+        connector.discover("rpt")
+    assert "cf-mitigated: challenge" in str(exc.value)
+
+    result = connector.smoke(conn)
+    assert result.ok is False
+    assert result.stats["blocked"] == "cloudflare_challenge"
+    assert "cf-mitigated" in result.stats["reason"]
+
+    backfilled = connector.backfill(conn, parties=["rpt"])
+    assert [s["reason"] for s in backfilled["skipped_parties"]] == ["challenge_walled"]
+    assert backfilled["planks"] == 0
+
+
 def test_every_party_policy_is_self_describing():
     for key, p in PARTIES.items():
         assert p.key == key and p.name and p.abbr and p.note
@@ -290,6 +325,11 @@ def test_platforms_live_smoke(conn):
     from lobbybook.core.registry import get
 
     result = get("platforms").smoke(conn)
+    if result.stats.get("blocked") == "cloudflare_challenge":
+        pytest.skip(
+            "texasgop.org answers this client with a Cloudflare JS challenge "
+            f"(no fixture faking, no retry loop): {result.stats['reason']}"
+        )
     assert result.ok, result.detail
     assert result.stats["pdf_editions"] >= 2
     assert result.stats["planks"] >= 50
