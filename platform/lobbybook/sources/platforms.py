@@ -348,7 +348,12 @@ def parse_toc(pdf_bytes: bytes) -> list[TocEntry]:
 def toc_from_lines(lines: list[Line]) -> list[TocEntry]:
     raw: list[tuple[str, float, int]] = []
     for line in lines:
-        if line.top > FOOTER_TOP or not _DOT_LEADER.search(line.text):
+        # 11pt is the keyword index at the back of the book: it uses the same
+        # dot leaders as the TOC and would otherwise flood the heading
+        # vocabulary with page-index phrases.
+        if line.top > FOOTER_TOP or line.size < BODY_MIN_SIZE:
+            continue
+        if not _DOT_LEADER.search(line.text):
             continue
         m = re.match(r"^(.*?)\s*\.{4,}\s*(\d{1,3})$", line.text)
         if not m:

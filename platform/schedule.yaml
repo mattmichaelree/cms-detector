@@ -9,7 +9,7 @@
 hourly_in_session:  [tlo, committees]        # RSS feeds, hearing postings
 hourly:             [news]                   # Tribune feed (20-item rolling window)
 daily_in_session:   [journals, hro, lbb]     # floor record, analyses, fiscal notes
-daily:              [governor, statements]   # appointments; statement capture
+daily:              [governor, statements, ag]  # appointments, statements, pending AG opinion requests
 nightly:            [tec]                    # bulk ZIPs rebuild nightly, no deltas
 weekly_friday:      [register]               # issues publish Friday ~5pm CT
 weekly:             [courts]

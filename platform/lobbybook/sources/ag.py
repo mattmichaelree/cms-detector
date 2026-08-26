@@ -793,7 +793,9 @@ class AGConnector(Connector):
         conn.commit()
         return {"administrations": len(admins), "opinions": len(recent),
                 "oldest_series": admins[-1]["first_number"] if admins else None,
-                "recent": [o["number"] for o in recent]}
+                "recent": [o["number"] for o in recent],
+                "pdf_urls": [{"number": o["number"], "pdf_url": o["pdf_url"]}
+                             for o in recent if o["pdf_url"]]}
 
     def sample_opinion_pdf(self, conn: sqlite3.Connection, url: str) -> dict:
         """Fetch one opinion PDF, store the bytes, then parse them.
@@ -933,22 +935,29 @@ class AGConnector(Connector):
     # --------------------------------------------------------- incremental
 
     def incremental(self, conn: sqlite3.Connection, **kwargs) -> dict:
+        """Daily poll: both indexes, N request details, the supersession diff,
+        and the PDFs of opinions seen for the first time.
+
+        Live GETs = 2 + details + 1 + (PDFs of newly-published opinions,
+        capped by `pdfs`) — knowable in advance, which is what keeps a daily
+        cadence polite against a bot-mitigated host.
+        """
         details = int(kwargs.get("details", 3))
-        pdfs = int(kwargs.get("pdfs", 0))
+        pdfs = int(kwargs.get("pdfs", 3))
         ops = self.ingest_opinions(conn)
+        # An opinion whose PDF has not been parsed yet is the work queue; the
+        # index gives the number and the summary, the PDF gives the request
+        # cross-reference and the conclusion.
+        fresh = [
+            o for o in ops["pdf_urls"]
+            if not conn.execute("SELECT 1 FROM ag_opinion_text WHERE number=?",
+                                (o["number"],)).fetchone()
+        ][:pdfs]
+        sampled = [self.sample_opinion_pdf(conn, o["pdf_url"])["number"] for o in fresh]
         rqs = self.ingest_requests(conn, details=details)
         sup = self.ingest_supersession(conn)
-        sampled = []
-        if pdfs:
-            for op in parse_recent_opinions(
-                (conn.execute("SELECT 1").fetchone() and b"") or b""
-            )[:0]:  # placeholder, never runs; PDFs are sampled by URL below
-                pass
-            rows = conn.execute(
-                "SELECT number, url FROM ag_opinion_text WHERE 1=0"
-            ).fetchall()
-            del rows
-        return {"opinions": ops, "requests": rqs, "supersession": sup, "pdfs": sampled}
+        return {"opinions": ops, "requests": rqs, "supersession": sup,
+                "pdfs_parsed": sampled}
 
     # -------------------------------------------------------------- smoke
 
