@@ -6,8 +6,10 @@ Tier 2** · Verified by live inspection + Wayback CDX, Aug 2026.
 
 ## 1. Corpus & coverage
 
-- **RPT (texasgop.org):** the deep, self-hosted corpus. Platform page lists 2026, 2024,
-  2022 as native PDFs + 2020 as a Google Drive link; older cycles only via Wayback
+- **RPT (texasgop.org):** the deep, self-hosted corpus. The platform page lists 2026,
+  2024, 2022 as native PDFs + 2020 as a Google Drive link (note: `/platform/` now
+  301-redirects to `/official-documents-2/` — QA-verified; more evidence the party's
+  URLs churn); older cycles only via Wayback
   (domain captures to **1997-12-24**; a 1998 platform existed as per-plank HTML pages).
   Convention drafts live on a separate `convention.texasgop.org` subdomain
   ("2024-TEMPORARY-Platform-FINAL.pdf") superseded by the permanent file on the main

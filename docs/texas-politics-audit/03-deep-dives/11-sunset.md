@@ -5,7 +5,8 @@ see §7) · **Priority: Tier 1** · Verified by live inspection, Aug 2026.
 
 ## 1. Corpus & coverage
 
-- **Cycle index:** https://www.sunset.texas.gov/review-cycles — all 24 cycles from
+- **Cycle index:** https://www.sunset.texas.gov/review-cycles (QA note: now redirects
+  to `/reviews-and-reports/past-review-cycles`) — all 24 cycles from
   1978–81 (66th–67th Leg.) through 2024–25 (89th), each at a stable-but-opaque Drupal
   `/node/{id}` URL (2024-25 = /node/204). Drupal 10; no sitemap.xml (404); permissive
   robots.txt; **no API/JSON/CSV/RSS anywhere** — HTML + PDF only.
