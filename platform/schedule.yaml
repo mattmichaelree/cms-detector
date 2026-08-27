@@ -1,0 +1,35 @@
+# Refresh cadences from docs/texas-politics-audit/09-ingestion-roadmap.md.
+# These mirror Connector.cadence, which is the authority — `lobbybook status`
+# reports what is overdue and `lobbybook sweep --cadence X` runs it.
+#
+# Two windows are unrecoverable if missed, which is why they are not merely
+# "frequent": the Texas Register purges its own archive after ~1 year, and
+# House member pages are overwritten when a seat changes hands.
+
+hourly_in_session:  [tlo, committees]        # RSS feeds, hearing postings
+hourly:             [news]                   # Tribune feed (20-item rolling window)
+daily_in_session:   [journals, hro, lbb]     # floor record, analyses, fiscal notes
+daily:              [governor, statements, ag]  # appointments, statements, pending AG opinion requests
+nightly:            [tec]                    # bulk ZIPs rebuild nightly, no deltas
+weekly_friday:      [register]               # issues publish Friday ~5pm CT
+weekly:             [courts]
+monthly:            [spine_people]
+quarterly:          [comptroller]
+static:             [spine_sessions]
+
+# Seasonal / event-driven — run by trigger, not clock:
+interim_season:     [interim]        # charges Jan-Aug even years; reports Oct-Feb
+review_cycle:       [sunset]         # driven by the published Review Grid
+convention_cycle:   [platforms]      # biennial state conventions (even years)
+cycle:              [campaign]       # election cycles; Wayback backfill
+biennial:           [stratplans]     # agency strategic plans + LARs
+
+on_event:
+  turnover_archival: >
+    statements.archive_member_pages - run on election results, BEFORE the
+    chamber overwrites a departing member's page. The audit rates this the
+    highest-value scheduled task in the family.
+  special_session_call: >
+    governor - a call proclamation defines what the legislature may legally
+    act on, and is amended mid-session (2025's second special went 19 -> 22
+    -> 24 items), so re-read rather than trusting the first PDF.
